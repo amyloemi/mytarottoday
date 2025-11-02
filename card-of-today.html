@@ -135,11 +135,35 @@
             border-radius: 10px;
             box-shadow: 0 8px 20px rgba(0,0,0,0.5);
             margin-bottom: 30px;
-            transition: transform 0.6s ease;
+            transition: transform 0.6s ease, opacity 0.3s ease;
+        }
+
+        #card-image.loading {
+            opacity: 0.3;
         }
 
         #card-image.reversed {
             transform: rotate(180deg);
+        }
+
+        .loading-spinner {
+            display: none;
+            width: 50px;
+            height: 50px;
+            border: 5px solid rgba(74, 144, 226, 0.2);
+            border-top: 5px solid #4a90e2;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+
+        .loading-spinner.visible {
+            display: block;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
 
         .card-name {
@@ -223,6 +247,7 @@
 
         <div class="card-container" id="card-container" onclick="revealReading()">
             <div class="tap-hint" id="tap-hint">✨ Click to reveal ✨</div>
+            <div class="loading-spinner" id="loading-spinner"></div>
             <img id="card-image" src="" alt="Card of the Day">
             <div class="card-name" id="card-name"></div>
             <div class="card-orientation" id="card-orientation"></div>
@@ -441,6 +466,12 @@
         }
 
         async function drawCard() {
+            // Show loading spinner
+            const spinner = document.getElementById('loading-spinner');
+            const cardImage = document.getElementById('card-image');
+            spinner.classList.add('visible');
+            cardImage.classList.add('loading');
+
             // Combine all cards into one array
             const deck = [...allCards.major, ...allCards.minor];
 
@@ -460,7 +491,7 @@
             // Get card meaning
             const meaning = getCardMeaning(selectedCard.name);
 
-            // Generate reading
+            // Generate reading (this includes translation time)
             const reading = await generateDailyAdvice(selectedCard.name, meaning, isReversed);
 
             // Store current card info
@@ -468,27 +499,35 @@
             currentIsReversed = isReversed;
             currentReading = reading;
 
-            // Display the card
-            const cardImage = document.getElementById('card-image');
-            cardImage.src = imagePath;
+            // Pre-load image
+            const img = new Image();
+            img.onload = function() {
+                // Hide loading spinner once image is loaded
+                spinner.classList.remove('visible');
+                cardImage.classList.remove('loading');
 
-            // Add or remove reversed class
-            if (isReversed) {
-                cardImage.classList.add('reversed');
-            } else {
-                cardImage.classList.remove('reversed');
-            }
+                // Display the card
+                cardImage.src = imagePath;
 
-            const trans = translations[currentLanguage];
-            document.getElementById('card-name').textContent = selectedCard.name;
-            document.getElementById('card-orientation').textContent = isReversed ? `(${trans.reversed})` : `(${trans.upright})`;
-            document.getElementById('card-reading').textContent = reading;
+                // Add or remove reversed class
+                if (isReversed) {
+                    cardImage.classList.add('reversed');
+                } else {
+                    cardImage.classList.remove('reversed');
+                }
 
-            // Reset reveal state
-            document.getElementById('card-container').classList.remove('revealed');
-            document.getElementById('tap-hint').classList.remove('hidden');
-            document.getElementById('card-reading').classList.remove('revealed');
-            document.getElementById('new-card-button').classList.remove('revealed');
+                const trans = translations[currentLanguage];
+                document.getElementById('card-name').textContent = selectedCard.name;
+                document.getElementById('card-orientation').textContent = isReversed ? `(${trans.reversed})` : `(${trans.upright})`;
+                document.getElementById('card-reading').textContent = reading;
+
+                // Reset reveal state
+                document.getElementById('card-container').classList.remove('revealed');
+                document.getElementById('tap-hint').classList.remove('hidden');
+                document.getElementById('card-reading').classList.remove('revealed');
+                document.getElementById('new-card-button').classList.remove('revealed');
+            };
+            img.src = imagePath;
         }
 
         function revealReading() {
