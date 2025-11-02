@@ -1,63 +1,92 @@
-# Tarot Reading Bot
+# My Tarot Today
 
-A comprehensive tarot reading system with card meanings, interpretation methodology, and the complete Rider-Waite tarot deck images.
+A beautiful, interactive tarot reading web application with multi-language support and the complete Rider-Waite tarot deck.
+
+🔮 **Live Site**: [https://mytarottoday.com](https://mytarottoday.com) (also available at [https://amyloemi.github.io/mytarottoday/](https://amyloemi.github.io/mytarottoday/))
+
+## Features
+
+✨ **Card of Today** - Draw a daily tarot card for guidance
+🌍 **Multi-Language Support** - Available in 6 languages:
+- English
+- Français (French)
+- Español (Spanish)
+- 中文 (Chinese)
+- 日本語 (Japanese)
+- 한국어 (Korean)
+
+🎴 **Complete Rider-Waite Deck** - All 78 cards included:
+- 22 Major Arcana cards
+- 56 Minor Arcana cards (Cups, Pentacles, Swords, Wands)
+
+🔄 **Reversed Card Support** - Cards can appear upright or reversed with different meanings
+💾 **Language Preference Memory** - Your language choice is saved automatically
+🎨 **Beautiful UI** - Light blue theme with smooth animations
+📱 **Responsive Design** - Works on desktop, tablet, and mobile
+🔒 **Privacy-Focused** - All readings happen in your browser, nothing is stored on servers
+
+## How It Works
+
+1. **Visit the site** at [mytarottoday.com](https://mytarottoday.com)
+2. **Select your language** from the dropdown (top-right)
+3. **Click on the card** to reveal your daily guidance
+4. **Draw a new card** anytime with the button
+
+The app uses real-time translation to provide authentic tarot readings in your chosen language. Each reading is tailored to the specific card drawn and its orientation.
 
 ## Project Structure
 
 ```
 TarotReading/
 ├── README.md                      # This file
-├── tarot_card_meanings.json       # Complete database of all 78 cards with meanings
-├── reading_methodology.md         # Interpretation techniques and principles
-├── reading_examples.md            # Detailed examples of readings
-├── download_cards_fast.sh         # Script to download card images
-├── download_cards.py             # Python download script (backup)
-└── images/                        # Rider-Waite tarot deck images (400+ dpi)
-    ├── major_arcana/              # 22 Major Arcana cards (86MB)
-    │   ├── 00-the-fool.png
-    │   ├── 01-the-magician.png
-    │   └── ... (20 more)
-    └── minor_arcana/              # 56 Minor Arcana cards (220MB)
-        ├── cups/                  # 14 cards (Ace - King)
-        ├── pentacles/             # 14 cards (Ace - King)
-        ├── swords/                # 14 cards (Ace - King)
-        └── wands/                 # 14 cards (Ace - King)
+├── index.html                     # Main application (Card of Today)
+├── card-of-today.html            # Backup of main page
+├── tarot_card_meanings.json      # Complete database of all 78 cards
+├── reading_methodology.md        # Interpretation techniques
+├── reading_examples.md           # Example readings
+├── download_cards_fast.sh        # Script to download card images
+├── .github/
+│   └── workflows/
+│       └── deploy.yml            # GitHub Pages deployment
+└── images/                       # Rider-Waite tarot deck images
+    ├── major_arcana/             # 22 Major Arcana cards
+    └── minor_arcana/             # 56 Minor Arcana cards
+        ├── cups/
+        ├── pentacles/
+        ├── swords/
+        └── wands/
 ```
 
-## Documentation Files
+## Technology Stack
 
-### 1. tarot_card_meanings.json
-Complete JSON database containing:
-- **22 Major Arcana cards**: Life's big lessons and spiritual themes
-- **56 Minor Arcana cards**: Daily experiences organized by suit
-  - Cups (Water): Emotions, relationships, intuition
-  - Pentacles (Earth): Material world, finances, career
-  - Swords (Air): Thoughts, intellect, communication
-  - Wands (Fire): Action, passion, creativity
+- **Frontend**: Pure HTML5, CSS3, JavaScript (no frameworks)
+- **Translation**: MyMemory Translation API
+- **Images**: High-resolution Rider-Waite tarot cards (400+ dpi)
+- **Hosting**: GitHub Pages
+- **Deployment**: GitHub Actions (automatic)
 
-Each card includes:
-- Card name
-- Upright meaning
-- Reversed meaning
-- Suit information (for Minor Arcana)
+## Card Meanings Database
 
-### 2. reading_methodology.md
-Comprehensive guide covering:
-- **Single Card Reading**: Process and interpretation techniques
-- **Three-Card Timeline Spread**: Past-Present-Future reading method
-- **Interpretation Principles**: Major vs Minor Arcana, suit significance, reversals
-- **Core Techniques**: Trust impressions, pattern recognition, storytelling
-- **Reading Ethics**: Empowering approach, neutrality, context awareness
+### Major Arcana (22 cards)
+Represent life's big lessons and spiritual themes:
+- The Fool, The Magician, The High Priestess, The Empress, The Emperor
+- The Hierophant, The Lovers, The Chariot, Strength, The Hermit
+- Wheel of Fortune, Justice, The Hanged Man, Death, Temperance
+- The Devil, The Tower, The Star, The Moon, The Sun
+- Judgement, The World
 
-### 3. reading_examples.md
-Practical examples including:
-- **4 Single Card Readings**: Daily guidance, problem investigation, decisions, relationships
-- **5 Three-Card Readings**: Romance, career transition, spiritual growth, finances, challenges
-- Pattern recognition insights and key takeaways
+### Minor Arcana (56 cards)
+Organized by four suits representing different life aspects:
+
+- **Cups** (Water): Emotions, relationships, intuition - 14 cards
+- **Pentacles** (Earth): Material world, finances, career - 14 cards
+- **Swords** (Air): Thoughts, intellect, communication - 14 cards
+- **Wands** (Fire): Action, passion, creativity - 14 cards
+
+Each suit contains: Ace, 2-10, Page, Knight, Queen, King
 
 ## Card Images
 
-All 78 Rider-Waite tarot card images are included:
 - **Format**: PNG
 - **Resolution**: 400+ dpi (high quality)
 - **Source**: Internet Archive (Public Domain)
@@ -72,71 +101,113 @@ All 78 Rider-Waite tarot card images are included:
 **Minor Arcana**: `rank-of-suit.png`
 - Example: `ace-of-cups.png`, `knight-of-swords.png`
 
-## Usage
+## Local Development
 
-### Reading Tarot Cards
+### Prerequisites
+- Modern web browser
+- Python 3 (for local server)
 
-**Single Card Reading Format**:
-```
-Card: [Name] ([Upright/Reversed])
-Core Meaning: [Brief definition]
-Interpretation: [Application to context]
-Guidance: [Actionable insight]
-```
+### Running Locally
 
-**Three-Card Reading Format**:
-```
-Past: [Card interpretation showing influences]
-Present: [Card interpretation showing current energy]
-Future: [Card interpretation showing trajectory]
-Overall Message: [Synthesis of the narrative]
+1. Clone the repository:
+```bash
+git clone https://github.com/amyloemi/mytarottoday.git
+cd mytarottoday
 ```
 
-### Downloading Images
+2. Start a local server:
+```bash
+python3 -m http.server 8000
+```
 
-If you need to re-download the images:
+3. Open in browser:
+```
+http://localhost:8000
+```
+
+### Re-downloading Card Images
+
+If you need to re-download the card images:
 
 ```bash
-cd /Users/amy/TarotReading
 chmod +x download_cards_fast.sh
 ./download_cards_fast.sh
 ```
 
-## Card Statistics
+This will download all 78 cards from the Internet Archive.
 
-- **Total Cards**: 78
-- **Major Arcana**: 22 cards (28%)
-- **Minor Arcana**: 56 cards (72%)
-  - Cups: 14 cards
-  - Pentacles: 14 cards
-  - Swords: 14 cards
-  - Wands: 14 cards
+## Deployment
 
-## Interpretation Philosophy
+The site is automatically deployed to GitHub Pages using GitHub Actions when changes are pushed to the `main` branch.
 
-The bot uses a balanced approach:
+### Custom Domain Setup
+
+The site is configured to use the custom domain `mytarottoday.com`:
+
+1. **GitHub Pages**: Settings → Pages → Custom domain
+2. **DNS Configuration** (GoDaddy):
+   - A records pointing to GitHub Pages IPs
+   - CNAME record for www subdomain
+3. **HTTPS**: Automatically enforced via GitHub Pages
+
+## Reading Philosophy
+
+This app uses a balanced approach to tarot reading:
+
 - **Traditional Meanings**: Based on Rider-Waite symbolism
-- **Intuitive Guidance**: Contextual application
+- **Contextual Application**: Readings adapt to your question
 - **Empowering Framework**: Focus on growth and insight
 - **Neutral Stance**: Non-judgmental, balanced perspective
+- **Authentic Translation**: Full readings translated, not just keywords
 
 ## Resources
 
-- **Card Meanings Source**: Labyrinthos (https://labyrinthos.co)
-- **Image Source**: Internet Archive Rider-Waite Tarot Deck
-- **Research**: Multiple tarot reading guides and methodologies
+- **Card Meanings**: Compiled from Labyrinthos and traditional sources
+- **Images**: Internet Archive Rider-Waite Tarot Deck
+- **Translation API**: MyMemory Translation Service
+- **Methodology**: Based on established tarot reading principles
 
-## Next Steps
+## Privacy & Data
 
-To build the Tarot Reading Bot:
-1. Load card meanings from `tarot_card_meanings.json`
-2. Implement card drawing logic (random selection)
-3. Apply reading methodology from documentation
-4. Display card images from the `images/` directory
-5. Format interpretations using the examples as templates
+- ✅ No user data is collected or stored on servers
+- ✅ Language preference stored locally in browser only
+- ✅ All readings happen client-side
+- ✅ No tracking or analytics
+- ✅ No cookies (except for localStorage language preference)
+
+## Browser Support
+
+Works on all modern browsers:
+- Chrome/Edge (90+)
+- Firefox (88+)
+- Safari (14+)
+- Opera (76+)
+
+## Contributing
+
+This is a personal project. If you'd like to create your own version:
+
+1. Fork the repository
+2. Make your changes
+3. Deploy to your own GitHub Pages
 
 ## License
 
 - **Card Images**: Public Domain (Rider-Waite Tarot)
 - **Card Meanings**: Compiled from public tarot resources
+- **Code**: Open source
 - **Documentation**: Created for educational purposes
+
+## Acknowledgments
+
+- Rider-Waite Tarot Deck (Public Domain)
+- Labyrinthos for tarot card meanings reference
+- Internet Archive for hosting the original card images
+- MyMemory for translation services
+- Claude Code for assistance in development
+
+---
+
+**Built with** ❤️ **and** 🔮 **by Amy**
+
+🌟 [Visit My Tarot Today](https://mytarottoday.com) 🌟
