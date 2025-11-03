@@ -631,6 +631,13 @@ const tarotData = {"major_arcana":[{"number":0,"name":"The Fool","upright":"inno
                 document.getElementById('card-reading').classList.remove('revealed');
                 document.getElementById('new-card-button').classList.remove('revealed');
             };
+            img.onerror = function() {
+                // Hide loading spinner on error
+                spinner.classList.remove('visible');
+                cardImage.classList.remove('loading');
+                console.error('Failed to load image:', imagePath);
+                alert('Failed to load card image. Please try again.');
+            };
             img.src = imagePath;
         }
 
