@@ -596,6 +596,8 @@ const tarotData = {"major_arcana":[{"number":0,"name":"The Fool","upright":"inno
             spinner.classList.add('visible');
             cardImage.classList.add('loading');
 
+            console.log('Starting to draw card...');
+
             // Combine all cards into one array
             const deck = [...allCards.major, ...allCards.minor];
 
@@ -612,11 +614,15 @@ const tarotData = {"major_arcana":[{"number":0,"name":"The Fool","upright":"inno
                 `images/major_arcana/${selectedCard.file}` :
                 `images/minor_arcana/${selectedCard.suit}/${selectedCard.file}`;
 
+            console.log('Image path:', imagePath);
+
             // Get card meaning
             const meaning = getCardMeaning(selectedCard.name);
 
             // Generate reading (this includes translation time)
+            console.log('Generating reading...');
             const reading = await generateDailyAdvice(selectedCard.name, meaning, isReversed);
+            console.log('Reading generated:', reading);
 
             // Store current card info
             currentCard = selectedCard;
@@ -626,6 +632,7 @@ const tarotData = {"major_arcana":[{"number":0,"name":"The Fool","upright":"inno
             // Pre-load image
             const img = new Image();
             img.onload = function() {
+                console.log('Image loaded successfully');
                 // Hide loading spinner once image is loaded
                 spinner.classList.remove('visible');
                 cardImage.classList.remove('loading');
