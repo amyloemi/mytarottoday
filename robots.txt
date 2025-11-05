@@ -8,7 +8,8 @@ Allow: /gallery.html
 Allow: /assets/
 Allow: /decks/
 
-# Disallow admin/backend areas (if any in future)
+# Disallow documentation and internal files
+Disallow: /README.md
 Disallow: /archive/
 Disallow: /docs/
 Disallow: /scripts/
