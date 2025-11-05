@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>My Tarot Today - Choose Your Deck</title>
+		<title>Card Gallery - My Tarot Today</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -81,6 +81,230 @@
 				color: white;
 				margin-bottom: 30px;
 				text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+			}
+
+			/* Search Bar Styles */
+			.search-container {
+				max-width: 600px;
+				margin: 0 auto 30px auto;
+				position: relative;
+			}
+
+			#deck-search {
+				width: 100%;
+				height: 50px;
+				padding: 0 50px 0 50px;
+				border-radius: 25px;
+				border: 2px solid rgba(255, 215, 0, 0.3);
+				background: rgba(255, 255, 255, 0.9);
+				color: #2c3e50;
+				font-size: 1em;
+				box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+				transition: all 0.3s ease;
+				outline: none;
+			}
+
+			#deck-search:focus {
+				border-color: rgba(255, 215, 0, 0.6);
+				box-shadow: 0 6px 20px rgba(255, 215, 0, 0.3);
+			}
+
+			#deck-search::placeholder {
+				color: rgba(44, 62, 80, 0.5);
+			}
+
+			.search-icon {
+				position: absolute;
+				left: 20px;
+				top: 50%;
+				transform: translateY(-50%);
+				color: rgba(255, 215, 0, 0.6);
+				font-size: 1.2em;
+				pointer-events: none;
+			}
+
+			.search-clear {
+				position: absolute;
+				right: 20px;
+				top: 50%;
+				transform: translateY(-50%);
+				background: none;
+				border: none;
+				color: rgba(44, 62, 80, 0.5);
+				font-size: 1.3em;
+				cursor: pointer;
+				display: none;
+				transition: color 0.3s ease;
+				padding: 5px;
+			}
+
+			.search-clear:hover {
+				color: #2c3e50;
+			}
+
+			.search-clear.visible {
+				display: block;
+			}
+
+			.no-results {
+				text-align: center;
+				color: white;
+				font-size: 1.1em;
+				margin: 30px 0;
+				display: none;
+				opacity: 0.8;
+			}
+
+			.no-results.visible {
+				display: block;
+			}
+
+			/* Card Gallery Styles */
+			#card-gallery {
+				padding: 60px 20px;
+				display: none;
+			}
+
+			#card-gallery.visible {
+				display: block;
+			}
+
+			.back-button {
+				display: inline-flex;
+				align-items: center;
+				gap: 10px;
+				padding: 12px 24px;
+				background: rgba(255, 255, 255, 0.9);
+				color: #2c3e50;
+				border: none;
+				border-radius: 25px;
+				cursor: pointer;
+				font-size: 1em;
+				font-weight: 600;
+				transition: all 0.3s ease;
+				margin-bottom: 30px;
+				box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+			}
+
+			.back-button:hover {
+				background: white;
+				transform: translateX(-5px);
+				box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+			}
+
+			.gallery-title {
+				font-size: 2em;
+				color: white;
+				text-align: center;
+				margin-bottom: 40px;
+				text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+			}
+
+			.card-grid {
+				display: grid;
+				grid-template-columns: repeat(6, 1fr);
+				gap: 20px;
+				max-width: 1400px;
+				margin: 0 auto;
+			}
+
+			.card-thumbnail {
+				aspect-ratio: 2/3;
+				border-radius: 10px;
+				overflow: hidden;
+				cursor: pointer;
+				transition: all 0.3s ease;
+				box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+				background: white;
+			}
+
+			.card-thumbnail:hover {
+				transform: scale(1.05) translateY(-5px);
+				box-shadow: 0 8px 25px rgba(255, 215, 0, 0.4);
+			}
+
+			.card-thumbnail img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				display: block;
+			}
+
+			/* Lightbox Styles */
+			#lightbox {
+				display: none;
+				position: fixed;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background: rgba(0, 0, 0, 0.9);
+				backdrop-filter: blur(10px);
+				z-index: 10000;
+				justify-content: center;
+				align-items: center;
+				animation: fadeIn 0.3s ease;
+			}
+
+			#lightbox.visible {
+				display: flex;
+			}
+
+			.lightbox-content {
+				position: relative;
+				max-width: 90%;
+				max-height: 90%;
+				animation: zoomIn 0.3s ease;
+			}
+
+			.lightbox-content img {
+				max-width: 100%;
+				max-height: 90vh;
+				border-radius: 15px;
+				box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+			}
+
+			.lightbox-close {
+				position: absolute;
+				top: -50px;
+				right: 0;
+				background: rgba(255, 255, 255, 0.9);
+				border: none;
+				width: 40px;
+				height: 40px;
+				border-radius: 50%;
+				font-size: 24px;
+				cursor: pointer;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				transition: all 0.3s ease;
+				color: #2c3e50;
+				font-weight: bold;
+			}
+
+			.lightbox-close:hover {
+				background: white;
+				transform: rotate(90deg);
+			}
+
+			.lightbox-card-name {
+				text-align: center;
+				color: white;
+				font-size: 1.5em;
+				margin-top: 20px;
+				text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+			}
+
+			@keyframes zoomIn {
+				from {
+					transform: scale(0.8);
+					opacity: 0;
+				}
+				to {
+					transform: scale(1);
+					opacity: 1;
+				}
 			}
 
 			.deck-options {
@@ -485,6 +709,21 @@
 				#action-buttons {
 					flex-direction: column;
 				}
+
+				.card-grid {
+					grid-template-columns: repeat(3, 1fr);
+					gap: 10px;
+				}
+
+				.gallery-title {
+					font-size: 1.5em;
+				}
+			}
+
+			@media (max-width: 1024px) {
+				.card-grid {
+					grid-template-columns: repeat(4, 1fr);
+				}
 			}
 		</style>
 	</head>
@@ -514,8 +753,8 @@
 
 			<!-- Banner -->
 				<section id="banner">
-					<h2 id="title">Card of Today</h2>
-					<p id="subtitle">Your daily guidance awaits</p>
+					<h2 id="title">Card Gallery</h2>
+					<p id="subtitle">Browse all cards from each deck</p>
 				</section>
 
 			<!-- Main -->
@@ -523,7 +762,19 @@
 
 					<!-- Deck Selection -->
 					<section id="deck-selection">
-						<h2 data-translate="chooseYourDeck">Select one to begin your reading</h2>
+						<!-- Search Bar -->
+						<div class="search-container">
+							<span class="search-icon">🔍</span>
+							<input
+								type="text"
+								id="deck-search"
+								placeholder="Search for a deck..."
+								data-translate-placeholder="searchPlaceholder"
+								oninput="filterDecks()"
+							>
+							<button class="search-clear" onclick="clearSearch()">✕</button>
+						</div>
+						<div class="no-results" id="no-results" data-translate="noResults">No decks found</div>
 
 						<div class="deck-options">
 							<!-- Rider-Waite Classic -->
@@ -549,33 +800,36 @@
 								</div>
 								<h3 data-translate="miro">Miró Surrealism</h3>
 							</div>
+
+							<!-- Picasso Cubism -->
+							<div class="deck-card" onclick="selectDeck('picasso')">
+								<div class="deck-preview">
+									<img src="decks/picasso-tarot-cards/11-wheel-of-fortune.png" alt="Wheel of Fortune">
+								</div>
+								<h3 data-translate="picasso">Picasso Cubism</h3>
+							</div>
 						</div>
 					</section>
 
-					<!-- Card Display (initially hidden) -->
-					<section class="box special hidden" id="card-container">
-						<div class="tap-hint" id="tap-hint" onclick="revealReading()" data-translate="clickToReveal">✨ Click to reveal your reading ✨</div>
-
-						<div class="loading-spinner" id="loading-spinner"></div>
-
-						<div class="card-image-container" id="card-image-container" onclick="revealReading()">
-							<!-- Card will be rendered here -->
-						</div>
-
-						<div class="card-name" id="card-name"></div>
-						<div class="card-orientation" id="card-orientation"></div>
-
-						<div class="card-reading" id="card-reading"></div>
-
-						<div id="action-buttons" style="display: none;">
-							<button class="btn-primary" onclick="drawCard()">
-								<span data-translate="drawAnother">Draw Another Card</span>
-							</button>
-							<button class="btn-secondary" onclick="returnToDeckSelection()">
-								<span data-translate="changeDeck">Choose Different Deck</span>
-							</button>
+					<!-- Card Gallery (initially hidden) -->
+					<section id="card-gallery">
+						<button class="back-button" onclick="returnToDeckSelection()">
+							<span>←</span>
+							<span data-translate="backButton">Back to Deck Selection</span>
+						</button>
+						<h2 class="gallery-title" id="gallery-title">All Cards</h2>
+						<div class="card-grid" id="card-grid">
+							<!-- Cards will be dynamically rendered here -->
 						</div>
 					</section>
+
+					<!-- Lightbox -->
+					<div id="lightbox" onclick="closeLightbox()">
+						<div class="lightbox-content" onclick="event.stopPropagation()">
+							<button class="lightbox-close" onclick="closeLightbox()">✕</button>
+							<img id="lightbox-img" src="" alt="">
+						</div>
+					</div>
 
 					<!-- Features section -->
 					<section class="box special features" id="features-section">
@@ -633,88 +887,88 @@
 		<script src="decks/rider-waite-data.js"></script>
 		<script src="decks/artistic-data.js"></script>
 		<script src="decks/miro-data.js"></script>
+		<script src="decks/picasso-data.js"></script>
 
 		<script>
 		// Language translations
 		const translations = {
 			en: {
-				title: "Card of Today",
-				subtitle: "Your daily guidance awaits",
-				chooseYourDeck: "Select one to begin your reading",
+				title: "Card Gallery",
+				subtitle: "Browse all cards from each deck",
+				chooseYourDeck: "Select one to browse all cards",
 					riderWaite: "Rider-Waite Classic",
 					artistic: "Artistic Tarot",
 					miro: "Miró Surrealism",
-					clickToReveal: "✨ Click to reveal your reading ✨",
-				drawAnother: "Draw Another Card",
-				changeDeck: "Choose Different Deck",
-				upright: "Upright",
-				reversed: "Reversed"
+			picasso: "Picasso Cubism",
+				searchPlaceholder: "Search for a deck...",
+				noResults: "No decks found",
+				backButton: "Back to Deck Selection",
+				allCards: "All Cards"
 			},
 			fr: {
-				title: "Carte du Jour",
-				subtitle: "Vos conseils quotidiens vous attendent",
-				chooseYourDeck: "Sélectionnez-en un pour commencer votre lecture",
+				title: "Galerie de Cartes",
+				subtitle: "Parcourez toutes les cartes de chaque jeu",
+				chooseYourDeck: "Sélectionnez-en un pour parcourir toutes les cartes",
 					riderWaite: "Rider-Waite Classique",
 					artistic: "Tarot Artistique",
 					miro: "Surréalisme de Miró",
-					clickToReveal: "✨ Cliquez pour révéler votre lecture ✨",
-				drawAnother: "Tirer une Autre Carte",
-				changeDeck: "Choisir un Autre Jeu",
-				upright: "À l'endroit",
-				reversed: "Inversé"
+			picasso: "Cubisme de Picasso",
+				searchPlaceholder: "Rechercher un jeu...",
+				noResults: "Aucun jeu trouvé",
+				backButton: "Retour à la sélection",
+				allCards: "Toutes les Cartes"
 			},
 			es: {
-				title: "Carta del Día",
-				subtitle: "Tu guía diaria te espera",
-				chooseYourDeck: "Selecciona uno para comenzar tu lectura",
+				title: "Galería de Cartas",
+				subtitle: "Explora todas las cartas de cada mazo",
+				chooseYourDeck: "Selecciona uno para explorar todas las cartas",
 					riderWaite: "Rider-Waite Clásico",
 					artistic: "Tarot Artístico",
 					miro: "Surrealismo de Miró",
-					clickToReveal: "✨ Haz clic para revelar tu lectura ✨",
-				drawAnother: "Sacar Otra Carta",
-				changeDeck: "Elegir Otro Mazo",
-				upright: "Derecha",
-				reversed: "Invertida"
+			picasso: "Cubismo de Picasso",
+				searchPlaceholder: "Buscar un mazo...",
+				noResults: "No se encontraron mazos",
+				backButton: "Volver a la selección",
+				allCards: "Todas las Cartas"
 			},
 			zh: {
-				title: "今日塔罗牌",
-				subtitle: "您的每日指引在等待",
-				chooseYourDeck: "选择一个开始您的阅读",
+				title: "卡牌画廊",
+				subtitle: "浏览每个牌组的所有卡牌",
+				chooseYourDeck: "选择一个浏览所有卡牌",
 					riderWaite: "经典莱德伟特",
 					artistic: "艺术塔罗",
 					miro: "米罗超现实",
-					clickToReveal: "✨ 点击揭示您的阅读 ✨",
-				drawAnother: "再抽一张牌",
-				changeDeck: "选择其他牌组",
-				upright: "正位",
-				reversed: "逆位"
+				picasso: "毕加索立体派",
+				searchPlaceholder: "搜索牌组...",
+				noResults: "未找到牌组",
+				backButton: "返回选择",
+				allCards: "所有卡牌"
 			},
 			ja: {
-				title: "今日のカード",
-				subtitle: "あなたの毎日のガイダンスが待っています",
-				chooseYourDeck: "リーディングを始めるには1つ選択してください",
+				title: "カードギャラリー",
+				subtitle: "各デッキのすべてのカードを閲覧",
+				chooseYourDeck: "すべてのカードを閲覧するには1つ選択してください",
 					riderWaite: "ライダーウェイトクラシック",
 					artistic: "アーティスティックタロット",
 					miro: "ミロシュルレアリズム",
-					clickToReveal: "✨ クリックしてリーディングを表示 ✨",
-				drawAnother: "別のカードを引く",
-				changeDeck: "別のデッキを選択",
-				upright: "正位置",
-				reversed: "逆位置"
+				picasso: "ピカソキュビズム",
+				searchPlaceholder: "デッキを検索...",
+				noResults: "デッキが見つかりません",
+				backButton: "選択に戻る",
+				allCards: "すべてのカード"
 			},
 			ko: {
-				title: "오늘의 카드",
-				subtitle: "당신의 일일 안내를 기다리고 있습니다",
-				chooseYourDeck: "리딩을 시작하려면 하나를 선택하세요",
-				deckSubtitle: "리딩을 위한 예술 스타일 선택",
+				title: "카드 갤러리",
+				subtitle: "각 덱의 모든 카드 탐색",
+				chooseYourDeck: "모든 카드를 탐색하려면 하나를 선택하세요",
 				riderWaite: "라이더 웨이트 클래식",
 					artistic: "아티스틱 타로",
 					miro: "미로 초현실주의",
-					clickToReveal: "✨ 클릭하여 리딩 공개 ✨",
-				drawAnother: "다른 카드 뽑기",
-				changeDeck: "다른 덱 선택",
-				upright: "정방향",
-				reversed: "역방향"
+			picasso: "피카소 입체주의",
+				searchPlaceholder: "덱 검색...",
+				noResults: "덱을 찾을 수 없습니다",
+				backButton: "선택으로 돌아가기",
+				allCards: "모든 카드"
 			}
 		};
 
@@ -806,39 +1060,151 @@
 			console.log('Selected deck:', deckType);
 			currentDeck = deckType;
 
-			// Hide deck selection with animation
+			// Hide deck selection and features
 			const deckSelection = document.getElementById('deck-selection');
 			const featuresSection = document.getElementById('features-section');
-			deckSelection.classList.add('fade-out');
-			featuresSection.classList.add('fade-out');
+			deckSelection.style.display = 'none';
+			featuresSection.style.display = 'none';
 
-			// After animation, show card display and auto-draw
-			setTimeout(() => {
-				deckSelection.style.display = 'none';
-				featuresSection.style.display = 'none';
-				document.getElementById('card-container').classList.remove('hidden');
-				drawCard(); // Auto-draw first card
-			}, 500);
+			// Show card gallery
+			showCardGallery(deckType);
+		}
+
+		function showCardGallery(deckType) {
+			const gallery = document.getElementById('card-gallery');
+			const cardGrid = document.getElementById('card-grid');
+			const galleryTitle = document.getElementById('gallery-title');
+
+			// Clear previous cards
+			cardGrid.innerHTML = '';
+
+			// Get all cards from the selected deck
+			let allCards = [];
+			let deckName = '';
+
+			if (deckType === 'rider') {
+				allCards = [...riderWaiteData.cards.major, ...riderWaiteData.cards.minor];
+				deckName = translations[currentLanguage].riderWaite;
+			} else if (deckType === 'artistic') {
+				allCards = artisticData.getAllCards();
+				deckName = translations[currentLanguage].artistic;
+			} else if (deckType === 'miro') {
+				allCards = miroData.getAllCards();
+				deckName = translations[currentLanguage].miro;
+			} else if (deckType === 'picasso') {
+				allCards = picassoData.getAllCards();
+				deckName = translations[currentLanguage].picasso;
+			}
+
+			// Update gallery title
+			const trans = translations[currentLanguage];
+			galleryTitle.textContent = `${trans.allCards} - ${deckName}`;
+
+			// Render all cards
+			allCards.forEach(card => {
+				const cardThumbnail = document.createElement('div');
+				cardThumbnail.className = 'card-thumbnail';
+
+				const img = document.createElement('img');
+
+				// Handle different data structures
+				if (deckType === 'rider') {
+					// Rider-Waite uses 'file' property and needs path prefix
+					if (card.number !== undefined) {
+						// Major Arcana
+						img.src = `images/major_arcana/${card.file}`;
+					} else {
+						// Minor Arcana (has suit property)
+						img.src = `images/minor_arcana/${card.suit}/${card.file}`;
+					}
+				} else {
+					// Artistic and Miró use 'image' property with full path
+					img.src = card.image;
+				}
+
+				img.alt = card.name;
+				img.loading = 'lazy';
+
+				cardThumbnail.appendChild(img);
+
+				const imagePath = img.src;
+				cardThumbnail.onclick = () => enlargeCard(imagePath, card.name);
+
+				cardGrid.appendChild(cardThumbnail);
+			});
+
+			// Show gallery
+			gallery.classList.add('visible');
+		}
+
+		function enlargeCard(imagePath, cardName) {
+			const lightbox = document.getElementById('lightbox');
+			const lightboxImg = document.getElementById('lightbox-img');
+
+			lightboxImg.src = imagePath;
+			lightbox.classList.add('visible');
+		}
+
+		function closeLightbox() {
+			const lightbox = document.getElementById('lightbox');
+			lightbox.classList.remove('visible');
+		}
+
+		function filterDecks() {
+			const searchInput = document.getElementById('deck-search');
+			const searchTerm = searchInput.value.toLowerCase().trim();
+			const deckCards = document.querySelectorAll('.deck-card');
+			const noResults = document.getElementById('no-results');
+			const clearButton = document.querySelector('.search-clear');
+
+			// Show/hide clear button
+			if (searchTerm) {
+				clearButton.classList.add('visible');
+			} else {
+				clearButton.classList.remove('visible');
+			}
+
+			let hasVisibleDecks = false;
+
+			// Filter deck cards
+			deckCards.forEach(card => {
+				const deckName = card.querySelector('h3').textContent.toLowerCase();
+
+				if (deckName.includes(searchTerm)) {
+					card.style.display = 'block';
+					hasVisibleDecks = true;
+				} else {
+					card.style.display = 'none';
+				}
+			});
+
+			// Show/hide no results message
+			if (!hasVisibleDecks && searchTerm) {
+				noResults.classList.add('visible');
+			} else {
+				noResults.classList.remove('visible');
+			}
+		}
+
+		function clearSearch() {
+			const searchInput = document.getElementById('deck-search');
+			searchInput.value = '';
+			filterDecks();
+			searchInput.focus();
 		}
 
 		function returnToDeckSelection() {
-			// Hide card display
-			document.getElementById('card-container').classList.add('hidden');
+			// Hide card gallery
+			document.getElementById('card-gallery').classList.remove('visible');
 
 			// Show deck selection
 			const deckSelection = document.getElementById('deck-selection');
 			const featuresSection = document.getElementById('features-section');
 			deckSelection.style.display = 'block';
-			deckSelection.classList.remove('fade-out');
 			featuresSection.style.display = 'block';
-			featuresSection.classList.remove('fade-out');
 
 			// Reset
 			currentDeck = null;
-			currentCard = null;
-
-			// Scroll to top
-			window.scrollTo({ top: 0, behavior: 'smooth' });
 		}
 
 		async function drawCard() {
@@ -973,6 +1339,15 @@
 					} else {
 						el.textContent = trans[key];
 					}
+				}
+			});
+
+			// Update placeholder translations
+			const placeholderElements = document.querySelectorAll('[data-translate-placeholder]');
+			placeholderElements.forEach(el => {
+				const key = el.getAttribute('data-translate-placeholder');
+				if (trans[key]) {
+					el.placeholder = trans[key];
 				}
 			});
 
