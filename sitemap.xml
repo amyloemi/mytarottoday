@@ -30,4 +30,18 @@
     <xhtml:link rel="alternate" hreflang="ko" href="https://mytarottoday.com/gallery.html" />
   </url>
 
+  <!-- Journey Page - Fool's Journey -->
+  <url>
+    <loc>https://mytarottoday.com/journey.html</loc>
+    <lastmod>2025-11-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mytarottoday.com/journey.html" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://mytarottoday.com/journey.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://mytarottoday.com/journey.html" />
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mytarottoday.com/journey.html" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://mytarottoday.com/journey.html" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://mytarottoday.com/journey.html" />
+  </url>
+
 </urlset>

@@ -5,6 +5,7 @@ User-agent: *
 Allow: /
 Allow: /index.html
 Allow: /gallery.html
+Allow: /journey.html
 Allow: /assets/
 Allow: /decks/
 
