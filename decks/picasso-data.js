@@ -1,6 +1,18 @@
 // Picasso Tarot Deck - All 78 Cards
 // Using pre-rendered PNG images from picasso-tarot-cards folder
 
+// Detect if we're in a subdirectory (if not already defined)
+if (typeof getBasePath === 'undefined') {
+    var getBasePath = () => {
+        if (window.location.protocol.startsWith('http')) {
+            return '/';
+        }
+        const currentPath = window.location.pathname;
+        const parentFolder = currentPath.split('/').slice(-2, -1)[0];
+        return (parentFolder === 'pages' || currentPath.includes('/pages/')) ? '../' : '';
+    };
+}
+
 const picassoData = {
     // All 78 cards with image paths
     cards: {
@@ -112,8 +124,9 @@ const picassoData = {
         ];
     },
 
-    // Render card - simply returns the image path
+    // Render card - returns the image path with correct base path
     renderCard: function(card) {
-        return card.image;
+        const basePath = getBasePath();
+        return basePath + card.image;
     }
 };

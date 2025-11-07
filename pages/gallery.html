@@ -19,6 +19,13 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 
+		<!-- Favicons -->
+		<link rel="icon" type="image/png" sizes="32x32" href="../images/icons/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="../images/icons/favicon-16x16.png">
+		<link rel="apple-touch-icon" sizes="180x180" href="../images/icons/apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="192x192" href="../images/icons/icon-192.png">
+		<link rel="icon" type="image/png" sizes="512x512" href="../images/icons/icon-512.png">
+
 		<!-- SEO Meta Tags -->
 		<meta name="description" content="Browse complete tarot card gallery with all 78 cards from 4 artistic decks: Rider-Waite, Artistic, Miró, and Picasso. View meanings for Major and Minor Arcana in 6 languages." />
 		<meta name="keywords" content="tarot card gallery, tarot meanings, major arcana, minor arcana, tarot card meanings, rider-waite cards, picasso tarot, miro tarot, artistic tarot deck" />
@@ -95,19 +102,19 @@
 		}
 		</script>
 
-		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="../assets/css/main.css" />
 		<style>
 			/* Custom background with tarot image */
 			body {
 				background:
 					linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-					url('tarot-background.jpg') center/cover fixed;
+					url('../images/backgrounds/tarot-background.jpg') center/cover fixed;
 			}
 
 			#banner {
 				background:
 					linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-					url('tarot-background.jpg') center/cover;
+					url('../images/backgrounds/tarot-background.jpg') center/cover;
 				box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.3);
 			}
 
@@ -818,12 +825,13 @@
 
 			<!-- Header -->
 				<header id="header" class="alt">
-					<h1><a href="index.html">🔮 My Tarot Today</a></h1>
+					<h1><a href="../index.html">🔮 My Tarot Today</a></h1>
 					<nav id="nav">
 						<ul>
-							<li><a href="index.html">Home</a></li>
+							<li><a href="../index.html">Home</a></li>
 							<li><a href="gallery.html">Gallery</a></li>
 							<li><a href="journey.html">Fool's Journey</a></li>
+							<li><a href="dictionary.html">Dictionary</a></li>
 							<li class="language-dropdown">
 								<select id="language-select" onchange="changeLanguage()" style="padding: 10px 20px; border-radius: 25px; border: 2px solid rgba(255, 255, 255, 0.8); font-size: 0.95em; background: rgba(255, 255, 255, 0.95); cursor: pointer; transition: all 0.3s ease; font-weight: 500; line-height: 1.4; vertical-align: middle;">
 									<option value="en">🇬🇧 English</option>
@@ -867,7 +875,7 @@
 							<!-- Rider-Waite Classic -->
 							<div class="deck-card" onclick="selectDeck('rider')">
 								<div class="deck-preview">
-									<img src="decks/images/major_arcana/00-the-fool.png" alt="The Fool">
+									<img src="../decks/images/major_arcana/00-the-fool.png" alt="The Fool">
 								</div>
 								<h3 data-translate="riderWaite">Rider-Waite Classic</h3>
 							</div>
@@ -875,7 +883,7 @@
 							<!-- Artistic Tarot -->
 							<div class="deck-card" onclick="selectDeck('artistic')">
 								<div class="deck-preview">
-									<img src="decks/artistic-tarot-cards/02-the-magician.png" alt="The Magician">
+									<img src="../decks/artistic-tarot-cards/02-the-magician.png" alt="The Magician">
 								</div>
 								<h3 data-translate="artistic">Artistic Tarot</h3>
 							</div>
@@ -883,7 +891,7 @@
 							<!-- Miró Surrealism -->
 							<div class="deck-card" onclick="selectDeck('miro')">
 								<div class="deck-preview">
-									<img src="decks/miro-tarot-cards/18-xvii--the-star.png" alt="The Star">
+									<img src="../decks/miro-tarot-cards/18-xvii--the-star.png" alt="The Star">
 								</div>
 								<h3 data-translate="miro">Miró Surrealism</h3>
 							</div>
@@ -891,7 +899,7 @@
 							<!-- Picasso Cubism -->
 							<div class="deck-card" onclick="selectDeck('picasso')">
 								<div class="deck-preview">
-									<img src="decks/picasso-tarot-cards/11-wheel-of-fortune.png" alt="Wheel of Fortune">
+									<img src="../decks/picasso-tarot-cards/11-wheel-of-fortune.png" alt="Wheel of Fortune">
 								</div>
 								<h3 data-translate="picasso">Picasso Cubism</h3>
 							</div>
@@ -961,19 +969,19 @@
 		</div>
 
 		<!-- Scripts -->
-		<script src="assets/js/jquery.min.js"></script>
-		<script src="assets/js/jquery.dropotron.min.js"></script>
-		<script src="assets/js/jquery.scrollex.min.js"></script>
-		<script src="assets/js/browser.min.js"></script>
-		<script src="assets/js/breakpoints.min.js"></script>
-		<script src="assets/js/util.js"></script>
-		<script src="assets/js/main.js"></script>
+		<script src="../assets/js/jquery.min.js"></script>
+		<script src="../assets/js/jquery.dropotron.min.js"></script>
+		<script src="../assets/js/jquery.scrollex.min.js"></script>
+		<script src="../assets/js/browser.min.js"></script>
+		<script src="../assets/js/breakpoints.min.js"></script>
+		<script src="../assets/js/util.js"></script>
+		<script src="../assets/js/main.js"></script>
 
 		<!-- Load card data files -->
-		<script src="decks/rider-waite-data.js"></script>
-		<script src="decks/artistic-data.js"></script>
-		<script src="decks/miro-data.js"></script>
-		<script src="decks/picasso-data.js"></script>
+		<script src="../decks/rider-waite-data.js"></script>
+		<script src="../decks/artistic-data.js"></script>
+		<script src="../decks/miro-data.js"></script>
+		<script src="../decks/picasso-data.js"></script>
 
 		<script>
 		// Language translations
@@ -1195,17 +1203,17 @@
 
 				// Handle different data structures
 				if (deckType === 'rider') {
-					// Rider-Waite uses 'file' property and needs path prefix
-					if (card.number !== undefined) {
-						// Major Arcana
-						img.src = `images/major_arcana/${card.file}`;
-					} else {
-						// Minor Arcana (has suit property)
-						img.src = `images/minor_arcana/${card.suit}/${card.file}`;
-					}
-				} else {
-					// Artistic and Miró use 'image' property with full path
-					img.src = card.image;
+					// Rider-Waite uses getImagePath function
+					img.src = riderWaiteData.getImagePath(card);
+				} else if (deckType === 'artistic') {
+					// Artistic uses renderCard function
+					img.src = artisticData.renderCard(card);
+				} else if (deckType === 'miro') {
+					// Miró uses renderCard function
+					img.src = miroData.renderCard(card);
+				} else if (deckType === 'picasso') {
+					// Picasso uses renderCard function
+					img.src = picassoData.renderCard(card);
 				}
 
 				img.alt = card.name;
@@ -1364,14 +1372,14 @@
 
 		function renderArtisticCard(card, isReversed) {
 			const container = document.getElementById('card-image-container');
-			const imagePath = card.image;
+			const imagePath = artisticData.renderCard(card);
 			const rotateClass = isReversed ? 'reversed' : '';
 			container.innerHTML = `<img src="${imagePath}" alt="${card.name}" class="${rotateClass}">`;
 		}
 
 		function renderMiroCard(card, isReversed) {
 			const container = document.getElementById('card-image-container');
-			const imagePath = card.image;
+			const imagePath = miroData.renderCard(card);
 			const rotateClass = isReversed ? 'reversed' : '';
 			container.innerHTML = `<img src="${imagePath}" alt="${card.name}" class="${rotateClass}">`;
 		}

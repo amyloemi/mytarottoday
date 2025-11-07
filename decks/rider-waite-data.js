@@ -1,6 +1,23 @@
 // Rider-Waite Tarot Deck - All 78 Cards
 // Classic tarot imagery with traditional meanings
 
+// Detect if we're in a subdirectory (if not already defined)
+if (typeof getBasePath === 'undefined') {
+    var getBasePath = () => {
+        // Use absolute path from root for web servers
+        if (window.location.protocol.startsWith('http')) {
+            return '/';
+        }
+
+        // For file:// protocol, use relative paths
+        const currentPath = window.location.pathname;
+        const parentFolder = currentPath.split('/').slice(-2, -1)[0];
+        const isInPagesFolder = parentFolder === 'pages' || currentPath.includes('/pages/');
+
+        return isInPagesFolder ? '../' : '';
+    };
+}
+
 const riderWaiteData = {
     // Embedded tarot meanings data
     meanings: {
@@ -186,10 +203,11 @@ const riderWaiteData = {
 
     // Get image path for a card
     getImagePath: function(card) {
+        const basePath = getBasePath();
         const isMajor = this.cards.major.find(c => c.name === card.name);
         return isMajor ?
-            `decks/images/major_arcana/${card.file}` :
-            `decks/images/minor_arcana/${card.suit}/${card.file}`;
+            `${basePath}decks/images/major_arcana/${card.file}` :
+            `${basePath}decks/images/minor_arcana/${card.suit}/${card.file}`;
     }
 };
 

@@ -86,13 +86,13 @@
 			body {
 				background:
 					linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-					url('tarot-background.jpg') center/cover fixed;
+					url('images/backgrounds/tarot-background.jpg') center/cover fixed;
 			}
 
 			#banner {
 				background:
 					linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-					url('tarot-background.jpg') center/cover;
+					url('images/backgrounds/tarot-background.jpg') center/cover;
 				box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.3);
 			}
 
@@ -152,6 +152,107 @@
 				color: white;
 				margin-bottom: 30px;
 				text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+			}
+
+			#question-container {
+				margin-bottom: -5px;
+				position: relative;
+				min-height: 50px;
+				text-align: center;
+			}
+
+			#question-text {
+				font-size: 1.8em;
+				color: white;
+				text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+				font-weight: 500;
+				position: absolute;
+				width: 100%;
+				transition: none;
+				text-align: center;
+			}
+
+			#question-text.swipe-out-right {
+				animation: swipeOutRight 0.4s ease forwards;
+			}
+
+			#question-text.swipe-in-left {
+				animation: swipeInLeft 0.4s ease forwards;
+			}
+
+			@keyframes swipeOutRight {
+				to {
+					transform: translateX(100%);
+					opacity: 0;
+				}
+			}
+
+			@keyframes swipeInLeft {
+				from {
+					transform: translateX(-100%);
+					opacity: 0;
+				}
+				to {
+					transform: translateX(0);
+					opacity: 1;
+				}
+			}
+
+			#question-dots {
+				display: flex;
+				gap: 12px;
+				justify-content: center;
+				margin-bottom: 15px;
+				cursor: pointer;
+			}
+
+			.dot {
+				width: 12px;
+				height: 12px;
+				border-radius: 50%;
+				background: rgba(255, 255, 255, 0.4);
+				transition: all 0.3s ease;
+			}
+
+			.dot.active {
+				background: white;
+				box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+			}
+
+			@keyframes dotLighten {
+				0% {
+					background: rgba(255, 255, 255, 0.4);
+					box-shadow: none;
+				}
+				50% {
+					background: white;
+					box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+				}
+				100% {
+					background: rgba(255, 255, 255, 0.4);
+					box-shadow: none;
+				}
+			}
+
+			.dot.animate-0 {
+				animation: dotLighten 1.5s ease infinite;
+			}
+
+			.dot.animate-1 {
+				animation: dotLighten 1.5s ease 0.5s infinite;
+			}
+
+			.dot.animate-2 {
+				animation: dotLighten 1.5s ease 1s infinite;
+			}
+
+			#deck-selection-subtitle {
+				font-size: 1.1em !important;
+				color: rgba(255, 255, 255, 0.9);
+				margin-top: 0px;
+				margin-bottom: 30px;
+				text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+				text-align: center;
 			}
 
 			.deck-options {
@@ -568,8 +669,8 @@
 					<nav id="nav">
 						<ul>
 							<li><a href="index.html">Home</a></li>
-							<li><a href="gallery.html">Gallery</a></li>
-							<li><a href="journey.html">Fool's Journey</a></li>
+							<li><a href="pages/gallery.html">Gallery</a></li>
+							<li><a href="pages/journey.html">Fool's Journey</a></li>
 							<li class="language-dropdown">
 								<select id="language-select" onchange="changeLanguage()" style="padding: 10px 20px; border-radius: 25px; border: 2px solid rgba(255, 255, 255, 0.8); font-size: 0.95em; background: rgba(255, 255, 255, 0.95); cursor: pointer; transition: all 0.3s ease; font-weight: 500; line-height: 1.4; vertical-align: middle;">
 									<option value="en">🇬🇧 English</option>
@@ -595,7 +696,15 @@
 
 					<!-- Deck Selection -->
 					<section id="deck-selection">
-						<h2 data-translate="chooseYourDeck">Select one to begin your reading</h2>
+						<div id="question-dots" onclick="cycleQuestion()">
+							<div class="dot animate-0"></div>
+							<div class="dot animate-1"></div>
+							<div class="dot animate-2"></div>
+						</div>
+						<div id="question-container">
+							<div id="question-text">Where should I focus my intention today?</div>
+						</div>
+						<h2 id="deck-selection-subtitle" data-translate="chooseYourDeck">Select one to begin your reading</h2>
 
 						<div class="deck-options">
 							<!-- Rider-Waite Classic -->
@@ -795,6 +904,61 @@
 		let currentCard = null;
 		let currentIsReversed = false;
 		let currentReading = '';
+		let currentQuestionIndex = 0;
+		const questions = [
+			"Where should I focus my intention today?",
+			"What does this relationship need right now?",
+			"Am I on the right track?"
+		];
+		let currentQuestion = questions[0];
+		let readingsData = {
+			miro: null,
+			artistic: null,
+			rider: null
+		};
+
+		// Load reading JSON files
+		async function loadReadings() {
+			try {
+				const [miroResponse, artisticResponse, riderResponse] = await Promise.all([
+					fetch('data/miro-readings.json'),
+					fetch('data/artistic-readings.json'),
+					fetch('data/rider-readings.json')
+				]);
+
+				readingsData.miro = await miroResponse.json();
+				readingsData.artistic = await artisticResponse.json();
+				readingsData.rider = await riderResponse.json();
+
+				console.log('Readings loaded successfully');
+			} catch (error) {
+				console.error('Error loading readings:', error);
+			}
+		}
+
+		// Cycle through questions with animation
+		function cycleQuestion() {
+			const questionText = document.getElementById('question-text');
+
+			// Start swipe out animation
+			questionText.classList.add('swipe-out-right');
+
+			// After animation completes, change text and swipe in
+			setTimeout(() => {
+				currentQuestionIndex = (currentQuestionIndex + 1) % questions.length;
+				currentQuestion = questions[currentQuestionIndex];
+				questionText.textContent = currentQuestion;
+
+				// Remove swipe out and add swipe in
+				questionText.classList.remove('swipe-out-right');
+				questionText.classList.add('swipe-in-left');
+
+				// Clean up animation class after it completes
+				setTimeout(() => {
+					questionText.classList.remove('swipe-in-left');
+				}, 400);
+			}, 400);
+		}
 
 		// Helper function to get card meaning from Rider-Waite data
 		function getCardMeaning(cardName) {
@@ -912,6 +1076,32 @@
 			window.scrollTo({ top: 0, behavior: 'smooth' });
 		}
 
+		// Get reading from JSON based on card, question, and orientation
+		function getReadingFromJSON(deckType, cardName, question, isReversed) {
+			const data = readingsData[deckType];
+			if (!data || !data.readings) {
+				console.error('No readings data for deck:', deckType);
+				return null;
+			}
+
+			// Find the card in the readings
+			const cardReading = data.readings.find(r => r.card_name === cardName);
+			if (!cardReading || !cardReading.questions) {
+				console.error('No reading found for card:', cardName);
+				return null;
+			}
+
+			// Get the specific question reading
+			const questionReading = cardReading.questions[question];
+			if (!questionReading) {
+				console.error('No reading found for question:', question);
+				return null;
+			}
+
+			// Return the appropriate orientation reading
+			return isReversed ? questionReading.reversed : questionReading.upright;
+		}
+
 		async function drawCard() {
 			console.log('Drawing card from deck:', currentDeck);
 
@@ -935,15 +1125,26 @@
 			const selectedCard = allCards[randomIndex];
 			const isReversed = Math.random() < 0.3; // 30% chance of reversed
 
-			// Get card meaning (from Rider-Waite data for all decks)
-			const meaning = getCardMeaning(selectedCard.name);
-			if (!meaning) {
-				console.error('Could not find meaning for card:', selectedCard.name);
-				return;
+			// Get reading from JSON based on current question
+			let readingEnglish = getReadingFromJSON(currentDeck, selectedCard.name, currentQuestion, isReversed);
+
+			// Fallback: If JSON reading doesn't exist, use getCardMeaning() and generateDailyAdvice()
+			if (!readingEnglish) {
+				console.warn('No JSON reading found for card:', selectedCard.name, '- using fallback method');
+				const meaning = getCardMeaning(selectedCard.name);
+				if (meaning) {
+					readingEnglish = await generateDailyAdvice(selectedCard.name, meaning, isReversed, 'en');
+				} else {
+					console.error('Could not generate reading for card:', selectedCard.name);
+					return;
+				}
 			}
 
-			// Generate reading
-			const reading = await generateDailyAdvice(selectedCard.name, meaning, isReversed, currentLanguage);
+			// Translate if needed
+			let reading = readingEnglish;
+			if (currentLanguage !== 'en') {
+				reading = await translateText(readingEnglish, currentLanguage);
+			}
 
 			// Store current card info
 			currentCard = selectedCard;
@@ -983,14 +1184,14 @@
 
 		function renderArtisticCard(card, isReversed) {
 			const container = document.getElementById('card-image-container');
-			const imagePath = card.image;
+			const imagePath = artisticData.renderCard(card);
 			const rotateClass = isReversed ? 'reversed' : '';
 			container.innerHTML = `<img src="${imagePath}" alt="${card.name}" class="${rotateClass}">`;
 		}
 
 		function renderMiroCard(card, isReversed) {
 			const container = document.getElementById('card-image-container');
-			const imagePath = card.image;
+			const imagePath = miroData.renderCard(card);
 			const rotateClass = isReversed ? 'reversed' : '';
 			container.innerHTML = `<img src="${imagePath}" alt="${card.name}" class="${rotateClass}">`;
 		}
@@ -1049,9 +1250,23 @@
 
 			// Update card reading if a card is currently displayed
 			if (currentCard && currentIsReversed !== null) {
-				const meaning = getCardMeaning(currentCard.name);
-				if (meaning) {
-					const reading = await generateDailyAdvice(currentCard.name, meaning, currentIsReversed, currentLanguage);
+				// Try to get reading from JSON first
+				let readingEnglish = getReadingFromJSON(currentDeck, currentCard.name, currentQuestion, currentIsReversed);
+
+				// Fallback: Use getCardMeaning() if JSON reading doesn't exist
+				if (!readingEnglish) {
+					const meaning = getCardMeaning(currentCard.name);
+					if (meaning) {
+						readingEnglish = await generateDailyAdvice(currentCard.name, meaning, currentIsReversed, 'en');
+					}
+				}
+
+				// Translate if needed
+				if (readingEnglish) {
+					let reading = readingEnglish;
+					if (currentLanguage !== 'en') {
+						reading = await translateText(readingEnglish, currentLanguage);
+					}
 					document.getElementById('card-reading').textContent = reading;
 
 					// Update orientation text
@@ -1065,6 +1280,9 @@
 
 		// Initialize
 		window.onload = function() {
+			// Load reading JSON files
+			loadReadings();
+
 			// Add language dropdown to mobile nav (after main.js creates navPanel)
 			setTimeout(function() {
 				const navPanel = document.querySelector('#navPanel nav');
