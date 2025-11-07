@@ -51,8 +51,8 @@ const DECK_REGISTRY = {
             thumbnailFormats: ['webp', 'jpg'],
             // Miro deck numbering starts at 01 (not 00)
             numberingOffset: 1,
-            // Miro deck has different suit order: wands, cups, swords, pentacles
-            suitOrder: ['wands', 'cups', 'swords', 'pentacles']
+            // Miro deck has different suit order: cups, wands, swords, pentacles
+            suitOrder: ['cups', 'wands', 'swords', 'pentacles']
         },
         'picasso': {
             id: 'picasso',
