@@ -318,6 +318,12 @@
 				box-shadow: 0 8px 25px rgba(255, 215, 0, 0.4);
 			}
 
+			.card-thumbnail picture {
+				width: 100%;
+				height: 100%;
+				display: block;
+			}
+
 			.card-thumbnail img {
 				width: 100%;
 				height: 100%;
@@ -1221,31 +1227,46 @@
 					const cardThumbnail = document.createElement('div');
 					cardThumbnail.className = 'card-thumbnail';
 
-					const img = document.createElement('img');
+					// Create picture element for responsive images
+					const picture = document.createElement('picture');
 
-					// Handle different data structures
+					// Get full resolution path for lightbox
+					let fullResPath = '';
+					let thumbnailBasePath = '';
+
 					if (deckType === 'rider') {
-						// Rider-Waite uses getImagePath function
-						img.src = riderWaiteData.getImagePath(card);
+						fullResPath = riderWaiteData.getImagePath(card);
+						// Convert full path to thumbnail path
+						thumbnailBasePath = fullResPath.replace('/images/', '/images-thumbnails/').replace(/\.(png|jpg|jpeg)$/i, '');
 					} else if (deckType === 'artistic') {
-						// Artistic uses renderCard function
-						img.src = artisticData.renderCard(card);
+						fullResPath = artisticData.renderCard(card);
+						thumbnailBasePath = fullResPath.replace('/images/', '/images-thumbnails/').replace(/\.(png|jpg|jpeg)$/i, '');
 					} else if (deckType === 'miro') {
-						// Miró uses renderCard function
-						img.src = miroData.renderCard(card);
+						fullResPath = miroData.renderCard(card);
+						thumbnailBasePath = fullResPath.replace('/images/', '/images-thumbnails/').replace(/\.(png|jpg|jpeg)$/i, '');
 					} else if (deckType === 'picasso') {
-						// Picasso uses renderCard function
-						img.src = picassoData.renderCard(card);
+						fullResPath = picassoData.renderCard(card);
+						thumbnailBasePath = fullResPath.replace('/images/', '/images-thumbnails/').replace(/\.(png|jpg|jpeg)$/i, '');
 					}
 
+					// WebP source for modern browsers
+					const sourceWebp = document.createElement('source');
+					sourceWebp.srcset = thumbnailBasePath + '.webp';
+					sourceWebp.type = 'image/webp';
+					picture.appendChild(sourceWebp);
+
+					// Fallback JPEG for older browsers
+					const img = document.createElement('img');
+					img.src = thumbnailBasePath + '.jpg';
 					img.alt = card.name;
 					img.loading = 'lazy';
 					img.decoding = 'async';
 
-					cardThumbnail.appendChild(img);
+					picture.appendChild(img);
+					cardThumbnail.appendChild(picture);
 
-					const imagePath = img.src;
-					cardThumbnail.onclick = () => enlargeCard(imagePath, card.name);
+					// Use full resolution for lightbox
+					cardThumbnail.onclick = () => enlargeCard(fullResPath, card.name);
 
 					fragment.appendChild(cardThumbnail);
 				});
