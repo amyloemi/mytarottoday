@@ -986,7 +986,12 @@
 		<script src="../assets/js/util.js"></script>
 		<script src="../assets/js/main.js"></script>
 
-		<!-- Load card data files -->
+		<!-- NEW: Unified Deck System -->
+		<script src="../decks/shared/DeckRegistry.js"></script>
+		<script src="../decks/shared/PathResolver.js"></script>
+		<script src="../decks/shared/DeckLoader.js"></script>
+
+		<!-- OLD: Legacy deck data files (for backward compatibility) -->
 		<script src="../decks/rider-waite-data.js"></script>
 		<script src="../decks/artistic-data.js"></script>
 		<script src="../decks/miro-data.js"></script>
@@ -1181,21 +1186,27 @@
 			// Clear previous cards
 			cardGrid.innerHTML = '';
 
-			// Get all cards from the selected deck
-			let allCards = [];
-			let deckName = '';
+			// Map deck type to DeckRegistry ID
+			const deckIdMap = {
+				'rider': 'rider-waite',
+				'artistic': 'artistic',
+				'miro': 'miro',
+				'picasso': 'picasso'
+			};
+			const deckId = deckIdMap[deckType] || 'rider-waite';
 
+			// Get all cards from unified DeckLoader
+			const allCards = DeckLoader.getAllCards();
+
+			// Get deck name from translations
+			let deckName = '';
 			if (deckType === 'rider') {
-				allCards = [...riderWaiteData.cards.major, ...riderWaiteData.cards.minor];
 				deckName = translations[currentLanguage].riderWaite;
 			} else if (deckType === 'artistic') {
-				allCards = artisticData.getAllCards();
 				deckName = translations[currentLanguage].artistic;
 			} else if (deckType === 'miro') {
-				allCards = miroData.getAllCards();
 				deckName = translations[currentLanguage].miro;
 			} else if (deckType === 'picasso') {
-				allCards = picassoData.getAllCards();
 				deckName = translations[currentLanguage].picasso;
 			}
 
@@ -1227,52 +1238,17 @@
 					const cardThumbnail = document.createElement('div');
 					cardThumbnail.className = 'card-thumbnail';
 
+					// Use unified DeckLoader to create responsive image with thumbnails
+					const picture = DeckLoader.createResponsiveImage(deckId, card, {
+						thumbnail: true,  // Use optimized thumbnails
+						loading: 'lazy',
+						className: ''
+					});
+
+					cardThumbnail.appendChild(picture);
+
 					// Get full resolution path for lightbox
-					let fullResPath = '';
-					let useThumbnails = false;
-
-					if (deckType === 'rider') {
-						fullResPath = riderWaiteData.getImagePath(card);
-						useThumbnails = true; // Rider-Waite has thumbnails
-					} else if (deckType === 'artistic') {
-						fullResPath = artisticData.renderCard(card);
-					} else if (deckType === 'miro') {
-						fullResPath = miroData.renderCard(card);
-					} else if (deckType === 'picasso') {
-						fullResPath = picassoData.renderCard(card);
-					}
-
-					if (useThumbnails) {
-						// Use optimized thumbnails for Rider-Waite deck
-						const picture = document.createElement('picture');
-						const thumbnailBasePath = fullResPath.replace('/images/', '/images-thumbnails/').replace(/\.(png|jpg|jpeg)$/i, '');
-
-						// WebP source for modern browsers
-						const sourceWebp = document.createElement('source');
-						sourceWebp.srcset = thumbnailBasePath + '.webp';
-						sourceWebp.type = 'image/webp';
-						picture.appendChild(sourceWebp);
-
-						// Fallback JPEG
-						const img = document.createElement('img');
-						img.src = thumbnailBasePath + '.jpg';
-						img.alt = card.name;
-						img.loading = 'lazy';
-						img.decoding = 'async';
-
-						picture.appendChild(img);
-						cardThumbnail.appendChild(picture);
-					} else {
-						// Use original images for other decks
-						const img = document.createElement('img');
-						img.src = fullResPath;
-						img.alt = card.name;
-						img.loading = 'lazy';
-						img.decoding = 'async';
-						cardThumbnail.appendChild(img);
-					}
-
-					// Use full resolution for lightbox
+					const fullResPath = DeckLoader.getImagePath(deckId, card);
 					cardThumbnail.onclick = () => enlargeCard(fullResPath, card.name);
 
 					fragment.appendChild(cardThumbnail);
