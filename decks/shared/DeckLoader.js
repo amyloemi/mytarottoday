@@ -58,7 +58,6 @@ class DeckLoader {
         parts.push(filename);
 
         const finalPath = parts.join('/');
-        console.log(`DeckLoader.getImagePath(${deckId}, card#${card.id}):`, finalPath);
         return finalPath;
     }
 
@@ -73,7 +72,6 @@ class DeckLoader {
         const deck = DECK_REGISTRY.decks[deckId];
         if (!deck || !deck.hasThumbnails) {
             // Fallback to full size if no thumbnails
-            console.log(`No thumbnails for ${deckId}, using full-size`);
             return this.getImagePath(deckId, card);
         }
 
@@ -116,7 +114,6 @@ class DeckLoader {
         parts.push(filename);
 
         const finalPath = parts.join('/');
-        console.log(`DeckLoader.getThumbnailPath(${deckId}, card#${card.id}, ${format}):`, finalPath);
         return finalPath;
     }
 
