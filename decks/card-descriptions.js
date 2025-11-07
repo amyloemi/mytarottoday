@@ -90,7 +90,8 @@ const cardNameTranslations = {
 	ko: {}  // Korean - cards use English names commonly
 };
 
-const cardDescriptions = {
+// Load translations from external JSON file
+let cardDescriptions = {
 	en: {
 		// Major Arcana
 		"The Fool": "A young traveler stands at the cliff's edge, eyes on infinite sky rather than the ground below. The Fool embodies pure potential and spontaneous joy, ready to leap into the unknown. Upright brings innocent new beginnings and fearless adventure. Reversed warns against recklessness and poor judgment in life's journey.",
@@ -181,3 +182,22 @@ const cardDescriptions = {
 		"King of Pentacles": "The king sits enthroned amid symbols of wealth, representing mastery of material world and abundance. This king represents prosperity, business acumen, and the wisdom to build lasting material success. Upright brings prosperity and stability. Reversed indicates greed, materialism, or using wealth for excess rather than meaningful security."
 	}
 };
+
+// Load translations from external JSON file
+(async function loadTranslations() {
+	try {
+		const response = await fetch('../decks/card-descriptions-translations.json');
+		if (response.ok) {
+			const translations = await response.json();
+			// Merge translations into cardDescriptions
+			cardDescriptions.fr = translations.fr;
+			cardDescriptions.es = translations.es;
+			cardDescriptions.zh = translations.zh;
+			cardDescriptions.ja = translations.ja;
+			cardDescriptions.ko = translations.ko;
+			console.log('Card description translations loaded successfully');
+		}
+	} catch (error) {
+		console.warn('Could not load card description translations:', error);
+	}
+})();

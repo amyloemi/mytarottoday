@@ -789,11 +789,29 @@
 				// Set saved language
 				document.getElementById('language-select').value = currentLanguage;
 
-				// Render all cards
-				renderAllCards();
+				// Wait for translations to load, then render
+				const checkTranslations = setInterval(function() {
+					// Check if translations are loaded (cardDescriptions should have more than just 'en')
+					if (typeof cardDescriptions !== 'undefined' &&
+						(Object.keys(cardDescriptions).length > 1 || currentLanguage === 'en')) {
+						clearInterval(checkTranslations);
 
-				// Update UI language
-				updateUILanguage();
+						// Render all cards
+						renderAllCards();
+
+						// Update UI language
+						updateUILanguage();
+					}
+				}, 100);
+
+				// Fallback: render after 3 seconds even if translations aren't loaded
+				setTimeout(function() {
+					clearInterval(checkTranslations);
+					if (renderedSections.size === 0) {
+						renderAllCards();
+						updateUILanguage();
+					}
+				}, 3000);
 			}, 100);
 		});
 		</script>
