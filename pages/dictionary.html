@@ -491,6 +491,7 @@
 		<!-- Load card data -->
 		<script src="../decks/rider-waite-data.js"></script>
 		<script src="../decks/card-descriptions.js"></script>
+		<script src="../decks/card-keywords-translations.js"></script>
 
 		<script>
 		// Current language
@@ -649,6 +650,13 @@
 			return englishName;
 		}
 
+		// Escape HTML to prevent breaking the template
+		function escapeHtml(text) {
+			const div = document.createElement('div');
+			div.textContent = text;
+			return div.innerHTML;
+		}
+
 		// Create card element
 		function createCardElement(card, suitId, index) {
 			const cardDiv = document.createElement('div');
@@ -670,20 +678,31 @@
 				? cardDescriptions[currentLanguage][card.name]
 				: `${card.name} represents a profound moment in the tarot journey.`;
 
+			// Get translated labels
+			const trans = translations[currentLanguage];
+			const uprightLabel = trans.upright.toUpperCase();
+			const reversedLabel = trans.reversed.toUpperCase();
+
+			// Escape all text content to prevent HTML injection issues
+			const safeDescription = escapeHtml(description);
+			const safeDisplayName = escapeHtml(displayName);
+			const safeUpright = meaning ? escapeHtml(meaning.upright) : '';
+			const safeReversed = meaning ? escapeHtml(meaning.reversed) : '';
+
 			cardDiv.innerHTML = `
 				<div class="card-image">
-					<img src="${imagePath}" alt="${card.name}">
+					<img src="${imagePath}" alt="${escapeHtml(card.name)}">
 					<div class="card-overlay">
-						<div class="overlay-description">${description}</div>
+						<div class="overlay-description">${safeDescription}</div>
 					</div>
 				</div>
 				<div class="card-info">
-					<div class="card-name">${displayName}</div>
+					<div class="card-name">${safeDisplayName}</div>
 					<div class="card-keywords">
-						<div class="keyword-label keyword-upright-label">UPRIGHT</div>
-						<span class="keyword-upright">${meaning ? meaning.upright : ''}</span>
-						<div class="keyword-label keyword-reversed-label">REVERSED</div>
-						<span class="keyword-reversed">${meaning ? meaning.reversed : ''}</span>
+						<div class="keyword-label keyword-upright-label">${uprightLabel}</div>
+						<span class="keyword-upright">${safeUpright}</span>
+						<div class="keyword-label keyword-reversed-label">${reversedLabel}</div>
+						<span class="keyword-reversed">${safeReversed}</span>
 					</div>
 				</div>
 			`;
@@ -705,6 +724,14 @@
 		function getCardMeaning(cardName) {
 			if (!riderWaiteData || !riderWaiteData.meanings) return null;
 
+			// Check if we have translated keywords available
+			if (typeof cardKeywordTranslations !== 'undefined' &&
+				cardKeywordTranslations[currentLanguage] &&
+				cardKeywordTranslations[currentLanguage][cardName]) {
+				return cardKeywordTranslations[currentLanguage][cardName];
+			}
+
+			// Fallback to English keywords
 			// Check major arcana
 			const majorCard = riderWaiteData.meanings.major_arcana.find(c => c.name === cardName);
 			if (majorCard) {
