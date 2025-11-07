@@ -16,7 +16,10 @@
       "Bash(open:*)",
       "Bash(node tests/test-registry.js:*)",
       "Bash(cat:*)",
-      "Bash(curl:*)"
+      "Bash(curl:*)",
+      "Bash(jobs)",
+      "Bash(npm install:*)",
+      "Bash(node scripts/optimize-all-decks.js:*)"
     ],
     "deny": [],
     "ask": []

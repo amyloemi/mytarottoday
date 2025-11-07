@@ -25,7 +25,8 @@ const DECK_REGISTRY = {
             name: 'Artistic Tarot',
             folder: 'artistic-tarot-cards',
             imageFormat: 'png',
-            hasThumbnails: false, // Will check in Phase 2
+            hasThumbnails: true,
+            thumbnailFolder: 'artistic-tarot-cards-thumbnails',
             structure: {
                 major: '',  // Flat structure
                 minor: ''   // Flat structure
@@ -39,7 +40,8 @@ const DECK_REGISTRY = {
             name: 'Miró Surrealism',
             folder: 'miro-tarot-cards',
             imageFormat: 'png',
-            hasThumbnails: false, // Will check in Phase 2
+            hasThumbnails: true,
+            thumbnailFolder: 'miro-tarot-cards-thumbnails',
             structure: {
                 major: '',  // Flat structure
                 minor: ''   // Flat structure
@@ -51,7 +53,8 @@ const DECK_REGISTRY = {
             name: 'Picasso Cubism',
             folder: 'picasso-tarot-cards',
             imageFormat: 'png',
-            hasThumbnails: false, // Will check in Phase 2
+            hasThumbnails: true,
+            thumbnailFolder: 'picasso-tarot-cards-thumbnails',
             structure: {
                 major: '',  // Flat structure
                 minor: ''   // Flat structure

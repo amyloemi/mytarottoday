@@ -1256,16 +1256,15 @@
 			currentCard = selectedCard;
 			currentIsReversed = isReversed;
 
-			// Render card based on deck type
-			// TEMPORARY: Use old renderers for artistic/miro until image files are renamed
-			// Use unified renderer for rider-waite (which has correct structure)
-			if (currentDeck === 'rider') {
-				renderCardUnified('rider-waite', selectedCard, isReversed);
-			} else if (currentDeck === 'artistic') {
-				renderArtisticCard(selectedCard, isReversed);
-			} else if (currentDeck === 'miro') {
-				renderMiroCard(selectedCard, isReversed);
-			}
+			// Render card using unified loader with thumbnails
+			const deckIdMap = {
+				'rider': 'rider-waite',
+				'artistic': 'artistic',
+				'miro': 'miro',
+				'picasso': 'picasso'
+			};
+			const deckId = deckIdMap[currentDeck] || 'rider-waite';
+			renderCardUnified(deckId, selectedCard, isReversed);
 
 			// Update card info
 			const trans = translations[currentLanguage];

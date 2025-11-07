@@ -37,15 +37,19 @@ class DeckLoader {
         }
 
         // Build filename
-        // For Rider-Waite minor arcana, filename already includes number (e.g., "7-of-cups")
-        // For major arcana, we need to prepend number (e.g., "00-" + "the-fool")
         let filename;
-        if (deckId === 'rider-waite' && card.type === 'minor') {
-            // Rider-Waite minor: filename is complete (e.g., "7-of-cups.png")
-            filename = `${card.filename}.${deck.imageFormat}`;
+        if (deckId === 'rider-waite') {
+            // Rider-Waite: Complex naming
+            if (card.type === 'minor') {
+                // Minor: filename is complete (e.g., "7-of-cups.png")
+                filename = `${card.filename}.${deck.imageFormat}`;
+            } else {
+                // Major: prepend number (e.g., "00-the-fool.png")
+                filename = `${paddedNumber}-${card.filename}.${deck.imageFormat}`;
+            }
         } else {
-            // All others: prepend number (e.g., "00-the-fool.png")
-            filename = `${paddedNumber}-${card.filename}.${deck.imageFormat}`;
+            // Artistic/Miro/Picasso: filename already complete (e.g., "01-the-fool.png")
+            filename = `${card.filename}.${deck.imageFormat}`;
         }
 
         // Combine parts
@@ -91,14 +95,19 @@ class DeckLoader {
         }
 
         // Build filename
-        // For Rider-Waite minor arcana, filename already includes number (e.g., "7-of-cups")
         let filename;
-        if (deckId === 'rider-waite' && card.type === 'minor') {
-            // Rider-Waite minor: filename is complete (e.g., "7-of-cups.webp")
-            filename = `${card.filename}.${format}`;
+        if (deckId === 'rider-waite') {
+            // Rider-Waite: Complex naming
+            if (card.type === 'minor') {
+                // Minor: filename is complete (e.g., "7-of-cups.webp")
+                filename = `${card.filename}.${format}`;
+            } else {
+                // Major: prepend number (e.g., "00-the-fool.webp")
+                filename = `${paddedNumber}-${card.filename}.${format}`;
+            }
         } else {
-            // All others: prepend number (e.g., "00-the-fool.webp")
-            filename = `${paddedNumber}-${card.filename}.${format}`;
+            // Artistic/Miro/Picasso: filename already complete (e.g., "01-the-fool.webp")
+            filename = `${card.filename}.${format}`;
         }
 
         // Combine parts
