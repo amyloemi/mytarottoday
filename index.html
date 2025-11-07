@@ -91,9 +91,27 @@
 
 			#banner {
 				background:
-					linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-					url('images/backgrounds/tarot-background.jpg') center/cover;
-				box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.3);
+					radial-gradient(circle at 20% 30%, rgba(255, 215, 0, 0.08) 0%, transparent 40%),
+					radial-gradient(circle at 80% 70%, rgba(147, 112, 219, 0.1) 0%, transparent 40%),
+					radial-gradient(ellipse at 50% 20%, rgba(255, 255, 255, 0.8) 0%, rgba(255, 215, 0, 0.25) 25%, transparent 60%);
+				background-size: 100% 100%;
+				position: relative;
+			}
+
+			#banner::before {
+				content: '';
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				background-image:
+					radial-gradient(circle, rgba(255, 255, 255, 0.4) 1px, transparent 1px),
+					radial-gradient(circle, rgba(255, 215, 0, 0.3) 1px, transparent 1px),
+					radial-gradient(circle, rgba(147, 112, 219, 0.3) 1px, transparent 1px);
+				background-size: 80px 80px, 120px 120px, 100px 100px;
+				background-position: 0 0, 40px 40px, 60px 20px;
+				pointer-events: none;
 			}
 
 			/* Make header text visible when scrolling over white background */
@@ -122,29 +140,7 @@
 			#deck-selection {
 				padding: 60px 20px;
 				text-align: center;
-				background:
-					radial-gradient(circle at 20% 30%, rgba(255, 215, 0, 0.08) 0%, transparent 40%),
-					radial-gradient(circle at 80% 70%, rgba(147, 112, 219, 0.1) 0%, transparent 40%),
-					radial-gradient(ellipse at 50% 20%, rgba(255, 255, 255, 0.8) 0%, rgba(255, 215, 0, 0.25) 25%, transparent 60%);
-				background-size: 100% 100%;
-				position: relative;
 				animation: fadeIn 0.8s ease;
-			}
-
-			#deck-selection::before {
-				content: '';
-				position: absolute;
-				top: 0;
-				left: 0;
-				right: 0;
-				bottom: 0;
-				background-image:
-					radial-gradient(circle, rgba(255, 255, 255, 0.4) 1px, transparent 1px),
-					radial-gradient(circle, rgba(255, 215, 0, 0.3) 1px, transparent 1px),
-					radial-gradient(circle, rgba(147, 112, 219, 0.3) 1px, transparent 1px);
-				background-size: 80px 80px, 120px 120px, 100px 100px;
-				background-position: 0 0, 40px 40px, 60px 20px;
-				pointer-events: none;
 			}
 
 			#deck-selection h2 {
@@ -162,10 +158,10 @@
 			}
 
 			#question-text {
-				font-size: 1.8em;
+				font-size: 2.5em;
 				color: white;
 				text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
-				font-weight: 500;
+				font-weight: normal;
 				position: absolute;
 				width: 100%;
 				transition: none;
@@ -522,10 +518,18 @@
 				padding-top: 50px;
 			}
 
-			#banner h2#title {
+			#banner > * {
+				position: relative;
+				z-index: 1;
+			}
+
+			#card-of-today {
+				font-size: 2.5em !important;
+				color: rgba(255, 255, 255, 0.9);
+				margin-top: 10px;
+				margin-bottom: 15px;
+				text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
 				font-family: 'Apple Chancery', cursive, serif;
-				font-size: 3.5em;
-				font-weight: normal;
 				letter-spacing: 1px;
 			}
 
@@ -630,8 +634,16 @@
 
 			<!-- Banner -->
 				<section id="banner">
-					<h2 id="title">Card of Today</h2>
-					<p id="subtitle">Your daily guidance awaits</p>
+					<p id="card-of-today">Card of Today</p>
+					<div id="question-dots" onclick="cycleQuestion()">
+						<div class="dot animate-0"></div>
+						<div class="dot animate-1"></div>
+						<div class="dot animate-2"></div>
+					</div>
+					<div id="question-container">
+						<div id="question-text">Where should I focus my intention today?</div>
+					</div>
+					<p id="subtitle" data-translate="chooseYourDeck">Select one to begin your reading</p>
 				</section>
 
 			<!-- Main -->
@@ -639,16 +651,6 @@
 
 					<!-- Deck Selection -->
 					<section id="deck-selection">
-						<div id="question-dots" onclick="cycleQuestion()">
-							<div class="dot animate-0"></div>
-							<div class="dot animate-1"></div>
-							<div class="dot animate-2"></div>
-						</div>
-						<div id="question-container">
-							<div id="question-text">Where should I focus my intention today?</div>
-						</div>
-						<h2 id="deck-selection-subtitle" data-translate="chooseYourDeck">Select one to begin your reading</h2>
-
 						<div class="deck-options">
 							<!-- Rider-Waite Classic -->
 							<div class="deck-card" onclick="selectDeck('rider')">
@@ -732,7 +734,7 @@
 		const translations = {
 			en: {
 				title: "Card of Today",
-				subtitle: "Your daily guidance awaits",
+				subtitle: "Select one to begin your reading",
 				chooseYourDeck: "Select one to begin your reading",
 					riderWaite: "Rider-Waite Classic",
 					artistic: "Artistic Tarot",
@@ -745,7 +747,7 @@
 			},
 			fr: {
 				title: "Carte du Jour",
-				subtitle: "Vos conseils quotidiens vous attendent",
+				subtitle: "Sélectionnez-en un pour commencer votre lecture",
 				chooseYourDeck: "Sélectionnez-en un pour commencer votre lecture",
 					riderWaite: "Rider-Waite Classique",
 					artistic: "Tarot Artistique",
@@ -758,7 +760,7 @@
 			},
 			es: {
 				title: "Carta del Día",
-				subtitle: "Tu guía diaria te espera",
+				subtitle: "Selecciona uno para comenzar tu lectura",
 				chooseYourDeck: "Selecciona uno para comenzar tu lectura",
 					riderWaite: "Rider-Waite Clásico",
 					artistic: "Tarot Artístico",
@@ -771,7 +773,7 @@
 			},
 			zh: {
 				title: "今日塔罗牌",
-				subtitle: "您的每日指引在等待",
+				subtitle: "选择一个开始您的阅读",
 				chooseYourDeck: "选择一个开始您的阅读",
 					riderWaite: "经典莱德伟特",
 					artistic: "艺术塔罗",
@@ -784,7 +786,7 @@
 			},
 			ja: {
 				title: "今日のカード",
-				subtitle: "あなたの毎日のガイダンスが待っています",
+				subtitle: "リーディングを始めるには1つ選択してください",
 				chooseYourDeck: "リーディングを始めるには1つ選択してください",
 					riderWaite: "ライダーウェイトクラシック",
 					artistic: "アーティスティックタロット",
@@ -797,7 +799,7 @@
 			},
 			ko: {
 				title: "오늘의 카드",
-				subtitle: "당신의 일일 안내를 기다리고 있습니다",
+				subtitle: "리딩을 시작하려면 하나를 선택하세요",
 				chooseYourDeck: "리딩을 시작하려면 하나를 선택하세요",
 				deckSubtitle: "리딩을 위한 예술 스타일 선택",
 				riderWaite: "라이더 웨이트 클래식",
@@ -1146,7 +1148,7 @@
 			const trans = translations[currentLanguage];
 
 			// Update all translatable elements
-			document.getElementById('title').textContent = trans.title;
+			document.getElementById('card-of-today').textContent = trans.title;
 			document.getElementById('subtitle').textContent = trans.subtitle;
 
 			const elements = document.querySelectorAll('[data-translate]');
