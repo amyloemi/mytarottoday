@@ -916,6 +916,7 @@
 		<script src="decks/shared/DeckRegistry.js"></script>
 		<script src="decks/shared/PathResolver.js"></script>
 		<script src="decks/shared/DeckLoader.js"></script>
+		<script src="decks/shared/PerformanceMonitor.js"></script>
 
 		<script>
 		// Language translations
@@ -1330,6 +1331,11 @@
 
 			// Add error handler with fallback
 			DeckLoader.addErrorHandler(img);
+
+			// Add performance monitoring
+			if (typeof PerformanceMonitor !== 'undefined') {
+				PerformanceMonitor.measureImageLoad(img, deckId, card.name);
+			}
 
 			// Add loading state handlers
 			img.onload = () => {
