@@ -492,6 +492,19 @@
 		<script src="../decks/rider-waite-data.js"></script>
 		<script src="../decks/card-descriptions.js"></script>
 
+		<!-- Load keyword translations -->
+		<script>
+			// Load card keyword translations
+			let cardKeywordTranslations = {};
+			fetch('../decks/card-keyword-translations.json')
+				.then(response => response.json())
+				.then(data => {
+					cardKeywordTranslations = data;
+					console.log('Card keyword translations loaded');
+				})
+				.catch(error => console.error('Error loading keyword translations:', error));
+		</script>
+
 		<script>
 		// Current language
 		let currentLanguage = localStorage.getItem('tarotLanguage') || 'en';

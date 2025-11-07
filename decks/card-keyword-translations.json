@@ -1,0 +1,1572 @@
+{
+  "fr": {
+    "The Fool": {
+      "upright": "innocence, nouveaux départs, esprit libre",
+      "reversed": "imprudence, être exploité, manque de considération"
+    },
+    "The Magician": {
+      "upright": "volonté, désir, création, manifestation",
+      "reversed": "tromperie, illusions, déconnecté"
+    },
+    "The High Priestess": {
+      "upright": "intuitive, inconscient, voix intérieure",
+      "reversed": "manque de centre, voix intérieure perdue, sentiments refoulés"
+    },
+    "The Empress": {
+      "upright": "maternité, fertilité, nature",
+      "reversed": "dépendance, étouffement, vide, indiscrétion"
+    },
+    "The Emperor": {
+      "upright": "autorité, structure, contrôle, paternité",
+      "reversed": "tyrannie, rigidité, froideur"
+    },
+    "The Hierophant": {
+      "upright": "tradition, conformité, moralité, éthique",
+      "reversed": "rébellion, subversion, nouvelles approches"
+    },
+    "The Lovers": {
+      "upright": "partenariats, dualité, union",
+      "reversed": "perte d'équilibre, unilatéral, disharmonie"
+    },
+    "The Chariot": {
+      "upright": "direction, contrôle, volonté",
+      "reversed": "manque de contrôle, manque de direction, agression"
+    },
+    "Strength": {
+      "upright": "force intérieure, bravoure, compassion, concentration",
+      "reversed": "doute de soi, faiblesse, insécurité"
+    },
+    "The Hermit": {
+      "upright": "contemplation, recherche de vérité, guidance intérieure",
+      "reversed": "solitude, isolation, avoir perdu son chemin"
+    },
+    "Wheel of Fortune": {
+      "upright": "changement, cycles, destin inévitable",
+      "reversed": "pas de contrôle, s'accrocher au contrôle, malchance"
+    },
+    "Justice": {
+      "upright": "cause et effet, clarté, vérité",
+      "reversed": "malhonnêteté, irresponsabilité, injustice"
+    },
+    "The Hanged Man": {
+      "upright": "sacrifice, libération, martyre",
+      "reversed": "temporisation, sacrifice inutile, peur du sacrifice"
+    },
+    "Death": {
+      "upright": "fin de cycle, commencements, changement, métamorphose",
+      "reversed": "peur du changement, s'accrocher, stagnation, décadence"
+    },
+    "Temperance": {
+      "upright": "voie du milieu, patience, trouver du sens",
+      "reversed": "extrêmes, excès, manque d'équilibre"
+    },
+    "The Devil": {
+      "upright": "addiction, matérialisme, espièglerie",
+      "reversed": "liberté, libération, reprendre le contrôle"
+    },
+    "The Tower": {
+      "upright": "bouleversement soudain, orgueil brisé, désastre",
+      "reversed": "désastre évité, désastre retardé, peur de souffrir"
+    },
+    "The Star": {
+      "upright": "espoir, foi, rajeunissement",
+      "reversed": "manque de foi, découragement, insécurité"
+    },
+    "The Moon": {
+      "upright": "inconscient, illusions, intuition",
+      "reversed": "confusion, peur, mauvaise interprétation"
+    },
+    "The Sun": {
+      "upright": "joie, succès, célébration, positivité",
+      "reversed": "négativité, dépression, tristesse"
+    },
+    "Judgement": {
+      "upright": "réflexion, jugement, éveil",
+      "reversed": "manque de conscience de soi, doute, dégoût de soi"
+    },
+    "The World": {
+      "upright": "accomplissement, harmonie, achèvement",
+      "reversed": "inachèvement, pas de clôture"
+    },
+    "Ace of Wands": {
+      "upright": "création, volonté, inspiration, désir",
+      "reversed": "manque d'énergie, manque de passion, ennui"
+    },
+    "Two of Wands": {
+      "upright": "planification, prendre des décisions, quitter la maison",
+      "reversed": "peur du changement, jouer la sécurité, mauvaise planification"
+    },
+    "Three of Wands": {
+      "upright": "regarder vers l'avenir, expansion, croissance rapide",
+      "reversed": "obstacles, retards, frustration"
+    },
+    "Four of Wands": {
+      "upright": "communauté, foyer, célébration",
+      "reversed": "manque de soutien, temporaire, conflits domestiques"
+    },
+    "Five of Wands": {
+      "upright": "compétition, rivalité, conflit",
+      "reversed": "éviter les conflits, respecter les différences"
+    },
+    "Six of Wands": {
+      "upright": "victoire, succès, récompense publique",
+      "reversed": "fierté excessive, manque de reconnaissance, punition"
+    },
+    "Seven of Wands": {
+      "upright": "persévérance, défensif, maintenir le contrôle",
+      "reversed": "abandonner, confiance détruite, submergé"
+    },
+    "Eight of Wands": {
+      "upright": "action rapide, mouvement, décisions rapides",
+      "reversed": "panique, attente, ralentissement"
+    },
+    "Nine of Wands": {
+      "upright": "résilience, courage, dernier combat",
+      "reversed": "épuisement, fatigue, remettre en question les motivations"
+    },
+    "Ten of Wands": {
+      "upright": "accomplissement, responsabilité, fardeau",
+      "reversed": "incapacité à déléguer, surchargé, épuisement"
+    },
+    "Page of Wands": {
+      "upright": "exploration, excitation, liberté",
+      "reversed": "manque de direction, procrastination, créer des conflits"
+    },
+    "Knight of Wands": {
+      "upright": "action, aventure, intrépidité",
+      "reversed": "colère, impulsivité, imprudence"
+    },
+    "Queen of Wands": {
+      "upright": "courage, détermination, joie",
+      "reversed": "égoïsme, jalousie, insécurités"
+    },
+    "King of Wands": {
+      "upright": "vue d'ensemble, leader, surmonter les défis",
+      "reversed": "impulsif, autoritaire, attentes irréalisables"
+    },
+    "Ace of Cups": {
+      "upright": "nouveaux sentiments, spiritualité, intuition",
+      "reversed": "perte émotionnelle, créativité bloquée, vide"
+    },
+    "Two of Cups": {
+      "upright": "unité, partenariat, connexion",
+      "reversed": "déséquilibre, communication brisée, tension"
+    },
+    "Three of Cups": {
+      "upright": "amitié, communauté, bonheur",
+      "reversed": "excès, commérages, isolation"
+    },
+    "Four of Cups": {
+      "upright": "apathie, contemplation, déconnexion",
+      "reversed": "prise de conscience soudaine, choisir le bonheur, acceptation"
+    },
+    "Five of Cups": {
+      "upright": "perte, chagrin, apitoiement sur soi",
+      "reversed": "acceptation, avancer, trouver la paix"
+    },
+    "Six of Cups": {
+      "upright": "familiarité, souvenirs heureux, guérison",
+      "reversed": "aller de l'avant, quitter la maison, indépendance"
+    },
+    "Seven of Cups": {
+      "upright": "chercher un but, choix, rêverie",
+      "reversed": "manque de but, diversion, confusion"
+    },
+    "Eight of Cups": {
+      "upright": "partir, désillusion, laisser derrière",
+      "reversed": "évitement, peur du changement, peur de la perte"
+    },
+    "Nine of Cups": {
+      "upright": "satisfaction, stabilité émotionnelle, luxe",
+      "reversed": "manque de joie intérieure, suffisance, insatisfaction"
+    },
+    "Ten of Cups": {
+      "upright": "bonheur intérieur, accomplissement, rêves qui se réalisent",
+      "reversed": "rêves brisés, famille brisée, disharmonie domestique"
+    },
+    "Page of Cups": {
+      "upright": "heureuse surprise, rêveur, sensibilité",
+      "reversed": "immaturité émotionnelle, insécurité, déception"
+    },
+    "Knight of Cups": {
+      "upright": "suivre son cœur, idéaliste, romantique",
+      "reversed": "humeur changeante, déception"
+    },
+    "Queen of Cups": {
+      "upright": "compassion, calme, réconfort",
+      "reversed": "martyre, insécurité, dépendance"
+    },
+    "King of Cups": {
+      "upright": "compassion, contrôle, équilibre",
+      "reversed": "froideur, humeur changeante, mauvais conseil"
+    },
+    "Ace of Swords": {
+      "upright": "percée, clarté, esprit vif",
+      "reversed": "confusion, brutalité, chaos"
+    },
+    "Two of Swords": {
+      "upright": "choix difficiles, indécision, impasse",
+      "reversed": "le moindre de deux maux, pas de bon choix, confusion"
+    },
+    "Three of Swords": {
+      "upright": "chagrin d'amour, souffrance, deuil",
+      "reversed": "guérison, pardon, avancer"
+    },
+    "Four of Swords": {
+      "upright": "repos, restauration, contemplation",
+      "reversed": "agitation, épuisement, stress"
+    },
+    "Five of Swords": {
+      "upright": "ambition débridée, gagner à tout prix, sournoiserie",
+      "reversed": "ressentiment persistant, désir de réconciliation, pardon"
+    },
+    "Six of Swords": {
+      "upright": "transition, laisser derrière, avancer",
+      "reversed": "bagages émotionnels, problèmes non résolus, résister à la transition"
+    },
+    "Seven of Swords": {
+      "upright": "tromperie, ruse, tactiques et stratégie",
+      "reversed": "avouer, repenser l'approche, tromperie"
+    },
+    "Eight of Swords": {
+      "upright": "emprisonnement, piège, auto-victimisation",
+      "reversed": "acceptation de soi, nouvelle perspective, liberté"
+    },
+    "Nine of Swords": {
+      "upright": "anxiété, désespoir, traumatisme",
+      "reversed": "espoir, tendre la main, désespoir"
+    },
+    "Ten of Swords": {
+      "upright": "échec, effondrement, défaite",
+      "reversed": "ne peut empirer, seulement vers le haut, fin inévitable"
+    },
+    "Page of Swords": {
+      "upright": "curiosité, agitation, énergie mentale",
+      "reversed": "tromperie, manipulation, tout en paroles"
+    },
+    "Knight of Swords": {
+      "upright": "action, impulsivité, défendre ses convictions",
+      "reversed": "pas de direction, mépris des conséquences, imprévisibilité"
+    },
+    "Queen of Swords": {
+      "upright": "complexité, perspicacité, clarté d'esprit",
+      "reversed": "cœur froid, cruauté, amertume"
+    },
+    "King of Swords": {
+      "upright": "raison sur émotion, discipline, vérité",
+      "reversed": "manipulateur, cruel, faiblesse"
+    },
+    "Ace of Pentacles": {
+      "upright": "opportunité, prospérité, nouvelle entreprise",
+      "reversed": "opportunité perdue, chance manquée, mauvais investissement"
+    },
+    "Two of Pentacles": {
+      "upright": "équilibrer les décisions, priorités, s'adapter au changement",
+      "reversed": "perte d'équilibre, désorganisé, submergé"
+    },
+    "Three of Pentacles": {
+      "upright": "travail d'équipe, collaboration, construction",
+      "reversed": "manque de travail d'équipe, désorganisé, conflit de groupe"
+    },
+    "Four of Pentacles": {
+      "upright": "conservation, frugalité, sécurité",
+      "reversed": "avidité, avarice, possessivité"
+    },
+    "Five of Pentacles": {
+      "upright": "besoin, pauvreté, insécurité",
+      "reversed": "rétablissement, charité, amélioration"
+    },
+    "Six of Pentacles": {
+      "upright": "charité, générosité, partage",
+      "reversed": "conditions attachées, avarice, pouvoir et domination"
+    },
+    "Seven of Pentacles": {
+      "upright": "travail acharné, persévérance, diligence",
+      "reversed": "travail sans résultats, distractions, manque de récompenses"
+    },
+    "Eight of Pentacles": {
+      "upright": "apprentissage, passion, hauts standards",
+      "reversed": "manque de passion, sans inspiration, pas de motivation"
+    },
+    "Nine of Pentacles": {
+      "upright": "fruits du travail, récompenses, luxe",
+      "reversed": "dépenses imprudentes, vivre au-dessus de ses moyens, faux succès"
+    },
+    "Ten of Pentacles": {
+      "upright": "héritage, aboutissement, patrimoine",
+      "reversed": "succès éphémère, manque de stabilité, manque de ressources"
+    },
+    "Page of Pentacles": {
+      "upright": "ambition, désir, diligence",
+      "reversed": "manque d'engagement, avidité, paresse"
+    },
+    "Knight of Pentacles": {
+      "upright": "efficacité, travail acharné, responsabilité",
+      "reversed": "paresse, obsession, travail sans récompense"
+    },
+    "Queen of Pentacles": {
+      "upright": "praticité, confort matériel, sécurité financière",
+      "reversed": "égocentrisme, jalousie, étouffement"
+    },
+    "King of Pentacles": {
+      "upright": "abondance, prospérité, sécurité",
+      "reversed": "avidité, indulgence, sensualité"
+    }
+  },
+  "es": {
+    "The Fool": {
+      "upright": "inocencia, nuevos comienzos, espíritu libre",
+      "reversed": "imprudencia, ser aprovechado, falta de consideración"
+    },
+    "The Magician": {
+      "upright": "voluntad, deseo, creación, manifestación",
+      "reversed": "engaño, ilusiones, desconectado"
+    },
+    "The High Priestess": {
+      "upright": "intuitiva, inconsciente, voz interior",
+      "reversed": "falta de centro, voz interior perdida, sentimientos reprimidos"
+    },
+    "The Empress": {
+      "upright": "maternidad, fertilidad, naturaleza",
+      "reversed": "dependencia, asfixia, vacío, entrometimiento"
+    },
+    "The Emperor": {
+      "upright": "autoridad, estructura, control, paternidad",
+      "reversed": "tiranía, rigidez, frialdad"
+    },
+    "The Hierophant": {
+      "upright": "tradición, conformidad, moralidad, ética",
+      "reversed": "rebelión, subversión, nuevos enfoques"
+    },
+    "The Lovers": {
+      "upright": "asociaciones, dualidad, unión",
+      "reversed": "pérdida de equilibrio, unilateral, desarmonía"
+    },
+    "The Chariot": {
+      "upright": "dirección, control, fuerza de voluntad",
+      "reversed": "falta de control, falta de dirección, agresión"
+    },
+    "Strength": {
+      "upright": "fuerza interior, valentía, compasión, enfoque",
+      "reversed": "duda de uno mismo, debilidad, inseguridad"
+    },
+    "The Hermit": {
+      "upright": "contemplación, búsqueda de verdad, guía interior",
+      "reversed": "soledad, aislamiento, haber perdido el camino"
+    },
+    "Wheel of Fortune": {
+      "upright": "cambio, ciclos, destino inevitable",
+      "reversed": "sin control, aferrarse al control, mala suerte"
+    },
+    "Justice": {
+      "upright": "causa y efecto, claridad, verdad",
+      "reversed": "deshonestidad, falta de responsabilidad, injusticia"
+    },
+    "The Hanged Man": {
+      "upright": "sacrificio, liberación, martirio",
+      "reversed": "estancamiento, sacrificio innecesario, miedo al sacrificio"
+    },
+    "Death": {
+      "upright": "fin de ciclo, comienzos, cambio, metamorfosis",
+      "reversed": "miedo al cambio, aferrarse, estancamiento, decadencia"
+    },
+    "Temperance": {
+      "upright": "camino medio, paciencia, encontrar significado",
+      "reversed": "extremos, exceso, falta de equilibrio"
+    },
+    "The Devil": {
+      "upright": "adicción, materialismo, picardía",
+      "reversed": "libertad, liberación, retomar el control"
+    },
+    "The Tower": {
+      "upright": "trastorno repentino, orgullo roto, desastre",
+      "reversed": "desastre evitado, desastre retrasado, miedo al sufrimiento"
+    },
+    "The Star": {
+      "upright": "esperanza, fe, rejuvenecimiento",
+      "reversed": "falta de fe, desánimo, inseguridad"
+    },
+    "The Moon": {
+      "upright": "inconsciente, ilusiones, intuición",
+      "reversed": "confusión, miedo, mala interpretación"
+    },
+    "The Sun": {
+      "upright": "alegría, éxito, celebración, positividad",
+      "reversed": "negatividad, depresión, tristeza"
+    },
+    "Judgement": {
+      "upright": "reflexión, ajuste de cuentas, despertar",
+      "reversed": "falta de autoconciencia, duda, odio a sí mismo"
+    },
+    "The World": {
+      "upright": "realización, armonía, culminación",
+      "reversed": "incompletitud, sin cierre"
+    },
+    "Ace of Wands": {
+      "upright": "creación, fuerza de voluntad, inspiración, deseo",
+      "reversed": "falta de energía, falta de pasión, aburrimiento"
+    },
+    "Two of Wands": {
+      "upright": "planificación, tomar decisiones, dejar el hogar",
+      "reversed": "miedo al cambio, jugar a lo seguro, mala planificación"
+    },
+    "Three of Wands": {
+      "upright": "mirar hacia adelante, expansión, crecimiento rápido",
+      "reversed": "obstáculos, retrasos, frustración"
+    },
+    "Four of Wands": {
+      "upright": "comunidad, hogar, celebración",
+      "reversed": "falta de apoyo, transitorio, conflictos domésticos"
+    },
+    "Five of Wands": {
+      "upright": "competencia, rivalidad, conflicto",
+      "reversed": "evitar conflictos, respetar diferencias"
+    },
+    "Six of Wands": {
+      "upright": "victoria, éxito, recompensa pública",
+      "reversed": "orgullo excesivo, falta de reconocimiento, castigo"
+    },
+    "Seven of Wands": {
+      "upright": "perseverancia, defensivo, mantener el control",
+      "reversed": "rendirse, confianza destruida, abrumado"
+    },
+    "Eight of Wands": {
+      "upright": "acción rápida, movimiento, decisiones rápidas",
+      "reversed": "pánico, espera, desaceleración"
+    },
+    "Nine of Wands": {
+      "upright": "resiliencia, coraje, última batalla",
+      "reversed": "agotamiento, fatiga, cuestionar motivaciones"
+    },
+    "Ten of Wands": {
+      "upright": "logro, responsabilidad, carga",
+      "reversed": "incapacidad para delegar, sobrecargado, quemado"
+    },
+    "Page of Wands": {
+      "upright": "exploración, emoción, libertad",
+      "reversed": "falta de dirección, procrastinación, crear conflictos"
+    },
+    "Knight of Wands": {
+      "upright": "acción, aventura, intrepidez",
+      "reversed": "ira, impulsividad, imprudencia"
+    },
+    "Queen of Wands": {
+      "upright": "coraje, determinación, alegría",
+      "reversed": "egoísmo, celos, inseguridades"
+    },
+    "King of Wands": {
+      "upright": "visión general, líder, superar desafíos",
+      "reversed": "impulsivo, autoritario, expectativas inalcanzables"
+    },
+    "Ace of Cups": {
+      "upright": "nuevos sentimientos, espiritualidad, intuición",
+      "reversed": "pérdida emocional, creatividad bloqueada, vacío"
+    },
+    "Two of Cups": {
+      "upright": "unidad, asociación, conexión",
+      "reversed": "desequilibrio, comunicación rota, tensión"
+    },
+    "Three of Cups": {
+      "upright": "amistad, comunidad, felicidad",
+      "reversed": "exceso, chismes, aislamiento"
+    },
+    "Four of Cups": {
+      "upright": "apatía, contemplación, desconexión",
+      "reversed": "conciencia repentina, elegir la felicidad, aceptación"
+    },
+    "Five of Cups": {
+      "upright": "pérdida, dolor, autocompasión",
+      "reversed": "aceptación, seguir adelante, encontrar paz"
+    },
+    "Six of Cups": {
+      "upright": "familiaridad, recuerdos felices, sanación",
+      "reversed": "avanzar, dejar el hogar, independencia"
+    },
+    "Seven of Cups": {
+      "upright": "buscar propósito, opciones, soñar despierto",
+      "reversed": "falta de propósito, distracción, confusión"
+    },
+    "Eight of Cups": {
+      "upright": "alejarse, desilusión, dejar atrás",
+      "reversed": "evitación, miedo al cambio, miedo a la pérdida"
+    },
+    "Nine of Cups": {
+      "upright": "satisfacción, estabilidad emocional, lujo",
+      "reversed": "falta de alegría interior, engreimiento, insatisfacción"
+    },
+    "Ten of Cups": {
+      "upright": "felicidad interior, realización, sueños hechos realidad",
+      "reversed": "sueños rotos, familia rota, desarmonía doméstica"
+    },
+    "Page of Cups": {
+      "upright": "sorpresa feliz, soñador, sensibilidad",
+      "reversed": "inmadurez emocional, inseguridad, decepción"
+    },
+    "Knight of Cups": {
+      "upright": "seguir el corazón, idealista, romántico",
+      "reversed": "mal humor, decepción"
+    },
+    "Queen of Cups": {
+      "upright": "compasión, calma, consuelo",
+      "reversed": "martirio, inseguridad, dependencia"
+    },
+    "King of Cups": {
+      "upright": "compasión, control, equilibrio",
+      "reversed": "frialdad, mal humor, mal consejo"
+    },
+    "Ace of Swords": {
+      "upright": "avance, claridad, mente aguda",
+      "reversed": "confusión, brutalidad, caos"
+    },
+    "Two of Swords": {
+      "upright": "elecciones difíciles, indecisión, punto muerto",
+      "reversed": "el menor de dos males, sin buena opción, confusión"
+    },
+    "Three of Swords": {
+      "upright": "desamor, sufrimiento, duelo",
+      "reversed": "recuperación, perdón, seguir adelante"
+    },
+    "Four of Swords": {
+      "upright": "descanso, restauración, contemplación",
+      "reversed": "inquietud, agotamiento, estrés"
+    },
+    "Five of Swords": {
+      "upright": "ambición desmedida, ganar a toda costa, astucia",
+      "reversed": "resentimiento persistente, deseo de reconciliación, perdón"
+    },
+    "Six of Swords": {
+      "upright": "transición, dejar atrás, seguir adelante",
+      "reversed": "equipaje emocional, problemas sin resolver, resistir la transición"
+    },
+    "Seven of Swords": {
+      "upright": "engaño, astucia, tácticas y estrategia",
+      "reversed": "confesar, repensar el enfoque, engaño"
+    },
+    "Eight of Swords": {
+      "upright": "encarcelamiento, trampa, auto-victimización",
+      "reversed": "auto-aceptación, nueva perspectiva, libertad"
+    },
+    "Nine of Swords": {
+      "upright": "ansiedad, desesperanza, trauma",
+      "reversed": "esperanza, tender la mano, desesperación"
+    },
+    "Ten of Swords": {
+      "upright": "fracaso, colapso, derrota",
+      "reversed": "no puede empeorar, solo hacia arriba, fin inevitable"
+    },
+    "Page of Swords": {
+      "upright": "curiosidad, inquietud, energía mental",
+      "reversed": "engaño, manipulación, todo palabras"
+    },
+    "Knight of Swords": {
+      "upright": "acción, impulsividad, defender creencias",
+      "reversed": "sin dirección, desprecio por consecuencias, imprevisibilidad"
+    },
+    "Queen of Swords": {
+      "upright": "complejidad, perspicacia, claridad mental",
+      "reversed": "corazón frío, crueldad, amargura"
+    },
+    "King of Swords": {
+      "upright": "razón sobre emoción, disciplina, verdad",
+      "reversed": "manipulador, cruel, debilidad"
+    },
+    "Ace of Pentacles": {
+      "upright": "oportunidad, prosperidad, nueva empresa",
+      "reversed": "oportunidad perdida, chance perdida, mala inversión"
+    },
+    "Two of Pentacles": {
+      "upright": "equilibrar decisiones, prioridades, adaptarse al cambio",
+      "reversed": "pérdida de equilibrio, desorganizado, abrumado"
+    },
+    "Three of Pentacles": {
+      "upright": "trabajo en equipo, colaboración, construcción",
+      "reversed": "falta de trabajo en equipo, desorganizado, conflicto grupal"
+    },
+    "Four of Pentacles": {
+      "upright": "conservación, frugalidad, seguridad",
+      "reversed": "codicia, avaricia, posesividad"
+    },
+    "Five of Pentacles": {
+      "upright": "necesidad, pobreza, inseguridad",
+      "reversed": "recuperación, caridad, mejora"
+    },
+    "Six of Pentacles": {
+      "upright": "caridad, generosidad, compartir",
+      "reversed": "condiciones adjuntas, avaricia, poder y dominación"
+    },
+    "Seven of Pentacles": {
+      "upright": "trabajo duro, perseverancia, diligencia",
+      "reversed": "trabajo sin resultados, distracciones, falta de recompensas"
+    },
+    "Eight of Pentacles": {
+      "upright": "aprendizaje, pasión, altos estándares",
+      "reversed": "falta de pasión, sin inspiración, sin motivación"
+    },
+    "Nine of Pentacles": {
+      "upright": "frutos del trabajo, recompensas, lujo",
+      "reversed": "gastos imprudentes, vivir por encima de posibilidades, falso éxito"
+    },
+    "Ten of Pentacles": {
+      "upright": "legado, culminación, herencia",
+      "reversed": "éxito efímero, falta de estabilidad, falta de recursos"
+    },
+    "Page of Pentacles": {
+      "upright": "ambición, deseo, diligencia",
+      "reversed": "falta de compromiso, codicia, pereza"
+    },
+    "Knight of Pentacles": {
+      "upright": "eficiencia, trabajo duro, responsabilidad",
+      "reversed": "pereza, obsesión, trabajo sin recompensa"
+    },
+    "Queen of Pentacles": {
+      "upright": "practicidad, comodidades materiales, seguridad financiera",
+      "reversed": "egocentrismo, celos, asfixia"
+    },
+    "King of Pentacles": {
+      "upright": "abundancia, prosperidad, seguridad",
+      "reversed": "codicia, indulgencia, sensualidad"
+    }
+  },
+  "zh": {
+    "The Fool": {
+      "upright": "天真，新开始，自由精神",
+      "reversed": "鲁莽，被利用，不顾他人"
+    },
+    "The Magician": {
+      "upright": "意志力，欲望，创造，显化",
+      "reversed": "欺骗，幻觉，脱节"
+    },
+    "The High Priestess": {
+      "upright": "直觉，潜意识，内心声音",
+      "reversed": "失去中心，失去内心声音，压抑情感"
+    },
+    "The Empress": {
+      "upright": "母性，生育力，自然",
+      "reversed": "依赖，窒息，空虚，多管闲事"
+    },
+    "The Emperor": {
+      "upright": "权威，结构，控制，父性",
+      "reversed": "专制，僵化，冷酷"
+    },
+    "The Hierophant": {
+      "upright": "传统，顺从，道德，伦理",
+      "reversed": "叛逆，颠覆，新方法"
+    },
+    "The Lovers": {
+      "upright": "伙伴关系，二元性，结合",
+      "reversed": "失衡，片面，不和谐"
+    },
+    "The Chariot": {
+      "upright": "方向，控制，意志力",
+      "reversed": "失控，没有方向，侵略"
+    },
+    "Strength": {
+      "upright": "内在力量，勇敢，同情心，专注",
+      "reversed": "自我怀疑，软弱，不安全感"
+    },
+    "The Hermit": {
+      "upright": "沉思，寻找真理，内在指引",
+      "reversed": "孤独，隔离，迷失方向"
+    },
+    "Wheel of Fortune": {
+      "upright": "改变，循环，必然命运",
+      "reversed": "失控，紧抓控制，厄运"
+    },
+    "Justice": {
+      "upright": "因果，清晰，真相",
+      "reversed": "不诚实，不负责任，不公平"
+    },
+    "The Hanged Man": {
+      "upright": "牺牲，释放，殉道",
+      "reversed": "停滞，无谓牺牲，害怕牺牲"
+    },
+    "Death": {
+      "upright": "循环结束，新开始，改变，蜕变",
+      "reversed": "害怕改变，紧抓不放，停滞，衰败"
+    },
+    "Temperance": {
+      "upright": "中庸之道，耐心，寻找意义",
+      "reversed": "极端，过度，失衡"
+    },
+    "The Devil": {
+      "upright": "成瘾，物质主义，玩乐",
+      "reversed": "自由，释放，恢复控制"
+    },
+    "The Tower": {
+      "upright": "突然动荡，骄傲破碎，灾难",
+      "reversed": "避免灾难，延迟灾难，害怕痛苦"
+    },
+    "The Star": {
+      "upright": "希望，信念，重生",
+      "reversed": "缺乏信念，沮丧，不安全感"
+    },
+    "The Moon": {
+      "upright": "潜意识，幻觉，直觉",
+      "reversed": "困惑，恐惧，误解"
+    },
+    "The Sun": {
+      "upright": "喜悦，成功，庆祝，积极",
+      "reversed": "消极，抑郁，悲伤"
+    },
+    "Judgement": {
+      "upright": "反思，清算，觉醒",
+      "reversed": "缺乏自我意识，怀疑，自我厌恶"
+    },
+    "The World": {
+      "upright": "实现，和谐，完成",
+      "reversed": "未完成，没有结束"
+    },
+    "Ace of Wands": {
+      "upright": "创造，意志力，灵感，欲望",
+      "reversed": "缺乏能量，缺乏热情，无聊"
+    },
+    "Two of Wands": {
+      "upright": "规划，做决定，离家",
+      "reversed": "害怕改变，保守行事，糟糕计划"
+    },
+    "Three of Wands": {
+      "upright": "展望未来，扩张，快速成长",
+      "reversed": "障碍，延迟，挫折"
+    },
+    "Four of Wands": {
+      "upright": "社区，家，庆祝",
+      "reversed": "缺乏支持，短暂，家庭冲突"
+    },
+    "Five of Wands": {
+      "upright": "竞争，竞争，冲突",
+      "reversed": "避免冲突，尊重差异"
+    },
+    "Six of Wands": {
+      "upright": "胜利，成功，公众奖励",
+      "reversed": "过度骄傲，缺乏认可，惩罚"
+    },
+    "Seven of Wands": {
+      "upright": "坚持，防守，保持控制",
+      "reversed": "放弃，信心被摧毁，不堪重负"
+    },
+    "Eight of Wands": {
+      "upright": "快速行动，移动，快速决定",
+      "reversed": "恐慌，等待，减速"
+    },
+    "Nine of Wands": {
+      "upright": "韧性，勇气，最后一战",
+      "reversed": "疲惫，疲劳，质疑动机"
+    },
+    "Ten of Wands": {
+      "upright": "成就，责任，负担",
+      "reversed": "无法委派，过度压力，精疲力竭"
+    },
+    "Page of Wands": {
+      "upright": "探索，兴奋，自由",
+      "reversed": "缺乏方向，拖延，制造冲突"
+    },
+    "Knight of Wands": {
+      "upright": "行动，冒险，无畏",
+      "reversed": "愤怒，冲动，鲁莽"
+    },
+    "Queen of Wands": {
+      "upright": "勇气，决心，喜悦",
+      "reversed": "自私，嫉妒，不安全感"
+    },
+    "King of Wands": {
+      "upright": "大局观，领导者，克服挑战",
+      "reversed": "冲动，专横，不切实际的期望"
+    },
+    "Ace of Cups": {
+      "upright": "新感觉，灵性，直觉",
+      "reversed": "情感损失，创造力受阻，空虚"
+    },
+    "Two of Cups": {
+      "upright": "团结，伙伴关系，连接",
+      "reversed": "不平衡，沟通破裂，紧张"
+    },
+    "Three of Cups": {
+      "upright": "友谊，社区，幸福",
+      "reversed": "过度放纵，流言蜚语，孤立"
+    },
+    "Four of Cups": {
+      "upright": "冷漠，沉思，脱节",
+      "reversed": "突然意识，选择幸福，接受"
+    },
+    "Five of Cups": {
+      "upright": "损失，悲伤，自怜",
+      "reversed": "接受，前进，找到平静"
+    },
+    "Six of Cups": {
+      "upright": "熟悉，美好回忆，治愈",
+      "reversed": "向前迈进，离开家，独立"
+    },
+    "Seven of Cups": {
+      "upright": "寻找目标，选择，白日梦",
+      "reversed": "缺乏目标，转移注意力，困惑"
+    },
+    "Eight of Cups": {
+      "upright": "离开，幻灭，抛下",
+      "reversed": "逃避，害怕改变，害怕失去"
+    },
+    "Nine of Cups": {
+      "upright": "满足，情感稳定，奢华",
+      "reversed": "缺乏内心喜悦，自满，不满"
+    },
+    "Ten of Cups": {
+      "upright": "内心幸福，实现，梦想成真",
+      "reversed": "梦想破碎，家庭破裂，家庭不和"
+    },
+    "Page of Cups": {
+      "upright": "愉快惊喜，梦想家，敏感",
+      "reversed": "情感不成熟，不安全感，失望"
+    },
+    "Knight of Cups": {
+      "upright": "跟随内心，理想主义者，浪漫",
+      "reversed": "情绪化，失望"
+    },
+    "Queen of Cups": {
+      "upright": "同情心，平静，安慰",
+      "reversed": "殉道，不安全感，依赖"
+    },
+    "King of Cups": {
+      "upright": "同情心，控制，平衡",
+      "reversed": "冷酷，情绪化，坏建议"
+    },
+    "Ace of Swords": {
+      "upright": "突破，清晰，敏锐头脑",
+      "reversed": "困惑，残暴，混乱"
+    },
+    "Two of Swords": {
+      "upright": "艰难选择，犹豫不决，僵局",
+      "reversed": "两害相权取其轻，没有好选择，困惑"
+    },
+    "Three of Swords": {
+      "upright": "心碎，痛苦，悲伤",
+      "reversed": "恢复，宽恕，前进"
+    },
+    "Four of Swords": {
+      "upright": "休息，恢复，沉思",
+      "reversed": "不安，精疲力竭，压力"
+    },
+    "Five of Swords": {
+      "upright": "无节制的野心，不惜一切代价获胜，狡诈",
+      "reversed": "持续的怨恨，和解愿望，宽恕"
+    },
+    "Six of Swords": {
+      "upright": "过渡，抛下，前进",
+      "reversed": "情感包袱，未解决问题，抗拒过渡"
+    },
+    "Seven of Swords": {
+      "upright": "欺骗，诡计，战术和策略",
+      "reversed": "坦白，重新思考方法，欺骗"
+    },
+    "Eight of Swords": {
+      "upright": "囚禁，陷阱，自我受害",
+      "reversed": "自我接受，新视角，自由"
+    },
+    "Nine of Swords": {
+      "upright": "焦虑，绝望，创伤",
+      "reversed": "希望，伸出援手，绝望"
+    },
+    "Ten of Swords": {
+      "upright": "失败，崩溃，失败",
+      "reversed": "不能更糟，只能向上，必然结束"
+    },
+    "Page of Swords": {
+      "upright": "好奇心，不安，精神能量",
+      "reversed": "欺骗，操纵，光说不做"
+    },
+    "Knight of Swords": {
+      "upright": "行动，冲动，捍卫信念",
+      "reversed": "没有方向，无视后果，不可预测"
+    },
+    "Queen of Swords": {
+      "upright": "复杂性，洞察力，头脑清晰",
+      "reversed": "冷心，残忍，痛苦"
+    },
+    "King of Swords": {
+      "upright": "理性胜于情感，纪律，真理",
+      "reversed": "操纵，残忍，软弱"
+    },
+    "Ace of Pentacles": {
+      "upright": "机会，繁荣，新事业",
+      "reversed": "失去机会，错过机会，糟糕投资"
+    },
+    "Two of Pentacles": {
+      "upright": "平衡决定，优先事项，适应变化",
+      "reversed": "失衡，杂乱无章，不堪重负"
+    },
+    "Three of Pentacles": {
+      "upright": "团队合作，协作，建设",
+      "reversed": "缺乏团队合作，杂乱无章，团队冲突"
+    },
+    "Four of Pentacles": {
+      "upright": "保守，节俭，安全",
+      "reversed": "贪婪，吝啬，占有欲"
+    },
+    "Five of Pentacles": {
+      "upright": "需要，贫困，不安全感",
+      "reversed": "恢复，慈善，改善"
+    },
+    "Six of Pentacles": {
+      "upright": "慈善，慷慨，分享",
+      "reversed": "附加条件，吝啬，权力和统治"
+    },
+    "Seven of Pentacles": {
+      "upright": "辛勤工作，坚持，勤奋",
+      "reversed": "工作无结果，分心，缺乏回报"
+    },
+    "Eight of Pentacles": {
+      "upright": "学徒，热情，高标准",
+      "reversed": "缺乏热情，没有灵感，没有动力"
+    },
+    "Nine of Pentacles": {
+      "upright": "劳动成果，奖励，奢华",
+      "reversed": "鲁莽消费，入不敷出，虚假成功"
+    },
+    "Ten of Pentacles": {
+      "upright": "遗产，顶点，继承",
+      "reversed": "短暂成功，缺乏稳定性，缺乏资源"
+    },
+    "Page of Pentacles": {
+      "upright": "雄心，欲望，勤奋",
+      "reversed": "缺乏承诺，贪婪，懒惰"
+    },
+    "Knight of Pentacles": {
+      "upright": "效率，辛勤工作，责任",
+      "reversed": "懒惰，痴迷，工作无回报"
+    },
+    "Queen of Pentacles": {
+      "upright": "实用性，物质舒适，财务安全",
+      "reversed": "自我中心，嫉妒，窒息"
+    },
+    "King of Pentacles": {
+      "upright": "丰富，繁荣，安全",
+      "reversed": "贪婪，放纵，肉欲"
+    }
+  },
+  "ja": {
+    "The Fool": {
+      "upright": "無邪気さ、新しい始まり、自由な精神",
+      "reversed": "無謀さ、利用される、思慮の欠如"
+    },
+    "The Magician": {
+      "upright": "意志力、欲望、創造、顕現",
+      "reversed": "ごまかし、幻想、現実離れ"
+    },
+    "The High Priestess": {
+      "upright": "直感的、無意識、内なる声",
+      "reversed": "中心の欠如、内なる声の喪失、抑圧された感情"
+    },
+    "The Empress": {
+      "upright": "母性、豊穣、自然",
+      "reversed": "依存、息苦しさ、空虚、おせっかい"
+    },
+    "The Emperor": {
+      "upright": "権威、構造、支配、父性",
+      "reversed": "圧政、硬直、冷酷さ"
+    },
+    "The Hierophant": {
+      "upright": "伝統、従順、道徳、倫理",
+      "reversed": "反逆、破壊性、新しいアプローチ"
+    },
+    "The Lovers": {
+      "upright": "パートナーシップ、二元性、結合",
+      "reversed": "バランスの喪失、一方的、不調和"
+    },
+    "The Chariot": {
+      "upright": "方向性、支配、意志力",
+      "reversed": "制御不能、方向性の欠如、攻撃性"
+    },
+    "Strength": {
+      "upright": "内なる強さ、勇気、思いやり、集中",
+      "reversed": "自己疑念、弱さ、不安"
+    },
+    "The Hermit": {
+      "upright": "瞑想、真実の探求、内なる導き",
+      "reversed": "孤独、孤立、道を見失う"
+    },
+    "Wheel of Fortune": {
+      "upright": "変化、循環、避けられない運命",
+      "reversed": "制御不能、制御への執着、不運"
+    },
+    "Justice": {
+      "upright": "因果応報、明晰さ、真実",
+      "reversed": "不誠実、無責任、不公平"
+    },
+    "The Hanged Man": {
+      "upright": "犠牲、解放、殉教",
+      "reversed": "停滞、無駄な犠牲、犠牲への恐れ"
+    },
+    "Death": {
+      "upright": "サイクルの終わり、始まり、変化、変容",
+      "reversed": "変化への恐れ、しがみつく、停滞、衰退"
+    },
+    "Temperance": {
+      "upright": "中道、忍耐、意味を見つける",
+      "reversed": "極端、過剰、バランスの欠如"
+    },
+    "The Devil": {
+      "upright": "依存症、物質主義、遊び心",
+      "reversed": "自由、解放、制御を取り戻す"
+    },
+    "The Tower": {
+      "upright": "突然の激変、砕かれたプライド、災害",
+      "reversed": "災害回避、遅れた災害、苦しみへの恐れ"
+    },
+    "The Star": {
+      "upright": "希望、信念、若返り",
+      "reversed": "信仰の欠如、落胆、不安"
+    },
+    "The Moon": {
+      "upright": "無意識、幻想、直感",
+      "reversed": "混乱、恐怖、誤解"
+    },
+    "The Sun": {
+      "upright": "喜び、成功、祝福、前向きさ",
+      "reversed": "否定的、憂鬱、悲しみ"
+    },
+    "Judgement": {
+      "upright": "反省、清算、目覚め",
+      "reversed": "自己認識の欠如、疑念、自己嫌悪"
+    },
+    "The World": {
+      "upright": "達成、調和、完成",
+      "reversed": "未完成、終結の欠如"
+    },
+    "Ace of Wands": {
+      "upright": "創造、意志力、インスピレーション、欲望",
+      "reversed": "エネルギー不足、情熱の欠如、退屈"
+    },
+    "Two of Wands": {
+      "upright": "計画、決断、家を出る",
+      "reversed": "変化への恐れ、安全策、悪い計画"
+    },
+    "Three of Wands": {
+      "upright": "先を見据える、拡大、急成長",
+      "reversed": "障害、遅延、フラストレーション"
+    },
+    "Four of Wands": {
+      "upright": "コミュニティ、家、祝福",
+      "reversed": "サポートの欠如、一時的、家庭の対立"
+    },
+    "Five of Wands": {
+      "upright": "競争、対立、衝突",
+      "reversed": "衝突を避ける、違いを尊重する"
+    },
+    "Six of Wands": {
+      "upright": "勝利、成功、公的な報酬",
+      "reversed": "過度のプライド、認識の欠如、罰"
+    },
+    "Seven of Wands": {
+      "upright": "粘り強さ、防御的、制御を維持する",
+      "reversed": "諦める、自信の破壊、圧倒される"
+    },
+    "Eight of Wands": {
+      "upright": "迅速な行動、動き、素早い決断",
+      "reversed": "パニック、待機、減速"
+    },
+    "Nine of Wands": {
+      "upright": "回復力、根性、最後の抵抗",
+      "reversed": "疲弊、疲労、動機の疑問視"
+    },
+    "Ten of Wands": {
+      "upright": "達成、責任、重荷",
+      "reversed": "委任できない、過度のストレス、燃え尽き"
+    },
+    "Page of Wands": {
+      "upright": "探求、興奮、自由",
+      "reversed": "方向性の欠如、先延ばし、対立を作る"
+    },
+    "Knight of Wands": {
+      "upright": "行動、冒険、大胆さ",
+      "reversed": "怒り、衝動性、無謀さ"
+    },
+    "Queen of Wands": {
+      "upright": "勇気、決意、喜び",
+      "reversed": "利己主義、嫉妬、不安"
+    },
+    "King of Wands": {
+      "upright": "大局観、リーダー、課題を克服する",
+      "reversed": "衝動的、横柄、達成不可能な期待"
+    },
+    "Ace of Cups": {
+      "upright": "新しい感情、スピリチュアリティ、直感",
+      "reversed": "感情的損失、創造性の停滞、空虚"
+    },
+    "Two of Cups": {
+      "upright": "一体感、パートナーシップ、繋がり",
+      "reversed": "不均衡、コミュニケーション断絶、緊張"
+    },
+    "Three of Cups": {
+      "upright": "友情、コミュニティ、幸福",
+      "reversed": "過剰、ゴシップ、孤立"
+    },
+    "Four of Cups": {
+      "upright": "無関心、瞑想、断絶",
+      "reversed": "突然の気づき、幸福を選ぶ、受容"
+    },
+    "Five of Cups": {
+      "upright": "喪失、悲しみ、自己憐憫",
+      "reversed": "受容、前進、平和を見つける"
+    },
+    "Six of Cups": {
+      "upright": "親しみ、幸せな思い出、癒し",
+      "reversed": "前進する、家を出る、独立"
+    },
+    "Seven of Cups": {
+      "upright": "目的を探す、選択肢、白日夢",
+      "reversed": "目的の欠如、気晴らし、混乱"
+    },
+    "Eight of Cups": {
+      "upright": "立ち去る、幻滅、置き去りにする",
+      "reversed": "回避、変化への恐れ、喪失への恐れ"
+    },
+    "Nine of Cups": {
+      "upright": "満足、感情的安定、贅沢",
+      "reversed": "内なる喜びの欠如、うぬぼれ、不満"
+    },
+    "Ten of Cups": {
+      "upright": "内なる幸福、充足、夢の実現",
+      "reversed": "砕かれた夢、壊れた家族、家庭の不和"
+    },
+    "Page of Cups": {
+      "upright": "嬉しい驚き、夢想家、感受性",
+      "reversed": "感情的未熟さ、不安、失望"
+    },
+    "Knight of Cups": {
+      "upright": "心に従う、理想主義者、ロマンチック",
+      "reversed": "気分屋、失望"
+    },
+    "Queen of Cups": {
+      "upright": "思いやり、穏やかさ、慰め",
+      "reversed": "殉教、不安、依存"
+    },
+    "King of Cups": {
+      "upright": "思いやり、制御、バランス",
+      "reversed": "冷たさ、気分屋、悪いアドバイス"
+    },
+    "Ace of Swords": {
+      "upright": "突破口、明晰さ、鋭い知性",
+      "reversed": "混乱、残酷さ、カオス"
+    },
+    "Two of Swords": {
+      "upright": "困難な選択、優柔不断、膠着状態",
+      "reversed": "二つの悪のうち小さい方、良い選択肢なし、混乱"
+    },
+    "Three of Swords": {
+      "upright": "失恋、苦しみ、悲嘆",
+      "reversed": "回復、許し、前進"
+    },
+    "Four of Swords": {
+      "upright": "休息、回復、瞑想",
+      "reversed": "落ち着きのなさ、燃え尽き、ストレス"
+    },
+    "Five of Swords": {
+      "upright": "抑制のない野心、何としても勝つ、狡猾さ",
+      "reversed": "残る恨み、和解の願望、許し"
+    },
+    "Six of Swords": {
+      "upright": "移行、置き去り、前進",
+      "reversed": "感情的な荷物、未解決の問題、移行への抵抗"
+    },
+    "Seven of Swords": {
+      "upright": "欺瞞、策略、戦術と戦略",
+      "reversed": "告白、アプローチの再考、欺瞞"
+    },
+    "Eight of Swords": {
+      "upright": "監禁、罠、自己被害者化",
+      "reversed": "自己受容、新しい視点、自由"
+    },
+    "Nine of Swords": {
+      "upright": "不安、絶望、トラウマ",
+      "reversed": "希望、手を差し伸べる、絶望"
+    },
+    "Ten of Swords": {
+      "upright": "失敗、崩壊、敗北",
+      "reversed": "これ以上悪くならない、上昇のみ、避けられない終わり"
+    },
+    "Page of Swords": {
+      "upright": "好奇心、落ち着きのなさ、精神的エネルギー",
+      "reversed": "欺瞞、操作、口だけ"
+    },
+    "Knight of Swords": {
+      "upright": "行動、衝動性、信念を守る",
+      "reversed": "方向性なし、結果の無視、予測不可能性"
+    },
+    "Queen of Swords": {
+      "upright": "複雑さ、洞察力、明晰な思考",
+      "reversed": "冷酷、残酷、苦々しさ"
+    },
+    "King of Swords": {
+      "upright": "理性優先、規律、真実",
+      "reversed": "操る、残酷、弱さ"
+    },
+    "Ace of Pentacles": {
+      "upright": "機会、繁栄、新事業",
+      "reversed": "失われた機会、逃したチャンス、悪い投資"
+    },
+    "Two of Pentacles": {
+      "upright": "決断のバランス、優先順位、変化への適応",
+      "reversed": "バランスの喪失、無秩序、圧倒される"
+    },
+    "Three of Pentacles": {
+      "upright": "チームワーク、協力、構築",
+      "reversed": "チームワークの欠如、無秩序、グループ対立"
+    },
+    "Four of Pentacles": {
+      "upright": "保存、倹約、安全",
+      "reversed": "貪欲、けち、所有欲"
+    },
+    "Five of Pentacles": {
+      "upright": "必要、貧困、不安",
+      "reversed": "回復、慈善、改善"
+    },
+    "Six of Pentacles": {
+      "upright": "慈善、寛大さ、分かち合い",
+      "reversed": "条件付き、けち、権力と支配"
+    },
+    "Seven of Pentacles": {
+      "upright": "勤勉、粘り強さ、勤勉さ",
+      "reversed": "結果のない仕事、気晴らし、報酬の欠如"
+    },
+    "Eight of Pentacles": {
+      "upright": "見習い、情熱、高い基準",
+      "reversed": "情熱の欠如、インスピレーションなし、やる気なし"
+    },
+    "Nine of Pentacles": {
+      "upright": "労働の成果、報酬、贅沢",
+      "reversed": "無謀な支出、身の丈を超える生活、偽りの成功"
+    },
+    "Ten of Pentacles": {
+      "upright": "遺産、頂点、相続",
+      "reversed": "つかの間の成功、安定性の欠如、資源の欠如"
+    },
+    "Page of Pentacles": {
+      "upright": "野心、欲望、勤勉さ",
+      "reversed": "コミットメントの欠如、貪欲、怠惰"
+    },
+    "Knight of Pentacles": {
+      "upright": "効率性、勤勉、責任",
+      "reversed": "怠惰、強迫観念、報酬のない仕事"
+    },
+    "Queen of Pentacles": {
+      "upright": "実用性、物質的快適さ、経済的安全",
+      "reversed": "自己中心性、嫉妬、息苦しさ"
+    },
+    "King of Pentacles": {
+      "upright": "豊かさ、繁栄、安全",
+      "reversed": "貪欲、放縦、官能性"
+    }
+  },
+  "ko": {
+    "The Fool": {
+      "upright": "순수함, 새로운 시작, 자유로운 정신",
+      "reversed": "무모함, 이용당함, 배려 부족"
+    },
+    "The Magician": {
+      "upright": "의지력, 욕망, 창조, 현현",
+      "reversed": "속임수, 환상, 현실과 동떨어짐"
+    },
+    "The High Priestess": {
+      "upright": "직관적, 무의식, 내면의 목소리",
+      "reversed": "중심 상실, 내면의 목소리 상실, 억압된 감정"
+    },
+    "The Empress": {
+      "upright": "모성, 다산, 자연",
+      "reversed": "의존, 숨막힘, 공허함, 참견"
+    },
+    "The Emperor": {
+      "upright": "권위, 구조, 통제, 부성",
+      "reversed": "폭정, 경직, 냉담함"
+    },
+    "The Hierophant": {
+      "upright": "전통, 순응, 도덕성, 윤리",
+      "reversed": "반항, 전복, 새로운 접근"
+    },
+    "The Lovers": {
+      "upright": "파트너십, 이원성, 결합",
+      "reversed": "균형 상실, 일방적, 부조화"
+    },
+    "The Chariot": {
+      "upright": "방향성, 통제, 의지력",
+      "reversed": "통제 부족, 방향성 부족, 공격성"
+    },
+    "Strength": {
+      "upright": "내적 힘, 용기, 연민, 집중",
+      "reversed": "자기 의심, 약함, 불안"
+    },
+    "The Hermit": {
+      "upright": "명상, 진리 탐구, 내적 안내",
+      "reversed": "외로움, 고립, 길을 잃음"
+    },
+    "Wheel of Fortune": {
+      "upright": "변화, 순환, 필연적 운명",
+      "reversed": "통제 불능, 통제에 집착, 불운"
+    },
+    "Justice": {
+      "upright": "인과응보, 명료함, 진실",
+      "reversed": "부정직, 무책임, 불공정"
+    },
+    "The Hanged Man": {
+      "upright": "희생, 해방, 순교",
+      "reversed": "정체, 무의미한 희생, 희생에 대한 두려움"
+    },
+    "Death": {
+      "upright": "순환의 끝, 시작, 변화, 변신",
+      "reversed": "변화에 대한 두려움, 집착, 정체, 쇠퇴"
+    },
+    "Temperance": {
+      "upright": "중용, 인내, 의미 찾기",
+      "reversed": "극단, 과잉, 균형 부족"
+    },
+    "The Devil": {
+      "upright": "중독, 물질주의, 장난기",
+      "reversed": "자유, 해방, 통제 회복"
+    },
+    "The Tower": {
+      "upright": "갑작스런 격변, 무너진 자존심, 재앙",
+      "reversed": "재앙 회피, 지연된 재앙, 고통에 대한 두려움"
+    },
+    "The Star": {
+      "upright": "희망, 믿음, 재생",
+      "reversed": "믿음 부족, 낙담, 불안"
+    },
+    "The Moon": {
+      "upright": "무의식, 환상, 직관",
+      "reversed": "혼란, 두려움, 오해"
+    },
+    "The Sun": {
+      "upright": "기쁨, 성공, 축하, 긍정성",
+      "reversed": "부정성, 우울, 슬픔"
+    },
+    "Judgement": {
+      "upright": "반성, 청산, 각성",
+      "reversed": "자기인식 부족, 의심, 자기혐오"
+    },
+    "The World": {
+      "upright": "성취, 조화, 완성",
+      "reversed": "미완성, 종결 부재"
+    },
+    "Ace of Wands": {
+      "upright": "창조, 의지력, 영감, 욕망",
+      "reversed": "에너지 부족, 열정 부족, 지루함"
+    },
+    "Two of Wands": {
+      "upright": "계획, 결정 내리기, 집을 떠남",
+      "reversed": "변화에 대한 두려움, 안전하게 행동, 나쁜 계획"
+    },
+    "Three of Wands": {
+      "upright": "앞을 내다봄, 확장, 빠른 성장",
+      "reversed": "장애물, 지연, 좌절"
+    },
+    "Four of Wands": {
+      "upright": "공동체, 가정, 축하",
+      "reversed": "지원 부족, 일시적, 가정 갈등"
+    },
+    "Five of Wands": {
+      "upright": "경쟁, 라이벌 관계, 갈등",
+      "reversed": "갈등 회피, 차이 존중"
+    },
+    "Six of Wands": {
+      "upright": "승리, 성공, 공개 보상",
+      "reversed": "과도한 자부심, 인정 부족, 처벌"
+    },
+    "Seven of Wands": {
+      "upright": "인내, 방어적, 통제 유지",
+      "reversed": "포기, 자신감 파괴, 압도됨"
+    },
+    "Eight of Wands": {
+      "upright": "빠른 행동, 움직임, 빠른 결정",
+      "reversed": "패닉, 대기, 감속"
+    },
+    "Nine of Wands": {
+      "upright": "회복력, 근성, 최후의 저항",
+      "reversed": "소진, 피로, 동기 의문"
+    },
+    "Ten of Wands": {
+      "upright": "성취, 책임, 짐",
+      "reversed": "위임 불가, 과도한 스트레스, 번아웃"
+    },
+    "Page of Wands": {
+      "upright": "탐험, 흥분, 자유",
+      "reversed": "방향성 부족, 미루기, 갈등 조장"
+    },
+    "Knight of Wands": {
+      "upright": "행동, 모험, 대담함",
+      "reversed": "분노, 충동성, 무모함"
+    },
+    "Queen of Wands": {
+      "upright": "용기, 결단력, 기쁨",
+      "reversed": "이기심, 질투, 불안감"
+    },
+    "King of Wands": {
+      "upright": "큰 그림, 리더, 도전 극복",
+      "reversed": "충동적, 오만함, 달성 불가능한 기대"
+    },
+    "Ace of Cups": {
+      "upright": "새로운 감정, 영성, 직관",
+      "reversed": "감정적 상실, 창의성 차단, 공허함"
+    },
+    "Two of Cups": {
+      "upright": "단합, 파트너십, 연결",
+      "reversed": "불균형, 깨진 소통, 긴장"
+    },
+    "Three of Cups": {
+      "upright": "우정, 공동체, 행복",
+      "reversed": "과잉, 험담, 고립"
+    },
+    "Four of Cups": {
+      "upright": "무관심, 명상, 단절",
+      "reversed": "갑작스런 자각, 행복 선택, 수용"
+    },
+    "Five of Cups": {
+      "upright": "상실, 슬픔, 자기연민",
+      "reversed": "수용, 앞으로 나아감, 평화 찾기"
+    },
+    "Six of Cups": {
+      "upright": "친숙함, 행복한 추억, 치유",
+      "reversed": "앞으로 나아감, 집 떠나기, 독립"
+    },
+    "Seven of Cups": {
+      "upright": "목적 찾기, 선택, 백일몽",
+      "reversed": "목적 부족, 산만, 혼란"
+    },
+    "Eight of Cups": {
+      "upright": "떠남, 환멸, 뒤에 남김",
+      "reversed": "회피, 변화에 대한 두려움, 상실에 대한 두려움"
+    },
+    "Nine of Cups": {
+      "upright": "만족, 감정적 안정, 사치",
+      "reversed": "내적 기쁨 부족, 자만, 불만족"
+    },
+    "Ten of Cups": {
+      "upright": "내적 행복, 성취, 꿈의 실현",
+      "reversed": "깨진 꿈, 깨진 가족, 가정 불화"
+    },
+    "Page of Cups": {
+      "upright": "행복한 놀람, 몽상가, 민감성",
+      "reversed": "감정적 미숙함, 불안, 실망"
+    },
+    "Knight of Cups": {
+      "upright": "마음을 따름, 이상주의자, 낭만적",
+      "reversed": "변덕스러움, 실망"
+    },
+    "Queen of Cups": {
+      "upright": "연민, 고요함, 위안",
+      "reversed": "순교, 불안, 의존"
+    },
+    "King of Cups": {
+      "upright": "연민, 통제, 균형",
+      "reversed": "냉담함, 변덕스러움, 나쁜 조언"
+    },
+    "Ace of Swords": {
+      "upright": "돌파구, 명료함, 예리한 정신",
+      "reversed": "혼란, 잔인함, 혼돈"
+    },
+    "Two of Swords": {
+      "upright": "어려운 선택, 우유부단, 교착상태",
+      "reversed": "차악, 좋은 선택 없음, 혼란"
+    },
+    "Three of Swords": {
+      "upright": "실연, 고통, 슬픔",
+      "reversed": "회복, 용서, 앞으로 나아감"
+    },
+    "Four of Swords": {
+      "upright": "휴식, 회복, 명상",
+      "reversed": "불안, 번아웃, 스트레스"
+    },
+    "Five of Swords": {
+      "upright": "억제되지 않은 야망, 무슨 수를 써서든 승리, 교활함",
+      "reversed": "남아있는 분노, 화해 욕구, 용서"
+    },
+    "Six of Swords": {
+      "upright": "전환, 뒤에 남김, 앞으로 나아감",
+      "reversed": "감정적 짐, 해결되지 않은 문제, 전환 저항"
+    },
+    "Seven of Swords": {
+      "upright": "기만, 책략, 전술과 전략",
+      "reversed": "고백, 접근 재고, 기만"
+    },
+    "Eight of Swords": {
+      "upright": "감금, 함정, 자기 피해자화",
+      "reversed": "자기 수용, 새로운 관점, 자유"
+    },
+    "Nine of Swords": {
+      "upright": "불안, 절망, 트라우마",
+      "reversed": "희망, 손 내밀기, 절망"
+    },
+    "Ten of Swords": {
+      "upright": "실패, 붕괴, 패배",
+      "reversed": "더 나빠질 수 없음, 오직 위로만, 불가피한 끝"
+    },
+    "Page of Swords": {
+      "upright": "호기심, 불안, 정신적 에너지",
+      "reversed": "기만, 조작, 말만"
+    },
+    "Knight of Swords": {
+      "upright": "행동, 충동성, 신념 방어",
+      "reversed": "방향 없음, 결과 무시, 예측 불가"
+    },
+    "Queen of Swords": {
+      "upright": "복잡성, 통찰력, 명료한 사고",
+      "reversed": "냉정함, 잔인함, 쓴맛"
+    },
+    "King of Swords": {
+      "upright": "이성 우선, 규율, 진실",
+      "reversed": "조종하는, 잔인함, 약함"
+    },
+    "Ace of Pentacles": {
+      "upright": "기회, 번영, 새로운 사업",
+      "reversed": "잃어버린 기회, 놓친 기회, 나쁜 투자"
+    },
+    "Two of Pentacles": {
+      "upright": "결정 균형, 우선순위, 변화 적응",
+      "reversed": "균형 상실, 무질서, 압도됨"
+    },
+    "Three of Pentacles": {
+      "upright": "팀워크, 협력, 건설",
+      "reversed": "팀워크 부족, 무질서, 그룹 갈등"
+    },
+    "Four of Pentacles": {
+      "upright": "보존, 절약, 안전",
+      "reversed": "탐욕, 인색함, 소유욕"
+    },
+    "Five of Pentacles": {
+      "upright": "필요, 가난, 불안",
+      "reversed": "회복, 자선, 개선"
+    },
+    "Six of Pentacles": {
+      "upright": "자선, 관대함, 나눔",
+      "reversed": "조건부, 인색함, 권력과 지배"
+    },
+    "Seven of Pentacles": {
+      "upright": "열심히 일함, 인내, 근면",
+      "reversed": "결과 없는 일, 산만, 보상 부족"
+    },
+    "Eight of Pentacles": {
+      "upright": "견습, 열정, 높은 기준",
+      "reversed": "열정 부족, 영감 없음, 동기 없음"
+    },
+    "Nine of Pentacles": {
+      "upright": "노동의 결실, 보상, 사치",
+      "reversed": "무모한 지출, 분수에 넘치는 생활, 거짓 성공"
+    },
+    "Ten of Pentacles": {
+      "upright": "유산, 정점, 상속",
+      "reversed": "일시적 성공, 안정성 부족, 자원 부족"
+    },
+    "Page of Pentacles": {
+      "upright": "야망, 욕망, 근면",
+      "reversed": "헌신 부족, 탐욕, 게으름"
+    },
+    "Knight of Pentacles": {
+      "upright": "효율성, 열심히 일함, 책임",
+      "reversed": "게으름, 강박, 보상 없는 일"
+    },
+    "Queen of Pentacles": {
+      "upright": "실용성, 물질적 안락함, 재정적 안전",
+      "reversed": "자기중심성, 질투, 숨막힘"
+    },
+    "King of Pentacles": {
+      "upright": "풍요, 번영, 안전",
+      "reversed": "탐욕, 방종, 관능성"
+    }
+  }
+}
