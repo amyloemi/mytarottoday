@@ -91,6 +91,12 @@ class DeckLoader {
         parts.push(filename);
 
         const finalPath = parts.join('/');
+
+        // Debug logging (can be removed in production)
+        if (window.DEBUG_DECK_LOADER) {
+            console.log(`[DeckLoader] getImagePath(${deckId}, ${card.name}): ${finalPath}`);
+        }
+
         return finalPath;
     }
 
@@ -144,6 +150,12 @@ class DeckLoader {
         parts.push(filename);
 
         const finalPath = parts.join('/');
+
+        // Debug logging (can be removed in production)
+        if (window.DEBUG_DECK_LOADER) {
+            console.log(`[DeckLoader] getThumbnailPath(${deckId}, ${card.name}, ${format}): ${finalPath}`);
+        }
+
         return finalPath;
     }
 
