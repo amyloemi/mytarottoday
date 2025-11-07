@@ -737,6 +737,48 @@
 					flex-direction: column;
 				}
 			}
+
+			/* Loading state for card images */
+			.card-image-container {
+				position: relative;
+				min-height: 400px;
+			}
+
+			.card-image-container::before {
+				content: '';
+				display: block;
+				width: 40px;
+				height: 40px;
+				border: 3px solid rgba(255,255,255,0.3);
+				border-top-color: #d4af37;
+				border-radius: 50%;
+				animation: spin 1s linear infinite;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				z-index: 1;
+			}
+
+			.card-image-container.loaded::before {
+				display: none;
+			}
+
+			@keyframes spin {
+				to { transform: translate(-50%, -50%) rotate(360deg); }
+			}
+
+			/* Fade in effect for images */
+			.card-image-container img,
+			.card-image-container picture img {
+				opacity: 0;
+				transition: opacity 0.3s ease;
+			}
+
+			.card-image-container.loaded img,
+			.card-image-container.loaded picture img {
+				opacity: 1;
+			}
 		</style>
 	</head>
 	<body class="landing is-preload">
@@ -1273,8 +1315,9 @@
 				return;
 			}
 
-			// Clear previous content
+			// Clear previous content and start in loading state
 			container.innerHTML = '';
+			container.classList.remove('loaded');
 
 			// Use DeckLoader to create responsive image with thumbnails
 			const picture = DeckLoader.createResponsiveImage(deckId, card, {
@@ -1288,9 +1331,13 @@
 			// Add error handler with fallback
 			DeckLoader.addErrorHandler(img);
 
-			// Add loading state
+			// Add loading state handlers
 			img.onload = () => {
 				container.classList.add('loaded');
+			};
+
+			img.onerror = () => {
+				container.classList.add('loaded'); // Remove spinner even on error
 			};
 
 			container.appendChild(picture);
