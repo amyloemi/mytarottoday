@@ -1210,8 +1210,15 @@
 			cardReading.textContent = '';
 
 			// Get all cards from the selected deck
-			// NEW: Use unified DeckLoader for all decks
-			const allCards = DeckLoader.getAllCards();
+			// TEMPORARY: Use old data files until we can rename image files
+			let allCards = [];
+			if (currentDeck === 'rider') {
+				allCards = [...riderWaiteData.cards.major, ...riderWaiteData.cards.minor];
+			} else if (currentDeck === 'artistic') {
+				allCards = artisticData.getAllCards();
+			} else if (currentDeck === 'miro') {
+				allCards = miroData.getAllCards();
+			}
 
 			// Select random card
 			const randomIndex = Math.floor(Math.random() * allCards.length);
@@ -1244,15 +1251,15 @@
 			currentIsReversed = isReversed;
 
 			// Render card based on deck type
-			// NEW: Map deck IDs to registry format and use unified renderer
-			const deckIdMap = {
-				'rider': 'rider-waite',
-				'artistic': 'artistic',
-				'miro': 'miro',
-				'picasso': 'picasso'
-			};
-			const deckId = deckIdMap[currentDeck] || 'rider-waite';
-			renderCardUnified(deckId, selectedCard, isReversed);
+			// TEMPORARY: Use old renderers for artistic/miro until image files are renamed
+			// Use unified renderer for rider-waite (which has correct structure)
+			if (currentDeck === 'rider') {
+				renderCardUnified('rider-waite', selectedCard, isReversed);
+			} else if (currentDeck === 'artistic') {
+				renderArtisticCard(selectedCard, isReversed);
+			} else if (currentDeck === 'miro') {
+				renderMiroCard(selectedCard, isReversed);
+			}
 
 			// Update card info
 			const trans = translations[currentLanguage];
@@ -1292,6 +1299,35 @@
 		}
 
 		/**
+		 * Convert old card format to new DeckLoader format
+		 */
+		function convertCardForLoader(card, deckId) {
+			// If card already has required properties, return as-is
+			if (card.type && card.filename) {
+				return card;
+			}
+
+			// Convert old Rider-Waite format to new format
+			const converted = {
+				id: card.number || 0,
+				name: card.name,
+				filename: card.file ? card.file.replace('.png', '') : '',
+				type: card.number < 22 ? 'major' : 'minor'
+			};
+
+			// For minor arcana, extract suit from filename or existing data
+			if (converted.type === 'minor') {
+				const filename = card.file || '';
+				if (filename.includes('cups')) converted.suit = 'cups';
+				else if (filename.includes('pentacles')) converted.suit = 'pentacles';
+				else if (filename.includes('swords')) converted.suit = 'swords';
+				else if (filename.includes('wands')) converted.suit = 'wands';
+			}
+
+			return converted;
+		}
+
+		/**
 		 * NEW: Unified rendering function using DeckLoader
 		 * Works for ALL decks (rider-waite, artistic, miro, picasso)
 		 */
@@ -1305,8 +1341,11 @@
 			// Clear previous content
 			container.innerHTML = '';
 
+			// Convert card to new format if needed
+			const convertedCard = convertCardForLoader(card, deckId);
+
 			// Use DeckLoader to create responsive image with thumbnails
-			const picture = DeckLoader.createResponsiveImage(deckId, card, {
+			const picture = DeckLoader.createResponsiveImage(deckId, convertedCard, {
 				thumbnail: false,  // Use full-size for main card display
 				loading: 'eager',  // Load immediately (not lazy)
 				className: isReversed ? 'reversed' : ''
