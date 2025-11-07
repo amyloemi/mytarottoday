@@ -48,8 +48,8 @@ class DeckLoader {
                 filename = `${paddedNumber}-${card.filename}.${deck.imageFormat}`;
             }
         } else {
-            // Artistic/Miro/Picasso: filename already complete (e.g., "01-the-fool.png")
-            filename = `${card.filename}.${deck.imageFormat}`;
+            // Artistic/Miro/Picasso: prepend number with offset (e.g., "01-the-fool.png")
+            filename = `${paddedNumber}-${card.filename}.${deck.imageFormat}`;
         }
 
         // Combine parts
@@ -104,8 +104,8 @@ class DeckLoader {
                 filename = `${paddedNumber}-${card.filename}.${format}`;
             }
         } else {
-            // Artistic/Miro/Picasso: filename already complete (e.g., "01-the-fool.webp")
-            filename = `${card.filename}.${format}`;
+            // Artistic/Miro/Picasso: prepend number with offset (e.g., "01-the-fool.webp")
+            filename = `${paddedNumber}-${card.filename}.${format}`;
         }
 
         // Combine parts
