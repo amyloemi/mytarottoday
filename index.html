@@ -870,6 +870,11 @@
 		<script src="decks/artistic-data.js"></script>
 		<script src="decks/miro-data.js"></script>
 
+		<!-- NEW: Unified Deck System -->
+		<script src="decks/shared/DeckRegistry.js"></script>
+		<script src="decks/shared/PathResolver.js"></script>
+		<script src="decks/shared/DeckLoader.js"></script>
+
 		<script>
 		// Language translations
 		const translations = {
@@ -1205,14 +1210,8 @@
 			cardReading.textContent = '';
 
 			// Get all cards from the selected deck
-			let allCards = [];
-			if (currentDeck === 'rider') {
-				allCards = [...riderWaiteData.cards.major, ...riderWaiteData.cards.minor];
-			} else if (currentDeck === 'artistic') {
-				allCards = artisticData.getAllCards();
-			} else if (currentDeck === 'miro') {
-				allCards = miroData.getAllCards();
-			}
+			// NEW: Use unified DeckLoader for all decks
+			const allCards = DeckLoader.getAllCards();
 
 			// Select random card
 			const randomIndex = Math.floor(Math.random() * allCards.length);
@@ -1245,13 +1244,15 @@
 			currentIsReversed = isReversed;
 
 			// Render card based on deck type
-			if (currentDeck === 'rider') {
-				renderRiderWaiteCard(selectedCard, isReversed);
-			} else if (currentDeck === 'artistic') {
-				renderArtisticCard(selectedCard, isReversed);
-			} else if (currentDeck === 'miro') {
-				renderMiroCard(selectedCard, isReversed);
-			}
+			// NEW: Map deck IDs to registry format and use unified renderer
+			const deckIdMap = {
+				'rider': 'rider-waite',
+				'artistic': 'artistic',
+				'miro': 'miro',
+				'picasso': 'picasso'
+			};
+			const deckId = deckIdMap[currentDeck] || 'rider-waite';
+			renderCardUnified(deckId, selectedCard, isReversed);
 
 			// Update card info
 			const trans = translations[currentLanguage];
@@ -1268,6 +1269,7 @@
 			document.getElementById('action-buttons').style.display = 'none';
 		}
 
+		// OLD rendering functions (kept for backwards compatibility during migration)
 		function renderRiderWaiteCard(card, isReversed) {
 			const container = document.getElementById('card-image-container');
 			const imagePath = riderWaiteData.getImagePath(card);
@@ -1287,6 +1289,40 @@
 			const imagePath = miroData.renderCard(card);
 			const rotateClass = isReversed ? 'reversed' : '';
 			container.innerHTML = `<img src="${imagePath}" alt="${card.name}" class="${rotateClass}">`;
+		}
+
+		/**
+		 * NEW: Unified rendering function using DeckLoader
+		 * Works for ALL decks (rider-waite, artistic, miro, picasso)
+		 */
+		function renderCardUnified(deckId, card, isReversed) {
+			const container = document.getElementById('card-image-container');
+			if (!container) {
+				console.error('Card container not found');
+				return;
+			}
+
+			// Clear previous content
+			container.innerHTML = '';
+
+			// Use DeckLoader to create responsive image with thumbnails
+			const picture = DeckLoader.createResponsiveImage(deckId, card, {
+				thumbnail: false,  // Use full-size for main card display
+				loading: 'eager',  // Load immediately (not lazy)
+				className: isReversed ? 'reversed' : ''
+			});
+
+			const img = picture.querySelector('img');
+
+			// Add error handler with fallback
+			DeckLoader.addErrorHandler(img);
+
+			// Add loading state
+			img.onload = () => {
+				container.classList.add('loaded');
+			};
+
+			container.appendChild(picture);
 		}
 
 		function revealReading() {
