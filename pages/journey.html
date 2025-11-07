@@ -537,6 +537,11 @@
 		<script src="../assets/js/util.js"></script>
 		<script src="../assets/js/main.js"></script>
 
+		<!-- Load unified deck system -->
+		<script src="../decks/shared/DeckRegistry.js"></script>
+		<script src="../decks/shared/PathResolver.js"></script>
+		<script src="../decks/shared/DeckLoader.js"></script>
+
 		<script>
 		// Translation data
 		const translations = {
@@ -847,6 +852,54 @@
 			document.getElementById('language-select').value = currentLanguage;
 			updateUILanguage();
 		};
+
+		// Dynamically replace hardcoded card images with DeckLoader-generated responsive images
+		document.addEventListener('DOMContentLoaded', function() {
+			// Wait for DeckLoader to be available
+			if (typeof DeckLoader === 'undefined') {
+				console.warn('DeckLoader not loaded yet');
+				return;
+			}
+
+			// Get all card images
+			const cardImages = document.querySelectorAll('.card-item img.card-image');
+
+			cardImages.forEach(img => {
+				// Extract card number from the src path
+				// Example: ../decks/images/major_arcana/00-the-fool.png
+				const src = img.src;
+				const match = src.match(/(\d{2})-/);
+
+				if (match) {
+					const cardNumber = parseInt(match[1]);
+
+					// Get the card from DeckRegistry
+					const card = DECK_REGISTRY.cards.major[cardNumber];
+
+					if (card) {
+						// Add type property for DeckLoader
+						const cardWithType = { ...card, type: 'major' };
+
+						// Create responsive image using DeckLoader
+						const picture = DeckLoader.createResponsiveImage('rider-waite', cardWithType, {
+							thumbnail: true,
+							loading: 'lazy'
+						});
+
+						// Copy classes and attributes
+						const newImg = picture.querySelector('img');
+						newImg.className = img.className;
+						newImg.alt = img.alt;
+
+						// Add error handler
+						DeckLoader.addErrorHandler(newImg);
+
+						// Replace the old img with the new picture element
+						img.parentNode.replaceChild(picture, img);
+					}
+				}
+			});
+		});
 		</script>
 	</body>
 </html>
