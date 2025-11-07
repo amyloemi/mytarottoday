@@ -1380,14 +1380,8 @@
 			currentIsReversed = isReversed;
 			currentReading = reading;
 
-			// Render card based on deck type
-			if (currentDeck === 'rider') {
-				renderRiderWaiteCard(selectedCard, isReversed);
-			} else if (currentDeck === 'artistic') {
-				renderArtisticCard(selectedCard, isReversed);
-			} else if (currentDeck === 'miro') {
-				renderMiroCard(selectedCard, isReversed);
-			}
+			// Render card using unified DeckLoader
+			renderCardUnified(currentDeck, selectedCard, isReversed);
 
 			// Update card info
 			const trans = translations[currentLanguage];
@@ -1404,25 +1398,50 @@
 			document.getElementById('action-buttons').style.display = 'none';
 		}
 
-		function renderRiderWaiteCard(card, isReversed) {
-			const container = document.getElementById('card-image-container');
-			const imagePath = riderWaiteData.getImagePath(card);
-			const rotateClass = isReversed ? 'reversed' : '';
-			container.innerHTML = `<img src="${imagePath}" alt="${card.name}" class="${rotateClass}">`;
+		/**
+		 * Map old deck IDs to new DeckLoader IDs
+		 */
+		function mapDeckId(oldDeckId) {
+			const deckIdMap = {
+				'rider': 'rider-waite',
+				'artistic': 'artistic',
+				'miro': 'miro',
+				'picasso': 'picasso'
+			};
+			return deckIdMap[oldDeckId] || oldDeckId;
 		}
 
-		function renderArtisticCard(card, isReversed) {
+		/**
+		 * Unified card rendering function using DeckLoader
+		 * Works for all decks: rider-waite, artistic, miro, picasso
+		 */
+		function renderCardUnified(deckId, card, isReversed) {
 			const container = document.getElementById('card-image-container');
-			const imagePath = artisticData.renderCard(card);
-			const rotateClass = isReversed ? 'reversed' : '';
-			container.innerHTML = `<img src="${imagePath}" alt="${card.name}" class="${rotateClass}">`;
-		}
+			if (!container) return;
 
-		function renderMiroCard(card, isReversed) {
-			const container = document.getElementById('card-image-container');
-			const imagePath = miroData.renderCard(card);
-			const rotateClass = isReversed ? 'reversed' : '';
-			container.innerHTML = `<img src="${imagePath}" alt="${card.name}" class="${rotateClass}">`;
+			// Map old deck ID to new format
+			const mappedDeckId = mapDeckId(deckId);
+
+			// Clear previous content
+			container.innerHTML = '';
+
+			// Use DeckLoader to create responsive image
+			const picture = DeckLoader.createResponsiveImage(mappedDeckId, card, {
+				thumbnail: false,  // Use full-size for single card display
+				loading: 'eager'   // Load immediately
+			});
+
+			const img = picture.querySelector('img');
+
+			// Add rotation for reversed cards
+			if (isReversed) {
+				img.classList.add('reversed');
+			}
+
+			// Add error handler
+			DeckLoader.addErrorHandler(img);
+
+			container.appendChild(picture);
 		}
 
 		function revealReading() {
