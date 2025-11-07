@@ -1204,16 +1204,8 @@
 			cardOrientation.textContent = '';
 			cardReading.textContent = '';
 
-			// Get all cards from the selected deck
-			// TEMPORARY: Use old data files until we can rename image files
-			let allCards = [];
-			if (currentDeck === 'rider') {
-				allCards = [...riderWaiteData.cards.major, ...riderWaiteData.cards.minor];
-			} else if (currentDeck === 'artistic') {
-				allCards = artisticData.getAllCards();
-			} else if (currentDeck === 'miro') {
-				allCards = miroData.getAllCards();
-			}
+			// Get all cards from unified DeckLoader
+			const allCards = DeckLoader.getAllCards();
 
 			// Select random card
 			const randomIndex = Math.floor(Math.random() * allCards.length);
@@ -1270,80 +1262,6 @@
 			document.getElementById('action-buttons').style.display = 'none';
 		}
 
-		// OLD rendering functions (kept for backwards compatibility during migration)
-		function renderRiderWaiteCard(card, isReversed) {
-			const container = document.getElementById('card-image-container');
-			const imagePath = riderWaiteData.getImagePath(card);
-			const rotateClass = isReversed ? 'reversed' : '';
-			container.innerHTML = `<img src="${imagePath}" alt="${card.name}" class="${rotateClass}">`;
-		}
-
-		function renderArtisticCard(card, isReversed) {
-			const container = document.getElementById('card-image-container');
-			const imagePath = artisticData.renderCard(card);
-			const rotateClass = isReversed ? 'reversed' : '';
-			container.innerHTML = `<img src="${imagePath}" alt="${card.name}" class="${rotateClass}">`;
-		}
-
-		function renderMiroCard(card, isReversed) {
-			const container = document.getElementById('card-image-container');
-			const imagePath = miroData.renderCard(card);
-			const rotateClass = isReversed ? 'reversed' : '';
-			container.innerHTML = `<img src="${imagePath}" alt="${card.name}" class="${rotateClass}">`;
-		}
-
-		/**
-		 * Convert old card format to new DeckLoader format
-		 */
-		function convertCardForLoader(card, deckId) {
-			// If card already has required properties, return as-is
-			if (card.type && card.filename) {
-				return card;
-			}
-
-			// Convert old Rider-Waite format to new format
-			const fileWithoutExt = card.file ? card.file.replace('.png', '') : '';
-
-			// Determine card type
-			const cardType = (card.number !== undefined && card.number < 22) ? 'major' : 'minor';
-
-			let filenameWithoutNumber;
-
-			if (cardType === 'major') {
-				// Major arcana: "00-the-fool" → "the-fool"
-				const parts = fileWithoutExt.split('-');
-				filenameWithoutNumber = parts.slice(1).join('-');
-			} else {
-				// Minor arcana: file is already in format "7-of-cups", just use as-is
-				// DeckLoader won't prepend a number for these
-				filenameWithoutNumber = fileWithoutExt;
-			}
-
-			const converted = {
-				id: card.number || 0,
-				name: card.name,
-				filename: filenameWithoutNumber,
-				type: cardType
-			};
-
-			// For minor arcana, extract suit from filename or card.suit
-			if (converted.type === 'minor') {
-				// Use existing suit if available
-				if (card.suit) {
-					converted.suit = card.suit;
-				} else {
-					// Extract from filename
-					const filename = card.file || '';
-					if (filename.includes('cups')) converted.suit = 'cups';
-					else if (filename.includes('pentacles')) converted.suit = 'pentacles';
-					else if (filename.includes('swords')) converted.suit = 'swords';
-					else if (filename.includes('wands')) converted.suit = 'wands';
-				}
-			}
-
-			return converted;
-		}
-
 		/**
 		 * NEW: Unified rendering function using DeckLoader
 		 * Works for ALL decks (rider-waite, artistic, miro, picasso)
@@ -1358,11 +1276,8 @@
 			// Clear previous content
 			container.innerHTML = '';
 
-			// Convert card to new format if needed
-			const convertedCard = convertCardForLoader(card, deckId);
-
 			// Use DeckLoader to create responsive image with thumbnails
-			const picture = DeckLoader.createResponsiveImage(deckId, convertedCard, {
+			const picture = DeckLoader.createResponsiveImage(deckId, card, {
 				thumbnail: true,   // Use optimized thumbnails (40-50KB vs 700KB!)
 				loading: 'eager',  // Load immediately (not lazy)
 				className: isReversed ? 'reversed' : ''
