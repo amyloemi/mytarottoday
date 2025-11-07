@@ -46,7 +46,9 @@ const DECK_REGISTRY = {
                 major: '',  // Flat structure
                 minor: ''   // Flat structure
             },
-            thumbnailFormats: ['webp', 'jpg']
+            thumbnailFormats: ['webp', 'jpg'],
+            // Miro has special filename format with roman numerals
+            useCompleteFilename: true  // Don't construct filename, use from old data
         },
         'picasso': {
             id: 'picasso',
