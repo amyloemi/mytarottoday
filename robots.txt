@@ -4,20 +4,44 @@
 User-agent: *
 Allow: /
 Allow: /index.html
-Allow: /gallery.html
-Allow: /journey.html
+Allow: /pages/
+Allow: /pages/gallery.html
+Allow: /pages/journey.html
+Allow: /pages/dictionary.html
 Allow: /assets/
 Allow: /decks/
+Allow: /images/
+Allow: /data/
 
 # Disallow documentation and internal files
 Disallow: /README.md
 Disallow: /archive/
 Disallow: /docs/
 Disallow: /scripts/
-Disallow: /github-deploy/
+Disallow: /.git
+Disallow: /.gitignore
+Disallow: /CNAME
 
-# Crawl-delay for polite bots
+# Disallow duplicate content (old paths if any)
+Disallow: /gallery.html
+Disallow: /journey.html
+Disallow: /dictionary.html
+
+# Crawl-delay for polite bots (1 second between requests)
 Crawl-delay: 1
 
 # Sitemap location
 Sitemap: https://mytarottoday.com/sitemap.xml
+
+# Optional: Specific rules for different bots
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Slurp
+Allow: /
+Crawl-delay: 1
