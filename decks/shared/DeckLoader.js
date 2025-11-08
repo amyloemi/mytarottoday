@@ -48,6 +48,7 @@ class DeckLoader {
      */
     static transformRiderWaiteFilename(filename) {
         const wordToNumber = {
+            'ace': '1',
             'two': '2',
             'three': '3',
             'four': '4',
@@ -59,8 +60,22 @@ class DeckLoader {
             'ten': '10'
         };
 
-        // Check if filename starts with a word number
+        const courtToNumber = {
+            'page': '11',
+            'knight': '12',
+            'queen': '13',
+            'king': '14'
+        };
+
+        // Check if filename starts with a number word
         for (const [word, number] of Object.entries(wordToNumber)) {
+            if (filename.startsWith(word + '-')) {
+                return filename.replace(word + '-', number + '-');
+            }
+        }
+
+        // Check if filename starts with a court card
+        for (const [word, number] of Object.entries(courtToNumber)) {
             if (filename.startsWith(word + '-')) {
                 return filename.replace(word + '-', number + '-');
             }
