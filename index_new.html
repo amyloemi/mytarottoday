@@ -1927,6 +1927,13 @@
 
 			// Fade out non-selected cards completely
 			const unpickedCards = animCards.filter(card => card !== selectedCard);
+			console.log('🎯 Fading out', unpickedCards.length, 'unpicked cards');
+
+			// Check DOM BEFORE fade-out starts
+			const container = document.getElementById('animation-area');
+			const cardsBeforeFade = container.querySelectorAll('.anim-card');
+			console.log('📊 Cards in DOM before fade:', cardsBeforeFade.length);
+
 			for (let i = 0; i < unpickedCards.length; i++) {
 				// Disable transition first to prevent ghost images
 				unpickedCards[i].style.transition = 'none';
@@ -1934,6 +1941,10 @@
 				unpickedCards[i].style.transform = 'translate(-50%, -50%) scale(0.3)'; // Scale down only, no rotation
 				await sleep(20);
 			}
+
+			// Check DOM AFTER fade-out, BEFORE removal
+			const cardsAfterFade = container.querySelectorAll('.anim-card');
+			console.log('📊 Cards in DOM after fade (before removal):', cardsAfterFade.length);
 
 			// Immediately hide and remove unpicked cards to prevent visual artifacts
 			unpickedCards.forEach(card => {
@@ -1944,6 +1955,18 @@
 					card.parentNode.removeChild(card);
 				}
 			});
+
+			// Check DOM AFTER removal
+			const cardsAfterRemoval = container.querySelectorAll('.anim-card');
+			console.log('✅ Cards in DOM after removal:', cardsAfterRemoval.length, '(should be 1)');
+
+			if (cardsAfterRemoval.length > 1) {
+				console.warn('⚠️⚠️ EXTRA CARDS DETECTED! Expected 1, found', cardsAfterRemoval.length);
+				cardsAfterRemoval.forEach((card, idx) => {
+					const isSelected = card === selectedCard;
+					console.warn(`Card #${idx}: ${isSelected ? '✓ SELECTED' : '❌ EXTRA'}`, card);
+				});
+			}
 
 			await sleep(500);
 
