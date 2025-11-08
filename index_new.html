@@ -473,7 +473,7 @@
 				box-shadow: none;
 				border-radius: 20px;
 				overflow: hidden;
-				transition: background 0.8s ease, box-shadow 0.8s ease, backdrop-filter 0.8s ease;
+				transition: background 0.8s ease, box-shadow 0.8s ease, backdrop-filter 0.8s ease, min-height 0.8s ease;
 			}
 
 			#animation-area.fade-border {
@@ -1817,6 +1817,36 @@
 
 			// Allow overflow so card won't be clipped when scaled up
 			animArea.classList.add('allow-overflow');
+
+			// Pre-calculate and set animation area height for smooth footer transition
+			const isMobile = window.innerWidth <= 768;
+			const cardWidth = isMobile ? 88 : 132;
+			const cardHeight = isMobile ? 132 : 198;
+
+			// Estimate scale (same logic as in positionCardAndReadingBox)
+			let estimatedScale;
+			if (isMobile) {
+				const viewportWidth = window.innerWidth;
+				const maxCardWidth = viewportWidth * 0.75;
+				const scaleByWidth = maxCardWidth / cardWidth;
+				estimatedScale = Math.min(scaleByWidth, 5);
+			} else {
+				const maxDesktopHeight = window.innerHeight * 0.65;
+				const scaleByHeight = maxDesktopHeight / cardHeight;
+				estimatedScale = Math.min(scaleByHeight, 3);
+			}
+
+			const scaledCardHeight = cardHeight * estimatedScale;
+
+			if (isMobile) {
+				// Mobile: card at top (30px) + scaled height + gap (20px) + reading box estimate (500px) + buffer (100px)
+				const estimatedHeight = 30 + scaledCardHeight + 20 + 500 + 100;
+				animArea.style.minHeight = `${estimatedHeight}px`;
+			} else {
+				// Desktop: max of card or reading box height + buffer
+				const estimatedHeight = Math.max(scaledCardHeight, 600) + 100;
+				animArea.style.minHeight = `${estimatedHeight}px`;
+			}
 
 			// Position card using new function
 			selectedCard.style.boxShadow = '0 15px 60px rgba(0, 0, 0, 0.5)';
