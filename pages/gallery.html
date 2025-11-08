@@ -1347,15 +1347,8 @@
 			const cardOrientation = document.getElementById('card-orientation');
 			const cardReading = document.getElementById('card-reading');
 
-			// Get all cards from the selected deck
-			let allCards = [];
-			if (currentDeck === 'rider') {
-				allCards = [...riderWaiteData.cards.major, ...riderWaiteData.cards.minor];
-			} else if (currentDeck === 'artistic') {
-				allCards = artisticData.getAllCards();
-			} else if (currentDeck === 'miro') {
-				allCards = miroData.getAllCards();
-			}
+			// Get all cards from the unified DeckLoader
+			let allCards = DeckLoader.getAllCards();
 
 			// Select random card
 			const randomIndex = Math.floor(Math.random() * allCards.length);
