@@ -7,14 +7,14 @@
 class PathResolver {
     /**
      * Determine base path based on current page location
-     * Works for: index.html, pages/*.html
+     * Works for: index.html, pages/*.html, components/*.html
      */
     static getBasePath() {
         // Use absolute paths for HTTP(S)
         if (window.location.protocol.startsWith('http')) {
             // Check if we're in a subfolder
             const path = window.location.pathname;
-            if (path.includes('/pages/')) {
+            if (path.includes('/pages/') || path.includes('/components/')) {
                 return '../';
             }
             return '';
@@ -22,7 +22,7 @@ class PathResolver {
 
         // For file:// protocol, use relative paths
         const path = window.location.pathname;
-        const isInSubfolder = path.includes('/pages/');
+        const isInSubfolder = path.includes('/pages/') || path.includes('/components/');
 
         return isInSubfolder ? '../' : '';
     }
@@ -47,7 +47,8 @@ class PathResolver {
      * @returns {boolean}
      */
     static isInSubfolder() {
-        return window.location.pathname.includes('/pages/');
+        const path = window.location.pathname;
+        return path.includes('/pages/') || path.includes('/components/');
     }
 
     /**
