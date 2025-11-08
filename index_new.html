@@ -1935,10 +1935,12 @@
 			console.log('📊 Cards in DOM before fade:', cardsBeforeFade.length);
 
 			for (let i = 0; i < unpickedCards.length; i++) {
-				// Disable transition first to prevent ghost images
+				// Immediately hide cards completely to prevent rendering artifacts
 				unpickedCards[i].style.transition = 'none';
 				unpickedCards[i].style.opacity = '0';
-				unpickedCards[i].style.transform = 'translate(-50%, -50%) scale(0.3)'; // Scale down only, no rotation
+				unpickedCards[i].style.visibility = 'hidden'; // Hide immediately, not later!
+				unpickedCards[i].style.display = 'none'; // Remove from layout immediately
+				unpickedCards[i].style.transform = 'translate(-50%, -50%) scale(0.3)';
 				await sleep(20);
 			}
 
