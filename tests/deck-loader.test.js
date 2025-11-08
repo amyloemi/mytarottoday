@@ -321,12 +321,12 @@ loaderTests.test('getThumbnailPath should generate JPEG thumbnail path', functio
     this.assertContains(path, 'images-thumbnails/major_arcana/00-the-fool.jpg');
 });
 
-loaderTests.test('transformRiderWaiteFilename should convert ace to 1', function() {
+loaderTests.test('transformRiderWaiteFilename should convert number words (two-ten)', function() {
     const tests = [
-        { input: 'ace-of-cups', expected: '1-of-cups' },
-        { input: 'ace-of-wands', expected: '1-of-wands' },
-        { input: 'ace-of-swords', expected: '1-of-swords' },
-        { input: 'ace-of-pentacles', expected: '1-of-pentacles' }
+        { input: 'two-of-cups', expected: '2-of-cups' },
+        { input: 'three-of-wands', expected: '3-of-wands' },
+        { input: 'five-of-swords', expected: '5-of-swords' },
+        { input: 'ten-of-pentacles', expected: '10-of-pentacles' }
     ];
 
     tests.forEach(({ input, expected }) => {
@@ -335,8 +335,9 @@ loaderTests.test('transformRiderWaiteFilename should convert ace to 1', function
     });
 });
 
-loaderTests.test('transformRiderWaiteFilename should NOT convert court cards', function() {
+loaderTests.test('transformRiderWaiteFilename should NOT convert ace or court cards', function() {
     const tests = [
+        'ace-of-cups',
         'page-of-cups',
         'knight-of-wands',
         'queen-of-swords',
@@ -345,7 +346,7 @@ loaderTests.test('transformRiderWaiteFilename should NOT convert court cards', f
 
     tests.forEach(input => {
         const result = DeckLoader.transformRiderWaiteFilename(input);
-        this.assertEqual(result, input, `Court card ${input} should remain unchanged`);
+        this.assertEqual(result, input, `${input} should remain unchanged`);
     });
 });
 

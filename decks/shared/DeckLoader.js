@@ -47,13 +47,29 @@ class DeckLoader {
      * @returns {string} Transformed filename
      */
     static transformRiderWaiteFilename(filename) {
-        // Only transform 'ace' to '1' for Rider-Waite minor arcana
-        // Court cards (page, knight, queen, king) remain as words
-        // Numbered cards (2-10) are already numbers in the files
-        if (filename.startsWith('ace-')) {
-            return filename.replace('ace-', '1-');
+        // Transform word numbers (two-ten) to numeric form
+        // Files are: 2-of-cups.png, 3-of-cups.png, etc.
+        // But DeckRegistry stores: two-of-cups, three-of-cups, etc.
+        const wordToNumber = {
+            'two': '2',
+            'three': '3',
+            'four': '4',
+            'five': '5',
+            'six': '6',
+            'seven': '7',
+            'eight': '8',
+            'nine': '9',
+            'ten': '10'
+        };
+
+        // Check if filename starts with a word number
+        for (const [word, number] of Object.entries(wordToNumber)) {
+            if (filename.startsWith(word + '-')) {
+                return filename.replace(word + '-', number + '-');
+            }
         }
 
+        // Ace and court cards (page, knight, queen, king) remain as words
         return filename;
     }
 
