@@ -321,12 +321,12 @@ loaderTests.test('getThumbnailPath should generate JPEG thumbnail path', functio
     this.assertContains(path, 'images-thumbnails/major_arcana/00-the-fool.jpg');
 });
 
-loaderTests.test('transformRiderWaiteFilename should convert number words', function() {
+loaderTests.test('transformRiderWaiteFilename should convert ace to 1', function() {
     const tests = [
         { input: 'ace-of-cups', expected: '1-of-cups' },
-        { input: 'two-of-wands', expected: '2-of-wands' },
-        { input: 'three-of-swords', expected: '3-of-swords' },
-        { input: 'ten-of-pentacles', expected: '10-of-pentacles' }
+        { input: 'ace-of-wands', expected: '1-of-wands' },
+        { input: 'ace-of-swords', expected: '1-of-swords' },
+        { input: 'ace-of-pentacles', expected: '1-of-pentacles' }
     ];
 
     tests.forEach(({ input, expected }) => {
@@ -335,17 +335,17 @@ loaderTests.test('transformRiderWaiteFilename should convert number words', func
     });
 });
 
-loaderTests.test('transformRiderWaiteFilename should convert court cards', function() {
+loaderTests.test('transformRiderWaiteFilename should NOT convert court cards', function() {
     const tests = [
-        { input: 'page-of-cups', expected: '11-of-cups' },
-        { input: 'knight-of-wands', expected: '12-of-wands' },
-        { input: 'queen-of-swords', expected: '13-of-swords' },
-        { input: 'king-of-pentacles', expected: '14-of-pentacles' }
+        'page-of-cups',
+        'knight-of-wands',
+        'queen-of-swords',
+        'king-of-pentacles'
     ];
 
-    tests.forEach(({ input, expected }) => {
+    tests.forEach(input => {
         const result = DeckLoader.transformRiderWaiteFilename(input);
-        this.assertEqual(result, expected, `Should convert ${input} to ${expected}`);
+        this.assertEqual(result, input, `Court card ${input} should remain unchanged`);
     });
 });
 

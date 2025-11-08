@@ -47,38 +47,11 @@ class DeckLoader {
      * @returns {string} Transformed filename
      */
     static transformRiderWaiteFilename(filename) {
-        const wordToNumber = {
-            'ace': '1',
-            'two': '2',
-            'three': '3',
-            'four': '4',
-            'five': '5',
-            'six': '6',
-            'seven': '7',
-            'eight': '8',
-            'nine': '9',
-            'ten': '10'
-        };
-
-        const courtToNumber = {
-            'page': '11',
-            'knight': '12',
-            'queen': '13',
-            'king': '14'
-        };
-
-        // Check if filename starts with a number word
-        for (const [word, number] of Object.entries(wordToNumber)) {
-            if (filename.startsWith(word + '-')) {
-                return filename.replace(word + '-', number + '-');
-            }
-        }
-
-        // Check if filename starts with a court card
-        for (const [word, number] of Object.entries(courtToNumber)) {
-            if (filename.startsWith(word + '-')) {
-                return filename.replace(word + '-', number + '-');
-            }
+        // Only transform 'ace' to '1' for Rider-Waite minor arcana
+        // Court cards (page, knight, queen, king) remain as words
+        // Numbered cards (2-10) are already numbers in the files
+        if (filename.startsWith('ace-')) {
+            return filename.replace('ace-', '1-');
         }
 
         return filename;
