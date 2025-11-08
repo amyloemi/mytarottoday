@@ -2147,14 +2147,17 @@
 				card.style.opacity = '1';
 			}, 50);
 
-			// After 1 second, fade out and start shuffle
+			// After 1 second, start shuffle and fade out simultaneously
 			setTimeout(() => {
+				// Start shuffle animation immediately
+				createShuffleDeck();
+				shuffleAnimation();
+
+				// Fade out the intro card at the same time
 				card.style.opacity = '0';
 				setTimeout(() => {
 					card.remove();
-					createShuffleDeck();
-					shuffleAnimation();
-				}, 500); // Wait for fade out
+				}, 500); // Remove after fade out completes
 			}, 1000);
 		}
 
