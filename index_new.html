@@ -1826,7 +1826,7 @@
 			const unpickedCards = animCards.filter(card => card !== selectedCard);
 			for (let i = 0; i < unpickedCards.length; i++) {
 				unpickedCards[i].style.opacity = '0';
-				unpickedCards[i].style.transform = 'translate(-50%, -50%) scale(0.5) rotate(90deg)';
+				unpickedCards[i].style.transform = 'translate(-50%, -50%) scale(0.3)'; // Scale down only, no rotation
 				await sleep(20);
 			}
 
