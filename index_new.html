@@ -2105,62 +2105,6 @@
 
 		// ===== END SHUFFLE ANIMATION FUNCTIONS =====
 
-		async function showCenteredCardBack(deckType) {
-			const container = document.getElementById('animation-area');
-
-			// Get deck-specific card back image path
-			const cardBackPaths = {
-				'rider': 'decks/images/card-back.png',
-				'artistic': 'decks/artistic-tarot-cards/card-back.png',
-				'miro': 'decks/miro-tarot-cards/card-back.png'
-			};
-			const cardBackPath = cardBackPaths[deckType] || 'decks/images/card-back.png';
-
-			// Create single centered card
-			const card = document.createElement('div');
-			card.className = 'anim-card intro-card';
-			card.style.left = '50%';
-			card.style.top = '50%';
-			card.style.transform = 'translate(-50%, -50%)';
-			card.style.opacity = '0';
-			card.style.transition = 'opacity 0.5s ease';
-
-			const cardInner = document.createElement('div');
-			cardInner.className = 'anim-card-inner';
-
-			const cardBack = document.createElement('div');
-			cardBack.className = 'anim-card-back';
-
-			const cardBackImg = document.createElement('img');
-			cardBackImg.src = cardBackPath;
-			cardBackImg.alt = 'Card Back';
-			cardBackImg.loading = 'eager';
-			cardBackImg.style.cssText = 'width: 100%; height: 100%; object-fit: cover; border-radius: 8px;';
-
-			cardBack.appendChild(cardBackImg);
-			cardInner.appendChild(cardBack);
-			card.appendChild(cardInner);
-			container.appendChild(card);
-
-			// Fade in
-			setTimeout(() => {
-				card.style.opacity = '1';
-			}, 50);
-
-			// After 1 second, start shuffle and fade out simultaneously
-			setTimeout(() => {
-				// Start shuffle animation immediately
-				createShuffleDeck();
-				shuffleAnimation();
-
-				// Fade out the intro card at the same time
-				card.style.opacity = '0';
-				setTimeout(() => {
-					card.remove();
-				}, 500); // Remove after fade out completes
-			}, 1000);
-		}
-
 		async function selectDeck(deckType) {
 			currentDeck = deckType;
 
@@ -2176,7 +2120,7 @@
 			setTimeout(() => {
 				deckSelection.style.display = 'none';
 
-				// Show shuffle container
+				// Show shuffle container and start animation
 				const shuffleContainer = document.getElementById('shuffle-container');
 				shuffleContainer.classList.remove('hidden');
 
@@ -2186,8 +2130,8 @@
 					questionContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
 				}, 100);
 
-				// Show a single centered card back for 1 second before shuffle
-				showCenteredCardBack(deckType);
+				createShuffleDeck();
+				shuffleAnimation();
 			}, 500);
 		}
 
