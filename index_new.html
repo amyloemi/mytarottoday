@@ -537,6 +537,8 @@
 				width: 100%;
 				height: 100%;
 				backface-visibility: hidden;
+				-webkit-backface-visibility: hidden;
+				-moz-backface-visibility: hidden;
 				border-radius: 8px;
 				display: flex;
 				justify-content: center;
@@ -546,6 +548,12 @@
 			.anim-card-face {
 				background: white;
 				transform: rotateY(180deg);
+				visibility: hidden; /* Initially hidden until flipped */
+			}
+
+			.anim-card.flipped .anim-card-face,
+			.anim-card.reversed .anim-card-face {
+				visibility: visible; /* Show when flipped */
 			}
 
 			.anim-card-face img {
@@ -559,6 +567,12 @@
 				background: white;
 				position: relative;
 				overflow: hidden;
+				visibility: visible; /* Always visible by default */
+			}
+
+			.anim-card.flipped .anim-card-back,
+			.anim-card.reversed .anim-card-back {
+				visibility: hidden; /* Hide when flipped to show face */
 			}
 
 			.anim-card-back img {
