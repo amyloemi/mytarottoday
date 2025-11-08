@@ -2380,6 +2380,14 @@
 			}
 		}
 
+		// Make functions globally accessible for inline onclick handlers
+		window.selectDeck = selectDeck;
+		window.cycleQuestion = cycleQuestion;
+		window.changeLanguage = changeLanguage;
+		window.changeMobileLanguage = changeMobileLanguage;
+		window.drawAnotherCard = drawAnotherCard;
+		window.returnToDeckSelection = returnToDeckSelection;
+
 		// Initialize
 		window.onload = function() {
 			loadReadings();
