@@ -2537,13 +2537,13 @@
 				function handleSwipe() {
 					const swipeDistance = touchEndX - touchStartX;
 
-					// Swipe left (next question)
+					// Swipe left (question slides left, next question comes from right)
 					if (swipeDistance < -minSwipeDistance) {
-						cycleQuestion();
+						cyclePreviousQuestion(); // This animates left
 					}
-					// Swipe right (previous question)
+					// Swipe right (question slides right, previous question comes from left)
 					else if (swipeDistance > minSwipeDistance) {
-						cyclePreviousQuestion();
+						cycleQuestion(); // This animates right
 					}
 				}
 			}
