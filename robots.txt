@@ -45,3 +45,28 @@ Crawl-delay: 1
 User-agent: Slurp
 Allow: /
 Crawl-delay: 1
+
+# AI Search Engine Crawlers (for GEO - Generative Engine Optimization)
+User-agent: GPTBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: ChatGPT-User
+Allow: /
+Crawl-delay: 1
+
+User-agent: PerplexityBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Claude-Web
+Allow: /
+Crawl-delay: 1
+
+User-agent: Google-Extended
+Allow: /
+Crawl-delay: 1
+
+User-agent: Anthropic-AI
+Allow: /
+Crawl-delay: 1
