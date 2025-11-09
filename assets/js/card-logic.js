@@ -164,9 +164,6 @@ function showReadingBox(card, isReversed, reading) {
 			<button class="btn btn-primary" onclick="drawAnotherCard()">
 				<span>${trans.drawAnother}</span>
 			</button>
-			<button class="btn btn-secondary" onclick="returnToDeckSelection()">
-				<span>${trans.changeDeck}</span>
-			</button>
 		</div>
 	`;
 
