@@ -23,7 +23,9 @@
       "Bash(git push:*)",
       "Bash(git revert:*)",
       "Bash(find:*)",
-      "Bash(awk:*)"
+      "Bash(awk:*)",
+      "WebSearch",
+      "WebFetch(domain:www.uxpin.com)"
     ],
     "deny": [],
     "ask": []
