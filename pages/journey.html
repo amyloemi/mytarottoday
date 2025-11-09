@@ -180,13 +180,29 @@
 				box-shadow: 0 5px 25px rgba(0,0,0,0.2);
 			}
 
-			.card-image {
+			.card-image,
+		.card-image-placeholder {
 				flex-shrink: 0;
 				width: 120px;
 				height: auto;
 				border-radius: 8px;
 				box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 			}
+
+tt.card-image-placeholder {
+tttmin-height: 210px; /* aspect ratio 2:3 for tarot cards */
+tttbackground: linear-gradient(135deg, rgba(147, 112, 219, 0.1), rgba(147, 112, 219, 0.05));
+tttdisplay: flex;
+tttalign-items: center;
+tttjustify-content: center;
+tt}
+
+tt.card-image-placeholder picture,
+tt.card-image-placeholder img {
+tttwidth: 100%;
+tttheight: auto;
+tttborder-radius: 8px;
+tt}
 
 			.card-content {
 				flex: 1;
@@ -340,7 +356,7 @@
 							<h4>🌅 The Beginning: Innocence & Discovery</h4>
 
 							<div class="card-item">
-								<img src="../decks/images/major_arcana/00-the-fool.png" alt="The Fool" class="card-image">
+								<div id="journey-card-0" class="card-image-placeholder" data-card-index="0"></div>
 								<div class="card-content">
 									<h5><span class="card-number">0.</span> The Fool</h5>
 									<p>The journey begins with The Fool, a card of new beginnings and infinite potential. Standing at the edge of a cliff, The Fool represents each of us as we begin our journey of life. Filled with excitement, inspiration, and freedom, The Fool is naive and inexperienced—unaware of the dangers ahead, yet full of good intentions and boundless enthusiasm. This is the spark of pure potential before experience shapes us.</p>
@@ -353,7 +369,7 @@
 							<h4>📚 Early Learning: The Conscious & Unconscious (Cards 1-7)</h4>
 
 							<div class="card-item">
-								<img src="../decks/images/major_arcana/01-the-magician.png" alt="The Magician" class="card-image">
+								<div id="journey-card-1" class="card-image-placeholder" data-card-index="1"></div>
 								<div class="card-content">
 									<h5><span class="card-number">I.</span> The Magician</h5>
 									<p>The Fool first encounters The Magician, who represents infinite potential and the power to manifest our deepest desires. With all the tools of the elements before him, The Magician teaches conscious action and the realization that we have everything we need to create our reality.</p>
@@ -361,7 +377,7 @@
 							</div>
 
 							<div class="card-item">
-								<img src="../decks/images/major_arcana/02-the-high-priestess.png" alt="The High Priestess" class="card-image">
+								<div id="journey-card-2" class="card-image-placeholder" data-card-index="2"></div>
 								<div class="card-content">
 									<h5><span class="card-number">II.</span> The High Priestess</h5>
 									<p>The High Priestess appears when The Fool begins to discover the physical and spiritual world on a deeper level. She is the gatekeeper of intuition, teaching the balance between the seen and unseen, the conscious and unconscious mind.</p>
@@ -369,7 +385,7 @@
 							</div>
 
 							<div class="card-item">
-								<img src="../decks/images/major_arcana/03-the-empress.png" alt="The Empress" class="card-image">
+								<div id="journey-card-3" class="card-image-placeholder" data-card-index="3"></div>
 								<div class="card-content">
 									<h5><span class="card-number">III.</span> The Empress</h5>
 									<p>The Empress represents the world of nature, abundance, and sensation. She teaches The Fool about nurturing, creativity, and the fertile ground from which all life springs forth.</p>
@@ -377,7 +393,7 @@
 							</div>
 
 							<div class="card-item">
-								<img src="../decks/images/major_arcana/04-the-emperor.png" alt="The Emperor" class="card-image">
+								<div id="journey-card-4" class="card-image-placeholder" data-card-index="4"></div>
 								<div class="card-content">
 									<h5><span class="card-number">IV.</span> The Emperor</h5>
 									<p>The authoritative father figure of The Emperor shows The Fool that there are rules, structures, and patterns in the world that must be acknowledged and sometimes adhered to. Order and discipline have their place.</p>
@@ -385,7 +401,7 @@
 							</div>
 
 							<div class="card-item">
-								<img src="../decks/images/major_arcana/05-the-hierophant.png" alt="The Hierophant" class="card-image">
+								<div id="journey-card-5" class="card-image-placeholder" data-card-index="5"></div>
 								<div class="card-content">
 									<h5><span class="card-number">V.</span> The Hierophant</h5>
 									<p>The Hierophant represents spiritual learning through tradition and structure. The Fool seeks teachers who have walked the path before, learning about spirituality through external cultures, societies, and established wisdom.</p>
@@ -393,7 +409,7 @@
 							</div>
 
 							<div class="card-item">
-								<img src="../decks/images/major_arcana/06-the-lovers.png" alt="The Lovers" class="card-image">
+								<div id="journey-card-6" class="card-image-placeholder" data-card-index="6"></div>
 								<div class="card-content">
 									<h5><span class="card-number">VI.</span> The Lovers</h5>
 									<p>With The Lovers, The Fool learns about relationships, choices, and the yearning to become part of a partnership. This card represents the deep human need for connection and the decisions that come with love.</p>
@@ -401,7 +417,7 @@
 							</div>
 
 							<div class="card-item">
-								<img src="../decks/images/major_arcana/07-the-chariot.png" alt="The Chariot" class="card-image">
+								<div id="journey-card-7" class="card-image-placeholder" data-card-index="7"></div>
 								<div class="card-content">
 									<h5><span class="card-number">VII.</span> The Chariot</h5>
 									<p>The Chariot represents The Fool's crowning achievement so far—the vigorous ego. A proud, commanding figure rides victoriously through the world, having gained control and direction through willpower and determination.</p>
@@ -414,7 +430,7 @@
 							<h4>🌟 Inner Development: Trials & Wisdom (Cards 8-14)</h4>
 
 							<div class="card-item">
-								<img src="../decks/images/major_arcana/08-strength.png" alt="Strength" class="card-image">
+								<div id="journey-card-8" class="card-image-placeholder" data-card-index="8"></div>
 								<div class="card-content">
 									<h5><span class="card-number">VIII.</span> Strength</h5>
 									<p>The Fool is pressed to develop courage and inner resolve. Strength is not about force but about the gentle power of compassion and the heart's ability to keep going despite setbacks.</p>
@@ -422,7 +438,7 @@
 							</div>
 
 							<div class="card-item">
-								<img src="../decks/images/major_arcana/09-the-hermit.png" alt="The Hermit" class="card-image">
+								<div id="journey-card-9" class="card-image-placeholder" data-card-index="9"></div>
 								<div class="card-content">
 									<h5><span class="card-number">IX.</span> The Hermit</h5>
 									<p>The Hermit calls The Fool to a time of introspection and solitude. By withdrawing from the world, The Fool seeks inner wisdom and the light of understanding that can only be found within.</p>
@@ -430,7 +446,7 @@
 							</div>
 
 							<div class="card-item">
-								<img src="../decks/images/major_arcana/10-wheel-of-fortune.png" alt="Wheel of Fortune" class="card-image">
+								<div id="journey-card-10" class="card-image-placeholder" data-card-index="10"></div>
 								<div class="card-content">
 									<h5><span class="card-number">X.</span> Wheel of Fortune</h5>
 									<p>The Wheel of Fortune teaches The Fool about cycles, fate, and the ever-turning nature of life. What goes up must come down, and change is the only constant.</p>
@@ -438,7 +454,7 @@
 							</div>
 
 							<div class="card-item">
-								<img src="../decks/images/major_arcana/11-justice.png" alt="Justice" class="card-image">
+								<div id="journey-card-11" class="card-image-placeholder" data-card-index="11"></div>
 								<div class="card-content">
 									<h5><span class="card-number">XI.</span> Justice</h5>
 									<p>Justice brings lessons of balance, fairness, and consequences. The Fool learns that every action has a reaction, and truth must be faced with clarity and objectivity.</p>
@@ -446,7 +462,7 @@
 							</div>
 
 							<div class="card-item">
-								<img src="../decks/images/major_arcana/12-the-hanged-man.png" alt="The Hanged Man" class="card-image">
+								<div id="journey-card-12" class="card-image-placeholder" data-card-index="12"></div>
 								<div class="card-content">
 									<h5><span class="card-number">XII.</span> The Hanged Man</h5>
 									<p>The Hanged Man represents surrender and seeing the world from a completely new perspective. By letting go and suspending action, The Fool gains profound insights that cannot be achieved through movement alone.</p>
@@ -454,7 +470,7 @@
 							</div>
 
 							<div class="card-item">
-								<img src="../decks/images/major_arcana/13-death.png" alt="Death" class="card-image">
+								<div id="journey-card-13" class="card-image-placeholder" data-card-index="13"></div>
 								<div class="card-content">
 									<h5><span class="card-number">XIII.</span> Death</h5>
 									<p>Death is not about physical ending but profound transformation. Something old must die for something new to emerge. The Fool learns to release what no longer serves and embrace the rebirth that follows.</p>
@@ -462,7 +478,7 @@
 							</div>
 
 							<div class="card-item">
-								<img src="../decks/images/major_arcana/14-temperance.png" alt="Temperance" class="card-image">
+								<div id="journey-card-14" class="card-image-placeholder" data-card-index="14"></div>
 								<div class="card-content">
 									<h5><span class="card-number">XIV.</span> Temperance</h5>
 									<p>Temperance embodies The Fool's new understanding—a deeper spiritual wisdom where emotions are regulated and a middle path is forged between extremes. Balance and moderation become sacred practices.</p>
@@ -475,7 +491,7 @@
 							<h4>✨ Spiritual Awakening: Shadow & Light (Cards 15-21)</h4>
 
 							<div class="card-item">
-								<img src="../decks/images/major_arcana/15-the-devil.png" alt="The Devil" class="card-image">
+								<div id="journey-card-15" class="card-image-placeholder" data-card-index="15"></div>
 								<div class="card-content">
 									<h5><span class="card-number">XV.</span> The Devil</h5>
 									<p>The Devil reveals The Fool's hidden blind spots and shadow self. This card speaks to unconscious urges, addictions, and attachments that bind us. Facing the Devil means confronting our deepest fears and dependencies.</p>
@@ -483,7 +499,7 @@
 							</div>
 
 							<div class="card-item">
-								<img src="../decks/images/major_arcana/16-the-tower.png" alt="The Tower" class="card-image">
+								<div id="journey-card-16" class="card-image-placeholder" data-card-index="16"></div>
 								<div class="card-content">
 									<h5><span class="card-number">XVI.</span> The Tower</h5>
 									<p>Released by the shock and awe of The Tower, a lightning bolt from heaven strikes, and the walls of The Fool's constructed world crumble. This necessary destruction clears away false foundations, making room for authentic growth.</p>
@@ -491,7 +507,7 @@
 							</div>
 
 							<div class="card-item">
-								<img src="../decks/images/major_arcana/17-the-star.png" alt="The Star" class="card-image">
+								<div id="journey-card-17" class="card-image-placeholder" data-card-index="17"></div>
 								<div class="card-content">
 									<h5><span class="card-number">XVII.</span> The Star</h5>
 									<p>The Star is one of the most magical and hopeful moments on The Fool's journey. After the devastation of The Tower, healing begins. Hope is renewed, healthy ideas are planted, and divine assistance flows freely from heaven. This is the card of pure faith and inspiration.</p>
@@ -499,7 +515,7 @@
 							</div>
 
 							<div class="card-item">
-								<img src="../decks/images/major_arcana/18-the-moon.png" alt="The Moon" class="card-image">
+								<div id="journey-card-18" class="card-image-placeholder" data-card-index="18"></div>
 								<div class="card-content">
 									<h5><span class="card-number">XVIII.</span> The Moon</h5>
 									<p>The Moon brings The Fool face-to-face with illusions, fears, and the mysterious realm of the subconscious. Not everything is as it seems, and The Fool must navigate the uncertain terrain of dreams and shadows.</p>
@@ -507,7 +523,7 @@
 							</div>
 
 							<div class="card-item">
-								<img src="../decks/images/major_arcana/19-the-sun.png" alt="The Sun" class="card-image">
+								<div id="journey-card-19" class="card-image-placeholder" data-card-index="19"></div>
 								<div class="card-content">
 									<h5><span class="card-number">XIX.</span> The Sun</h5>
 									<p>The Sun rises with the promise of homecoming and return. This is pure joy, clarity, vitality, and success. After the darkness of The Moon, The Sun brings warmth, celebration, and the simple truth of existence.</p>
@@ -515,7 +531,7 @@
 							</div>
 
 							<div class="card-item">
-								<img src="../decks/images/major_arcana/20-judgement.png" alt="Judgement" class="card-image">
+								<div id="journey-card-20" class="card-image-placeholder" data-card-index="20"></div>
 								<div class="card-content">
 									<h5><span class="card-number">XX.</span> Judgement</h5>
 									<p>Judgement is the moment of revelation and reckoning. The Fool completes the final inner work, addresses anything left unsaid or undone, and experiences a profound awakening. This is rebirth on a spiritual level.</p>
@@ -523,7 +539,7 @@
 							</div>
 
 							<div class="card-item">
-								<img src="../decks/images/major_arcana/21-the-world.png" alt="The World" class="card-image">
+								<div id="journey-card-21" class="card-image-placeholder" data-card-index="21"></div>
 								<div class="card-content">
 									<h5><span class="card-number">XXI.</span> The World</h5>
 									<p>The Fool has mastered The World and completed the journey. With countless lessons learned, this chapter closes with a sense of wholeness, accomplishment, and integration. Yet The World also hints at the cycle yet to come—for life is an endless spiral of growth and transformation.</p>
@@ -928,7 +944,70 @@
 								// Replace the old img with the new picture element
 								img.parentNode.replaceChild(picture, img);
 							}
-						}
+
+		// ============================================
+		// Initialize Journey Cards with DeckLoader (WebP Optimization)
+		// ============================================
+		(function initJourneyCards() {
+			// Major Arcana card names matching DeckLoader format
+			const majorArcanaCards = [
+				'00-the-fool',
+				'01-the-magician',
+				'02-the-high-priestess',
+				'03-the-empress',
+				'04-the-emperor',
+				'05-the-hierophant',
+				'06-the-lovers',
+				'07-the-chariot',
+				'08-strength',
+				'09-the-hermit',
+				'10-wheel-of-fortune',
+				'11-justice',
+				'12-the-hanged-man',
+				'13-death',
+				'14-temperance',
+				'15-the-devil',
+				'16-the-tower',
+				'17-the-star',
+				'18-the-moon',
+				'19-the-sun',
+				'20-judgement',
+				'21-the-world'
+			];
+
+			// Get all cards from DeckLoader
+			const allCards = DeckLoader.getAllCards();
+
+			// Populate each placeholder with WebP-optimized image
+			majorArcanaCards.forEach((cardFilename, index) => {
+				const placeholder = document.getElementById(`journey-card-${index}`);
+				if (!placeholder) return;
+
+				// Find the card in DeckLoader data
+				const card = allCards.find(c => 
+					c.filename === cardFilename || 
+					c.filename === cardFilename.replace(/^(\d+)-/, '$1_')
+				);
+
+				if (card) {
+					// Create responsive image with WebP support
+					const picture = DeckLoader.createResponsiveImage('rider-waite', card, {
+						loading: 'lazy',
+						className: 'card-image'
+					});
+
+					// Clear placeholder and add picture element
+					placeholder.innerHTML = '';
+					placeholder.appendChild(picture);
+					placeholder.classList.add('loaded');
+				} else {
+					console.warn(`Card not found in DeckLoader: ${cardFilename}`);
+				}
+			});
+
+			console.log('Journey cards initialized with WebP optimization');
+		})();
+		})();
 
 						// Stop observing this image
 						observer.unobserve(img);
