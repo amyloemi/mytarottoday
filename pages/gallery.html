@@ -109,6 +109,7 @@
 		<meta name="apple-mobile-web-app-title" content="My Tarot">
 
 		<link rel="stylesheet" href="../assets/css/main.css" />
+		<link rel="stylesheet" href="../assets/css/_skeleton.css" />
 		<style>
 			/* Skip link for accessibility */
 			.skip-link {
@@ -952,6 +953,30 @@
 							<span data-translate="backButton">Back to Deck Selection</span>
 						</button>
 						<h2 class="gallery-title" id="gallery-title">All Cards</h2>
+					<!-- Skeleton Loading Screen -->
+					<div id="gallery-skeleton" class="skeleton-deck-grid" style="display: none;" aria-hidden="true">
+						<span class="skeleton-loading-text">Loading gallery...</span>
+						<!-- Generate 18 skeleton cards (3 rows of 6) -->
+						<div class="skeleton-gallery-item skeleton"></div>
+						<div class="skeleton-gallery-item skeleton"></div>
+						<div class="skeleton-gallery-item skeleton"></div>
+						<div class="skeleton-gallery-item skeleton"></div>
+						<div class="skeleton-gallery-item skeleton"></div>
+						<div class="skeleton-gallery-item skeleton"></div>
+						<div class="skeleton-gallery-item skeleton"></div>
+						<div class="skeleton-gallery-item skeleton"></div>
+						<div class="skeleton-gallery-item skeleton"></div>
+						<div class="skeleton-gallery-item skeleton"></div>
+						<div class="skeleton-gallery-item skeleton"></div>
+						<div class="skeleton-gallery-item skeleton"></div>
+						<div class="skeleton-gallery-item skeleton"></div>
+						<div class="skeleton-gallery-item skeleton"></div>
+						<div class="skeleton-gallery-item skeleton"></div>
+						<div class="skeleton-gallery-item skeleton"></div>
+						<div class="skeleton-gallery-item skeleton"></div>
+						<div class="skeleton-gallery-item skeleton"></div>
+					</div>
+
 						<div class="card-grid" id="card-grid">
 							<!-- Cards will be dynamically rendered here -->
 						</div>
@@ -1667,7 +1692,65 @@
 			// Initialize pinch-to-zoom for lightbox images (MEDIUM PRIORITY FIX)
 			initializePinchZoom();
 
-			console.log('Page loaded. Please select a deck to begin.');
+
+			// ============================================
+			// Skeleton Screen Loader for Gallery
+			// ============================================
+			(function initGallerySkeletonLoader() {
+				const gallerySkeleton = document.getElementById('gallery-skeleton');
+				const cardGrid = document.getElementById('card-grid');
+				
+				if (!gallerySkeleton || !cardGrid) return;
+
+				let skeletonShown = false;
+
+				function showSkeleton() {
+					if (skeletonShown) return;
+					skeletonShown = true;
+					gallerySkeleton.style.display = 'grid';
+					cardGrid.style.opacity = '0';
+					cardGrid.style.pointerEvents = 'none';
+				}
+
+				function hideSkeleton() {
+					gallerySkeleton.style.transition = 'opacity 0.3s ease-out';
+					gallerySkeleton.style.opacity = '0';
+					cardGrid.style.transition = 'opacity 0.3s ease-in';
+					cardGrid.style.opacity = '1';
+					cardGrid.style.pointerEvents = 'auto';
+					
+					setTimeout(() => {
+						gallerySkeleton.style.display = 'none';
+						gallerySkeleton.setAttribute('aria-hidden', 'true');
+					}, 300);
+				}
+
+				// Show skeleton if cards haven't rendered within 100ms
+				setTimeout(() => {
+					if (cardGrid.children.length === 0) {
+						showSkeleton();
+					}
+				}, 100);
+
+				// Watch for cards to be added to the grid
+				const observer = new MutationObserver((mutations) => {
+					if (cardGrid.children.length > 0 && skeletonShown) {
+						hideSkeleton();
+						observer.disconnect();
+					}
+				});
+
+				observer.observe(cardGrid, { childList: true });
+
+				// Fallback: hide skeleton after 3 seconds
+				setTimeout(() => {
+					if (skeletonShown) {
+						hideSkeleton();
+						observer.disconnect();
+					}
+				}, 3000);
+			})();
+			})();
 		};
 		</script>
 
