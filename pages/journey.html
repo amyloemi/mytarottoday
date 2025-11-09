@@ -13,6 +13,69 @@
 		  function gtag(){dataLayer.push(arguments);}
 		  gtag('js', new Date());
 		  gtag('config', 'G-EXTBHDX0C2');
+
+		// ============================================
+		// Initialize Journey Cards with DeckLoader (WebP Optimization)
+		// ============================================
+		(function initJourneyCards() {
+			// Major Arcana card names matching DeckLoader format
+			const majorArcanaCards = [
+				'00-the-fool',
+				'01-the-magician',
+				'02-the-high-priestess',
+				'03-the-empress',
+				'04-the-emperor',
+				'05-the-hierophant',
+				'06-the-lovers',
+				'07-the-chariot',
+				'08-strength',
+				'09-the-hermit',
+				'10-wheel-of-fortune',
+				'11-justice',
+				'12-the-hanged-man',
+				'13-death',
+				'14-temperance',
+				'15-the-devil',
+				'16-the-tower',
+				'17-the-star',
+				'18-the-moon',
+				'19-the-sun',
+				'20-judgement',
+				'21-the-world'
+			];
+
+			// Get all cards from DeckLoader
+			const allCards = DeckLoader.getAllCards();
+
+			// Populate each placeholder with WebP-optimized image
+			majorArcanaCards.forEach((cardFilename, index) => {
+				const placeholder = document.getElementById(`journey-card-${index}`);
+				if (!placeholder) return;
+
+				// Find the card in DeckLoader data
+				const card = allCards.find(c => 
+					c.filename === cardFilename || 
+					c.filename === cardFilename.replace(/^(\d+)-/, '$1_')
+				);
+
+				if (card) {
+					// Create responsive image with WebP support
+					const picture = DeckLoader.createResponsiveImage('rider-waite', card, {
+						loading: 'lazy',
+						className: 'card-image'
+					});
+
+					// Clear placeholder and add picture element
+					placeholder.innerHTML = '';
+					placeholder.appendChild(picture);
+					placeholder.classList.add('loaded');
+				} else {
+					console.warn(`Card not found in DeckLoader: ${cardFilename}`);
+				}
+			});
+
+			console.log('Journey cards initialized with WebP optimization');
+		})();
 		</script>
 
 		<title>Fool's Journey - My Tarot Today</title>
@@ -894,135 +957,6 @@ tt}
 			updateUILanguage();
 		};
 
-		// Dynamically replace hardcoded card images with DeckLoader-generated responsive images
-		// Using Intersection Observer for lazy loading (MEDIUM PRIORITY FIX)
-		document.addEventListener('DOMContentLoaded', function() {
-			// Wait for DeckLoader to be available
-			if (typeof DeckLoader === 'undefined') {
-				console.warn('DeckLoader not loaded yet');
-				return;
-			}
-
-			// Get all card images
-			const cardImages = document.querySelectorAll('.card-item img.card-image');
-
-			// Create an Intersection Observer for lazy loading
-			const imageObserver = new IntersectionObserver((entries, observer) => {
-				entries.forEach(entry => {
-					if (entry.isIntersecting) {
-						const img = entry.target;
-
-						// Extract card number from the src path
-						// Example: ../decks/images/major_arcana/00-the-fool.png
-						const src = img.src;
-						const match = src.match(/(\d{2})-/);
-
-						if (match) {
-							const cardNumber = parseInt(match[1]);
-
-							// Get the card from DeckRegistry
-							const card = DECK_REGISTRY.cards.major[cardNumber];
-
-							if (card) {
-								// Add type property for DeckLoader
-								const cardWithType = { ...card, type: 'major' };
-
-								// Create responsive image using DeckLoader
-								const picture = DeckLoader.createResponsiveImage('rider-waite', cardWithType, {
-									thumbnail: true,
-									loading: 'lazy'
-								});
-
-								// Copy classes and attributes
-								const newImg = picture.querySelector('img');
-								newImg.className = img.className;
-								newImg.alt = img.alt;
-
-								// Add error handler
-								DeckLoader.addErrorHandler(newImg);
-
-								// Replace the old img with the new picture element
-								img.parentNode.replaceChild(picture, img);
-							}
-
-		// ============================================
-		// Initialize Journey Cards with DeckLoader (WebP Optimization)
-		// ============================================
-		(function initJourneyCards() {
-			// Major Arcana card names matching DeckLoader format
-			const majorArcanaCards = [
-				'00-the-fool',
-				'01-the-magician',
-				'02-the-high-priestess',
-				'03-the-empress',
-				'04-the-emperor',
-				'05-the-hierophant',
-				'06-the-lovers',
-				'07-the-chariot',
-				'08-strength',
-				'09-the-hermit',
-				'10-wheel-of-fortune',
-				'11-justice',
-				'12-the-hanged-man',
-				'13-death',
-				'14-temperance',
-				'15-the-devil',
-				'16-the-tower',
-				'17-the-star',
-				'18-the-moon',
-				'19-the-sun',
-				'20-judgement',
-				'21-the-world'
-			];
-
-			// Get all cards from DeckLoader
-			const allCards = DeckLoader.getAllCards();
-
-			// Populate each placeholder with WebP-optimized image
-			majorArcanaCards.forEach((cardFilename, index) => {
-				const placeholder = document.getElementById(`journey-card-${index}`);
-				if (!placeholder) return;
-
-				// Find the card in DeckLoader data
-				const card = allCards.find(c => 
-					c.filename === cardFilename || 
-					c.filename === cardFilename.replace(/^(\d+)-/, '$1_')
-				);
-
-				if (card) {
-					// Create responsive image with WebP support
-					const picture = DeckLoader.createResponsiveImage('rider-waite', card, {
-						loading: 'lazy',
-						className: 'card-image'
-					});
-
-					// Clear placeholder and add picture element
-					placeholder.innerHTML = '';
-					placeholder.appendChild(picture);
-					placeholder.classList.add('loaded');
-				} else {
-					console.warn(`Card not found in DeckLoader: ${cardFilename}`);
-				}
-			});
-
-			console.log('Journey cards initialized with WebP optimization');
-		})();
-
-						// Stop observing this image
-						observer.unobserve(img);
-					}
-				});
-			}, {
-				// Load images when they're 200px from entering the viewport
-				rootMargin: '200px 0px',
-				threshold: 0.01
-			});
-
-			// Observe all card images
-			cardImages.forEach(img => {
-				imageObserver.observe(img);
-			});
-		});
 		</script>
 
 		<!-- Locale Formatter -->
