@@ -83,7 +83,6 @@ class DeckLoader {
     static getImagePath(deckId, card, options = {}) {
         const deck = DECK_REGISTRY.decks[deckId];
         if (!deck) {
-            console.error(`Unknown deck: ${deckId}`);
             return '';
         }
 
@@ -124,11 +123,6 @@ class DeckLoader {
         parts.push(filename);
 
         const finalPath = parts.join('/');
-
-        // Debug logging (can be removed in production)
-        if (window.DEBUG_DECK_LOADER) {
-            console.log(`[DeckLoader] getImagePath(${deckId}, ${card.name}): ${finalPath}`);
-        }
 
         return finalPath;
     }
@@ -184,11 +178,6 @@ class DeckLoader {
         parts.push(filename);
 
         const finalPath = parts.join('/');
-
-        // Debug logging (can be removed in production)
-        if (window.DEBUG_DECK_LOADER) {
-            console.log(`[DeckLoader] getThumbnailPath(${deckId}, ${card.name}, ${format}): ${finalPath}`);
-        }
 
         return finalPath;
     }
@@ -317,7 +306,6 @@ class DeckLoader {
             const fallback = PathResolver.resolve(placeholderPath);
             imgElement.src = fallback;
             imgElement.onerror = null; // Prevent infinite loop
-            console.error(`Failed to load image: ${imgElement.alt || 'Unknown card'}`);
         };
     }
 

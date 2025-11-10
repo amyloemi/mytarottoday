@@ -195,9 +195,8 @@ let cardDescriptions = {
 			cardDescriptions.zh = translations.zh;
 			cardDescriptions.ja = translations.ja;
 			cardDescriptions.ko = translations.ko;
-			console.log('Card description translations loaded successfully');
 		}
 	} catch (error) {
-		console.warn('Could not load card description translations:', error);
+		// Could not load card description translations
 	}
 })();

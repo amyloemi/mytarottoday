@@ -22,9 +22,8 @@ async function loadReadings() {
 		readingsData.artistic = await artisticResponse.json();
 		readingsData.rider = await riderResponse.json();
 
-		console.log('Readings loaded successfully');
 	} catch (error) {
-		console.error('Error loading readings:', error);
+		// Error loading readings
 	}
 }
 
@@ -88,19 +87,16 @@ async function generateDailyAdvice(cardName, meaning, isReversed, language = 'en
 function getReadingFromJSON(deckType, cardName, question, isReversed) {
 	const data = readingsData[deckType];
 	if (!data || !data.readings) {
-		console.error('No readings data for deck:', deckType);
 		return null;
 	}
 
 	const cardReading = data.readings.find(r => r.card_name === cardName);
 	if (!cardReading || !cardReading.questions) {
-		console.error('No reading found for card:', cardName);
 		return null;
 	}
 
 	const questionReading = cardReading.questions[question];
 	if (!questionReading) {
-		console.error('No reading found for question:', question);
 		return null;
 	}
 
@@ -110,7 +106,6 @@ function getReadingFromJSON(deckType, cardName, question, isReversed) {
 function renderCardUnified(deckId, card, isReversed) {
 	const container = document.getElementById('card-image-container');
 	if (!container) {
-		console.error('Card container not found');
 		return;
 	}
 

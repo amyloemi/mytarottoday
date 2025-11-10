@@ -29,8 +29,7 @@
         }
         window.riderWaiteData.meanings = cardMeanings;
 
-        console.log('Card meanings loaded successfully');
     } catch (error) {
-        console.error('Error loading card meanings:', error);
+        // Error loading card meanings
     }
 })();
