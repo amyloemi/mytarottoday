@@ -157,7 +157,7 @@ function showReadingBox(card, isReversed, reading) {
 	readingBox.innerHTML = `
 		<div class="reading-card-name-container">
 			<div class="reading-card-name">${card.name}</div>
-			<div class="reading-card-orientation">${isReversed ? `(${trans.reversed})` : `(${trans.upright})`}</div>
+			<div class="reading-card-orientation">${isReversed ? trans.reversed : trans.upright}</div>
 		</div>
 		<div class="reading-text">${reading}</div>
 		<div class="reading-buttons">
@@ -229,9 +229,7 @@ async function showFinalReading(selectedCard, isReversed) {
 	// Update card info
 	const trans = translations[currentLanguage];
 	cardName.textContent = selectedCard.name;
-	const leftParen = currentLanguage === 'zh' ? '（' : '(';
-	const rightParen = currentLanguage === 'zh' ? '）' : ')';
-	cardOrientation.textContent = isReversed ? `${leftParen}${trans.reversed}${rightParen}` : `${leftParen}${trans.upright}${rightParen}`;
+	cardOrientation.textContent = isReversed ? trans.reversed : trans.upright;
 	cardReading.textContent = reading;
 
 	// Show card container with reading already visible

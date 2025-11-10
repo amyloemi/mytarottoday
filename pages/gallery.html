@@ -596,12 +596,6 @@
 				text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
 			}
 
-			.card-orientation {
-				font-size: 1.2em;
-				color: #717171;
-				font-style: italic;
-				margin-bottom: 30px;
-			}
 
 			.card-reading {
 				background: rgba(255, 255, 255, 0.15);
@@ -1415,7 +1409,6 @@
 		async function drawCard() {
 			const cardImageContainer = document.getElementById('card-image-container');
 			const cardName = document.getElementById('card-name');
-			const cardOrientation = document.getElementById('card-orientation');
 			const cardReading = document.getElementById('card-reading');
 
 			// Get all cards from the unified DeckLoader
@@ -1445,11 +1438,7 @@
 			renderCardUnified(currentDeck, selectedCard, isReversed);
 
 			// Update card info
-			const trans = translations[currentLanguage];
 			cardName.textContent = selectedCard.name;
-			const leftParen = currentLanguage === 'zh' ? '（' : '(';
-			const rightParen = currentLanguage === 'zh' ? '）' : ')';
-			cardOrientation.textContent = isReversed ? `${leftParen}${trans.reversed}${rightParen}` : `${leftParen}${trans.upright}${rightParen}`;
 			cardReading.textContent = reading;
 
 			// Reset reveal state
@@ -1572,12 +1561,6 @@
 				if (meaning) {
 					const reading = await generateDailyAdvice(currentCard.name, meaning, currentIsReversed, currentLanguage);
 					document.getElementById('card-reading').textContent = reading;
-
-					// Update orientation text
-					const cardOrientation = document.getElementById('card-orientation');
-					const leftParen = currentLanguage === 'zh' ? '（' : '(';
-					const rightParen = currentLanguage === 'zh' ? '）' : ')';
-					cardOrientation.textContent = currentIsReversed ? `${leftParen}${trans.reversed}${rightParen}` : `${leftParen}${trans.upright}${rightParen}`;
 				}
 			}
 		}
