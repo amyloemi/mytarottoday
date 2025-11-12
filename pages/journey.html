@@ -871,7 +871,7 @@
 		}
 
 		// Load saved language preference on page load
-		window.onload = function() {
+		window.addEventListener('load', function() {
 			currentLanguage = localStorage.getItem('tarotLanguage') || 'en';
 
 			// Add language dropdown to mobile nav (after main.js creates navPanel)
@@ -918,7 +918,7 @@
 			});
 		})();
 			updateUILanguage();
-		};
+		});
 
 		</script>
 

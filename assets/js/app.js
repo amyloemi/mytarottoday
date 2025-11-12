@@ -158,11 +158,35 @@ document.addEventListener('DOMContentLoaded', async () => {
 	currentLanguage = savedLanguage;
 	document.getElementById('language-select').value = savedLanguage;
 
-	const mobileSelect = document.getElementById('language-select-mobile');
-	if (mobileSelect) {
-		mobileSelect.value = savedLanguage;
-	}
-
 	// Update UI with saved language
 	updateUILanguage();
+});
+
+// Add language dropdown to mobile nav (after main.js creates navPanel)
+window.addEventListener('load', () => {
+	setTimeout(() => {
+		const navPanel = document.querySelector('#navPanel nav');
+		if (navPanel && !document.getElementById('language-select-mobile')) {
+			const mobileDropdownHTML = `
+				<div class="link depth-0" style="padding: 1em; border-top: solid 1px rgba(255, 255, 255, 0.05);">
+					<select id="language-select-mobile" onchange="changeMobileLanguage()" aria-label="Select language" style="width: 100%; padding: 10px; border-radius: 5px; border: 1px solid rgba(255,255,255,0.3); background: rgba(255,255,255,0.1); color: white; font-size: 0.9em;">
+						<option value="en">🇬🇧 English</option>
+						<option value="fr">🇫🇷 Français</option>
+						<option value="es">🇪🇸 Español</option>
+						<option value="zh">🇨🇳 中文</option>
+						<option value="ja">🇯🇵 日本語</option>
+						<option value="ko">🇰🇷 한국어</option>
+					</select>
+				</div>
+			`;
+			navPanel.insertAdjacentHTML('beforeend', mobileDropdownHTML);
+
+			// Set mobile dropdown to saved language
+			const mobileSelect = document.getElementById('language-select-mobile');
+			if (mobileSelect) {
+				const savedLanguage = localStorage.getItem('tarotLanguage') || 'en';
+				mobileSelect.value = savedLanguage;
+			}
+		}
+	}, 150);
 });

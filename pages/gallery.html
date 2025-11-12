@@ -1165,7 +1165,7 @@
 		}
 
 		// Initialize
-		window.onload = function() {
+		window.addEventListener('load', function() {
 			// Add language dropdown to mobile nav (after main.js creates navPanel)
 			setTimeout(function() {
 				const navPanel = document.querySelector('#navPanel nav');
@@ -1287,7 +1287,7 @@
 					}
 				}, 3000);
 			})();
-		};
+		});
 		</script>
 
 		<!-- Locale Formatter -->
