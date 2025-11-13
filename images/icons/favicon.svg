@@ -21,9 +21,6 @@
         <circle cx="320" cy="245" r="6" fill="#FFD700"/>
         <circle cx="213" cy="299" r="6" fill="#FFD700"/>
         <circle cx="299" cy="291" r="8" fill="#FFD700"/>
-
-        <!-- Vertical pillar line -->
-        <line x1="256" y1="43" x2="256" y2="469" stroke="url(#grad1)" stroke-width="6" opacity="0.5"/>
     </g>
 
     <!-- Gradients -->
